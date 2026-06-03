@@ -9,8 +9,8 @@
 
 <section id="home" class="py-5 text-center bg-transparent text-white">
     <div class="container py-5 scroll-reveal">
-        <h1 class="display-4 fw-bold text-uppercase" style="letter-spacing: 1px;">Invest in Premium Whisky Casks</h1>
-        <p class="lead text-light opacity-75">A time-tested alternative asset with consistent historical returns.</p>
+        <h1 class="display-4 fw-bold">Invest in Premium Whisky Casks</h1>
+        <p class="lead text-muted">A time-tested alternative asset with consistent historical returns.</p>
     </div>
 </section>
 
@@ -37,17 +37,17 @@
 
         <div class="row g-4">
             <div class="col-md-4 scroll-reveal">
-                <div class="card bg-dark text-white h-100 border-0 shadow" style="background: rgba(22, 22, 26, 0.8) !important; backdrop-filter: blur(10px);">
+                <div class="card text-white h-100 border-0 shadow" style="background: rgba(22, 22, 26, 0.7) !important; backdrop-filter: blur(10px);">
                     <div class="card-body">
                         <span class="badge bg-warning text-dark mb-2">Market Trends</span>
                         <h5 class="card-title fw-bold">Why Whisky Casks Outperform Traditional Assets</h5>
-                        <p class="card-text text-muted">ใส่เนื้อหาพรีวิวสั้นๆ 2-3 บรรทัดตรงนี้เพื่อล่อให้คนอ่าน หรือใส่ปุ่ม Pop-up เพื่อกดอ่านเนื้อหาเต็มๆ...</p>
+                        <p class="card-text text-muted">ใส่เนื้อหาพรีวิวสั้นๆ 2-3 บรรทัดตรงนี้เพื่อล่อให้คนอ่าน หรือใส่ปุ่ม Pop-up เพื่อกดอ่านเนื้อหาเต็มๆ โดยไม่ต้องเปลี่ยนหน้า...</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 scroll-reveal">
-                <div class="card bg-dark text-white h-100 border-0 shadow" style="background: rgba(22, 22, 26, 0.8) !important; backdrop-filter: blur(10px);">
+                <div class="card text-white h-100 border-0 shadow" style="background: rgba(22, 22, 26, 0.7) !important; backdrop-filter: blur(10px);">
                     <div class="card-body">
                         <span class="badge bg-warning text-dark mb-2">Cask Science</span>
                         <h5 class="card-title fw-bold">The Science of Maturation: Oak & Oxidation</h5>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="col-md-4 scroll-reveal">
-                <div class="card bg-dark text-white h-100 border-0 shadow" style="background: rgba(22, 22, 26, 0.8) !important; backdrop-filter: blur(10px);">
+                <div class="card text-white h-100 border-0 shadow" style="background: rgba(22, 22, 26, 0.7) !important; backdrop-filter: blur(10px);">
                     <div class="card-body">
                         <span class="badge bg-warning text-dark mb-2">Investment Guide</span>
                         <h5 class="card-title fw-bold">How to Safely Store and Insure Your Casks</h5>
