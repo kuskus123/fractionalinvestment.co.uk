@@ -1,34 +1,12 @@
 <?php 
-  echo "Is CSS File Exists?: " . (file_exists('css/style.css') ? 'YES ✅' : 'NO ❌');
-  
   // กำหนดค่า SEO สำหรับโดเมนนี้
   $page_title = "Premium Whisky Cask Investment | Alternative Asset";
   $meta_desc = "Secure your wealth in premium Scottish whisky casks. High-yield alternative investments.";
 
-  include 'components/header.php'; 
-  include 'components/navbar.php'; 
-
-  // 🕵️‍♂️ [DEBUG] ย้ายเข้ามาอยู่ข้างในแท็ก PHP เรียบร้อยแล้วเพื่อสั่งรันระบบ
-  echo "<div style='background:#ffffff; color:#000000; padding:25px; border:5px solid #ff0000; font-family:monospace; font-size:14px; position:relative; z-index:99999; text-align:left;'>";
-  echo "<h2>📊 SERVER ENVIRONMENT DIAGNOSTIC</h2>";
-  echo "<strong>Current Directory Absolute Path:</strong> " . __DIR__ . "<br><br>";
-
-  echo "<strong>1. สิ่งที่อยู่ในโฟลเดอร์หลักบนเซิร์ฟเวอร์ตอนนี้:</strong><pre>";
-  print_r(scandir(__DIR__));
-  echo "</pre>";
-
-  $css_path = __DIR__ . '/css';
-  if (is_dir($css_path)) {
-      echo "<strong style='color:green;'>✅ เจอโฟลเดอร์ 'css' บนดิสก์เซิร์ฟเวอร์!</strong><br>";
-      echo "<strong>2. รายชื่อไฟล์ข้างในโฟลเดอร์ 'css':</strong><pre>";
-      print_r(scandir($css_path));
-      echo "</pre>";
-  } else {
-      echo "<strong style='color:red;'>❌ ไม่พบโฟลเดอร์ชื่อ 'css' ในเส้นทาง: " . $css_path . "</strong><br>";
-  }
-  echo "</div>";
+    require_once __DIR__ . '/components/header.php';
+    require_once __DIR__ . '/components/navbar.php';
 ?>
-echo "</div>";
+
 <!-- Section 1: Home (หน้าแรก/ส่วนหัวดึงสายตา) -->
 <section id="home" class="py-5 text-center bg-dark text-white">
     <div class="container py-5">
@@ -107,13 +85,5 @@ echo "</div>";
 </section>
 
 <?php 
-  include 'components/footer.php'; 
+    require_once __DIR__ . '/components/footer.php';
 ?>
-
-
-
-
-
-<!--git add .
-git commit -m "design: fix navbar layout to horizontal responsive"
-git push-->
