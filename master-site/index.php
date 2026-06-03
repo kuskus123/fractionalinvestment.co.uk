@@ -1,4 +1,5 @@
 <?php 
+echo "Is CSS File Exists?: " . (file_exists('css/style.css') ? 'YES ✅' : 'NO ❌');
   // กำหนดค่า SEO สำหรับโดเมนนี้
   $page_title = "Premium Whisky Cask Investment | Alternative Asset";
   $meta_desc = "Secure your wealth in premium Scottish whisky casks. High-yield alternative investments.";
