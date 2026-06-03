@@ -87,3 +87,11 @@
 <?php 
   include 'components/footer.php'; 
 ?>
+
+
+
+
+
+<!--git add .
+git commit -m "design: fix navbar layout to horizontal responsive"
+git push-->
