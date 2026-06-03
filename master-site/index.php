@@ -31,11 +31,48 @@
     </div>
 </section>
 
-<!-- Section 4: Whisky Blog (บทความให้ความรู้เกี่ยวกับวิสกี้) -->
-<section id="blog" class="py-5 bg-light text-dark">
+<!-- ส่วนของ Whisky Blog ในหน้าหลัก index.php -->
+<section id="blog" class="py-5 bg-dark text-white border-top border-secondary">
     <div class="container">
-        <h2 class="text-center fw-bold mb-4">Latest Whisky Insights</h2>
-        <p class="text-center">ใส่เนื้อหาเชิงลึก เช่น กระบวนการ Oxidation, Subtraction หรือข่าวสารในวงการตรงนี้...</p>
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-warning">Latest Whisky Insights</h2>
+            <p class="text-muted">Stay updated with market trends and expert analysis.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- กล่องข่าวที่ 1 -->
+            <div class="col-md-4">
+                <div class="card bg-secondary text-white h-100 border-0 shadow">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Market Trends</span>
+                        <h5 class="card-title fw-bold">Why Whisky Casks Outperform Traditional Assets</h5>
+                        <p class="card-text text-muted">ใส่เนื้อหาพรีวิวสั้นๆ 2-3 บรรทัดตรงนี้เพื่อล่อให้คนอ่าน หรือใส่ปุ่ม Pop-up เพื่อกดอ่านเนื้อหาเต็มๆ โดยไม่ต้องเปลี่ยนหน้า...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- กล่องข่าวที่ 2 -->
+            <div class="col-md-4">
+                <div class="card bg-secondary text-white h-100 border-0 shadow">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Cask Science</span>
+                        <h5 class="card-title fw-bold">The Science of Maturation: Oak & Oxidation</h5>
+                        <p class="card-text text-muted">ใส่เนื้อหาเชิงลึกเกี่ยวกับกระบวนการบ่มวิสกี้ในถังไม้โอ๊คสำหรับแต่ละไซต์แยกกันตรงนี้...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- กล่องข่าวที่ 3 -->
+            <div class="col-md-4">
+                <div class="card bg-secondary text-white h-100 border-0 shadow">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Investment Guide</span>
+                        <h5 class="card-title fw-bold">How to Safely Store and Insure Your Casks</h5>
+                        <p class="card-text text-muted">คำแนะนำเรื่องความปลอดภัยและการทำประกันภัยถังวิสกี้ในคลังประเทศสกอตแลนด์...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
