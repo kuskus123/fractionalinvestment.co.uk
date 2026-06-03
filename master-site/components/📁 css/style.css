@@ -1,0 +1,87 @@
+/* master-site/css/style.css */
+
+:root {
+    --primary-gold: #D4AF37;
+    --whisky-amber: #AA6C39;
+    --dark-bg: #0b0b0d;
+    --card-bg: #16161a;
+}
+
+/* 1. พื้นหลังเคลื่อนไหวแบบ Ambient Liquid Glow (โหลดไว ไม่หนักเครื่อง) */
+body {
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(170, 108, 57, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 70% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+    animation: liquidBg 25s ease-in-out infinite alternate;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes liquidBg {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-5%, 10%) rotate(180deg); }
+    100% { transform: translate(10%, -5%) rotate(360deg); }
+}
+
+/* 2. ปุ่มทองคำพรีเมียม + ออนิเมชั่นแสงเลเซอร์สะท้อน (Gold Shine Hover) */
+.btn-gold-premium {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, #bfa030 100%);
+    color: #000000 !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.btn-gold-premium::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: none;
+}
+
+.btn-gold-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.btn-gold-premium:hover::after {
+    left: 150%;
+    transition: all 0.8s ease-in-out;
+}
+
+/* 3. อนิเมชั่นกล่องข้อความลอยขึ้นช้าๆ (Smooth Fade-In Up) */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
