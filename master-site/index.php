@@ -1,25 +1,52 @@
 <?php 
-  // 1. กำหนดข้อมูล SEO ของหน้านี้ก่อนดึง Header
-  $page_title = "Premium Whisky Cask Investment | Fractional Shares";
-  $meta_desc = "Start investing in high-yield scotch whisky casks with fractional ownership from just £20.";
+  // กำหนดค่า SEO สำหรับโดเมนนี้
+  $page_title = "Premium Whisky Cask Investment | Alternative Asset";
+  $meta_desc = "Secure your wealth in premium Scottish whisky casks. High-yield alternative investments.";
 
-  // 2. ดึงส่วนหัวและเมนูมาแปะ
   include 'components/header.php'; 
   include 'components/navbar.php'; 
 ?>
 
-<!-- 3. ส่วนเนื้อหาหลัก (เขียน HTML + Bootstrap ตามปกติ) -->
-<main class="container my-5">
-    <div class="p-5 mb-4 bg-light rounded-3 text-center">
-        <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold text-dark">Secure Your Wealth in Liquid Gold</h1>
-            <p class="col-md-8 fs-4 mx-auto text-muted">Discover the power of alternative asset diversification through premium Scottish whisky casks.</p>
-            <button class="btn btn-dark btn-lg" type="button">Read Our Guide</button>
-        </div>
+<!-- Section 1: Home (หน้าแรก/ส่วนหัวดึงสายตา) -->
+<section id="home" class="py-5 text-center bg-dark text-white">
+    <div class="container py-5">
+        <h1 class="display-4 fw-bold">Invest in Premium Whisky Casks</h1>
+        <p class="lead text-muted">A time-tested alternative asset with consistent historical returns.</p>
     </div>
-</main>
+</section>
+
+<!-- Section 2: Investment Guide (คู่มือการลงทุน) -->
+<section id="guide" class="py-5 bg-light text-dark">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4">Whisky Cask Investment Guide</h2>
+        <p class="text-center">ใส่เนื้อหาขั้นตอนการลงทุน โครงสร้างภาษี หรือขั้นตอนการถือครองถังไม้โอ๊คตรงนี้...</p>
+    </div>
+</section>
+
+<!-- Section 3: FAQs (คำถามที่พบบ่อย) -->
+<section id="faq" class="py-5 bg-dark text-white">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4">Frequently Asked Questions</h2>
+        <p class="text-center">ใส่คำถาม-คำตอบยอดฮิต เช่น ซื้อแล้วเก็บที่ไหน? มีประกันไหม? ตรงนี้...</p>
+    </div>
+</section>
+
+<!-- Section 4: Whisky Blog (บทความให้ความรู้เกี่ยวกับวิสกี้) -->
+<section id="blog" class="py-5 bg-light text-dark">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4">Latest Whisky Insights</h2>
+        <p class="text-center">ใส่เนื้อหาเชิงลึก เช่น กระบวนการ Oxidation, Subtraction หรือข่าวสารในวงการตรงนี้...</p>
+    </div>
+</section>
+
+<!-- Section 5: Contact Us (ช่องทางติดต่อ) -->
+<section id="contact" class="py-5 bg-dark text-white">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4">Get In Touch</h2>
+        <p class="text-center">ใส่ฟอร์มติดต่อเปล่าๆ หรือที่อยู่ เบอร์โทร อีเมลสำหรับติดต่อตรงนี้...</p>
+    </div>
+</section>
 
 <?php 
-  // 4. ดึงส่วนท้ายมาแปะ
   include 'components/footer.php'; 
 ?>
