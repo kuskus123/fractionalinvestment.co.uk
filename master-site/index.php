@@ -29,12 +29,18 @@
             night.
         </h1>
         
-        <!-- ข้อความบทกวีอธิบายมิติตัวสินค้าตรงกลางจอ -->
-        <div class="concept-subtext concept-reveal">
-            <p>You enter alone into a dark room.</p>
-            <p>Six masterpieces breathe within — four regions and two centuries.</p>
-            <p>Let your gaze wander. Click the bright points to enter into detail.</p>
-        </div>
+        <!-- คัดลอกไปวางทับใน index_3.php ตรงส่วนข้อความได้เลยครับ -->
+<h1 class="concept-title concept-reveal">
+    Light<br>
+    crosses the<br>
+    <em>night</em>.
+</h1>
+
+<div class="concept-subtext concept-reveal">
+    <p>You enter alone into a dark room.</p>
+    <p>A silent frequency breathing in the shadows.</p>
+    <p>Let your gaze wander. Click the bright points to explore the space.</p>
+</div>
         
         <!-- ปุ่มกดรูปทรงแคปซูลเรียบหรู (ENTER —) -->
         <div class="concept-action concept-reveal">
