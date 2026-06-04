@@ -634,13 +634,14 @@ body.homepage-unlocked .homepage-real-content {
 }
 
 /* ── 🌟 ดีไซน์ระเบียบหน้าอ่านบทความ Guide (เวอร์ชันมินิมอลไร้กรอบ คลีนตา อ่านง่ายสูงสุด) ── */
+/* master-site/css/style.css */
+
+/* ── 🌟 ดีไซน์ระเบียบหน้าอ่านบทความ Guide (Typography Focused ดั้งเดิมตามรูป) ── */
 .luxury-article-wrapper {
-    max-width: 800px; /* ล็อกความกว้างเท่าเดิมเพื่อให้สายตาไม่ต้องกวาดกว้าง */
-    margin: 160px auto 100px auto; 
+    max-width: 800px;
+    margin: 160px auto 100px auto; /* เว้นพื้นที่ด้านบนหลบแนว Navbar */
     padding: 0 25px;
     box-sizing: border-box;
-    
-    /* 🌟 ทุบแผ่นบอร์ดหลัง ขอบทอง และเอฟเฟกต์เบลอทิ้งทั้งหมดเพื่อคืนชีพความโล่งลึกลับตามใจกัส */
     background: transparent !important;
     border: none !important;
     backdrop-filter: none !important;
@@ -649,7 +650,7 @@ body.homepage-unlocked .homepage-real-content {
 
 .article-hero {
     text-align: center;
-    margin-bottom: 55px;
+    margin-bottom: 50px;
 }
 
 .article-meta {
@@ -674,7 +675,7 @@ body.homepage-unlocked .homepage-real-content {
     font-family: 'Georgia', serif;
     font-style: italic;
     font-size: 1.15rem;
-    color: rgba(234, 231, 223, 0.55); 
+    color: rgba(234, 231, 223, 0.5);
     line-height: 1.7;
     max-width: 650px;
     margin: 0 auto;
@@ -688,13 +689,13 @@ body.homepage-unlocked .homepage-real-content {
     opacity: 0.4;
 }
 
-/* ไส้ในตัวอักษรบทความ */
+/* ไส้ในตัวอักษรบทความ เน้น Georgia Serif คลีนตา */
 .article-body-content h2 {
     font-family: 'Cinzel', serif;
     font-size: 1.6rem;
     color: #eae7df;
     margin-top: 50px;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     letter-spacing: 1px;
     font-weight: 400;
 }
@@ -709,18 +710,54 @@ body.homepage-unlocked .homepage-real-content {
     font-weight: 400;
 }
 
-/* 🌟 พลังความอ่านง่ายแบบไร้กล่อง: ใช้สีงาช้างเข้มสว่าง 100% ตัดกับพื้นดำตรงๆ */
 .article-body-content p {
     font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 1.1rem; 
-    color: #e3e0d5; /* สีงาช้างอุ่น ไม่โปร่งแสง ตัวอักษรจะคมกริบไม่จมหาย */
-    line-height: 1.95; /* ช่องไฟกว้าง อ่านสบายตาบนความมืด */
-    margin-bottom: 28px;
-    text-align: justify; 
-    letter-spacing: 0.2px; 
+    font-size: 1.05rem;
+    color: rgba(234, 231, 223, 0.75);
+    line-height: 1.9;
+    margin-bottom: 25px;
+    text-align: justify; /* จัดระเบียบขอบข้อความซ้ายขวาให้เสมอกันสไตล์นิตยสารสากล */
 }
 
 .article-body-content em {
     color: var(--primary-gold);
     font-style: italic;
+}
+
+/* 1. คลาสอักษรตัวแรกยักษ์สไตล์นิตยสาร (Drop Cap) */
+.article-body-content p.has-drop-cap::first-letter {
+    font-family: 'Cinzel', serif;
+    font-size: 3.8rem;
+    font-weight: 400;
+    float: left;
+    color: var(--primary-gold);
+    line-height: 0.85;
+    margin-top: 6px;
+    margin-right: 12px;
+}
+
+/* 2. บล็อกคำพูดเลี่ยมทองคั่นกลางพารากราฟ (Premium Pull-Quote) */
+.luxury-pull-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.8rem;
+    color: #eae7df;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 650px;
+    margin: 45px auto;
+    padding: 25px 0;
+    border-top: 1px solid rgba(191, 160, 48, 0.25);
+    border-bottom: 1px solid rgba(191, 160, 48, 0.25);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.luxury-pull-quote span {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-style: normal;
+    font-size: 0.75rem;
+    color: var(--primary-gold);
+    letter-spacing: 2px;
+    margin-top: 15px;
+    text-transform: uppercase;
 }
