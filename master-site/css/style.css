@@ -21,15 +21,21 @@ body.is-intro-page {
     transition: overflow 0.3s ease;
 }
 
-/* คลาสพิเศษที่จะใช้สคริปต์ JS ยัดใส่ Body เพื่อปลดล็อกให้เลื่อนเมาส์ดิ่งลงได้หลังกด Enter */
 body.homepage-unlocked {
     overflow-y: auto !important;
 }
 
-/* หน้าอื่นๆ ย่อยๆ: ปล่อยเลื่อนแนวตั้งได้อิสระ ไม่โดนลูกหลง */
+/* 🌟 แก้ไขจุดที่ 1: ย้ายลำแสงสปอตไลท์มาไว้ที่ Body หน้าปกติ เพื่อให้แสงแผ่เต็มหน้าจอไม่โดนตัดขอบ */
 body.normal-page {
     overflow-y: auto;
+    background: radial-gradient(
+        ellipse at top center, 
+        rgba(191, 160, 48, 0.05) 0%,    /* จุดกำเนิดแสงสปอตไลท์บนสุดของหน้าจอ */
+        rgba(11, 11, 13, 0.6) 35%,      /* แสงแผ่กระจายออกไปด้านข้างอย่างนุ่มนวล */
+        #0b0b0d 70%                     /* กลืนหายเข้าสู่ความมืดสนิทอย่างไร้รอยต่อ */
+    ) no-repeat;
     background-color: #0b0b0d; 
+    background-attachment: scroll;
 }
 
 /* ── ซ่อน NAVBAR เริ่มต้น ── */
@@ -639,19 +645,12 @@ body.homepage-unlocked .homepage-real-content {
 /* ── 🌟 ดีไซน์ระเบียบหน้าอ่านบทความ Guide (Typography Focused ดั้งเดิมตามรูป) ── */
 .luxury-article-wrapper {
     max-width: 800px;
-    margin: 160px auto 100px auto; /* เว้นพื้นที่ด้านบนหลบแนว Navbar */
-    padding: 60px 25px 25px 25px; /* เพิ่ม Padding ด้านบนเล็กน้อยเพื่อให้จังหวะแสงตกกระทบสวยงาม */
+    margin: 160px auto 100px auto; 
+    padding: 0 25px;
     box-sizing: border-box;
     
-    /* 🌟 ไม้ตายฉีดลำแสงรูปทรงกรวยส่องดิ่งลงมาจากเพดาน (ตามรูป Untitled.png) */
-    /* ใช้สีทองพรีเมียมความสว่างบางเบาพิเศษ 6% ไล่เฉดวาดเฉียงลงไปตัดดับกับความมืดสนิทอย่างนุ่มนวล */
-    background: radial-gradient(
-        ellipse at top center, 
-        rgba(191, 160, 48, 0.06) 0%,    /* จุดกำเนิดแสงสปอตไลท์ด้านบนสุด */
-        rgba(191, 160, 48, 0.02) 40%,   /* แสงเริ่มแผ่ขยายและจางลงนุ่มๆ */
-        rgba(6, 6, 8, 0) 75%            /* ตัดดับกลืนหายเข้าสู่ความมืดสนิทอย่างสมบูรณ์ */
-    ) !important;
-    
+    /* 🌟 แก้ไขจุดที่ 2: ล้างแบคกราวนด์ตรงนี้ให้โปร่งใส เพื่อปล่อยให้แสงจาก Body ทะลุขึ้นมาแทน */
+    background: transparent !important;
     border: none !important;
     backdrop-filter: none !important;
     box-shadow: none !important;
@@ -662,7 +661,7 @@ body.homepage-unlocked .homepage-real-content {
     text-align: center;
     margin-bottom: 50px;
     position: relative;
-    z-index: 2; /* ดันหัวข้อลอยเด่นเหนือกองเฉดแสง */
+    z-index: 2; 
 }
 
 .article-meta {
@@ -681,7 +680,6 @@ body.homepage-unlocked .homepage-real-content {
     line-height: 1.3;
     letter-spacing: 1px;
     margin-bottom: 25px;
-    /* ยิงเงาตัวอักษรบางๆ ป้องกันแสงกลืน */
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
