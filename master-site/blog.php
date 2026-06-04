@@ -15,7 +15,7 @@
         <li><a href="guide.php">GUIDE</a></li>
         <li><a href="faq.php">FAQ</a></li>
         <li><a href="blog.php" class="active">BLOG</a></li>
-        <li><a href="about.php">ABOUT / CONTACT</a></li>
+        <li><a href="contact.php">ABOUT / CONTACT</a></li>
     </ul>
 </nav>
 
