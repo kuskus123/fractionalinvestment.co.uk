@@ -15,14 +15,14 @@
     </div>
 </div>
 
-<!-- 2. 🌟 หน้าแกลเลอรีจำลองพรีเมียม แก้ไขปัญหาหัวข้อซ้อนเรียบร้อย -->
+<!-- 2. หน้าแกลเลอรีจำลองพรีเมียม (ไม่มีประโยคเสียงท้ายจอ คลีนตา 100%) -->
 <div id="conceptSection" class="concept-container">
     <div class="concept-content">
         
         <!-- ส่วนหัวข้อคำโปรยชิ้นงาน -->
         <div class="concept-tag concept-reveal">— A SPOTLIGHT —</div>
         
-        <!-- หัวข้อหลัก: เกี่ยวกับถังบ่ม นิ่ง ลึก ไม่ขายของ และไม่มีคำว่า Six -->
+        <!-- หัวข้อหลัก: เกี่ยวกับถังบ่ม นิ่ง ลึก ไม่ขายของ -->
         <h1 class="concept-title concept-reveal">
             Silent <em>casks</em><br>
             breathe through the<br>
@@ -39,11 +39,6 @@
         <!-- ปุ่มกดรูปทรงแคปซูลเรียบหรู (ENTER —) -->
         <div class="concept-action concept-reveal">
             <a href="#" class="btn-concept-enter">ENTER —</a>
-        </div>
-        
-        <!-- ตัวหนังสือหมายเหตุขนาดเล็กท้ายจอ -->
-        <div class="concept-footer-note concept-reveal">
-            ACTIVATE SOUND TO ENTER IN SILENCE
         </div>
     </div>
     
