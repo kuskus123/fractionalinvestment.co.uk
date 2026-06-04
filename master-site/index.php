@@ -3,7 +3,7 @@
   require_once __DIR__ . '/components/header.php';
 ?>
 
-<!-- 1. หน้า Intro Splash Screen เปิดตัวคำว่า FAHMAI (คงเดิมไว้) -->
+<!-- 1. หน้า Intro Splash Screen เปิดตัวคำว่า FAHMAI -->
 <div id="introOverlay" style="position: fixed; top:0; left:0; width:100%; height:100vh; z-index: 999; display:flex; align-items:center; justify-content:center;">
     <div class="lumen-style-branding" id="clickTrigger">
         <div class="lumen-line" id="topLine"></div>
@@ -15,32 +15,26 @@
     </div>
 </div>
 
-<!-- 2. 🌟 หน้าแกลเลอรีจำลองพรีเมียม ถอดแบบสถาปัตยกรรมมาจาก image_5cd116.jpg (ยังไม่มี Header) -->
+<!-- 2. 🌟 หน้าแกลเลอรีจำลองพรีเมียม แก้ไขปัญหาหัวข้อซ้อนเรียบร้อย -->
 <div id="conceptSection" class="concept-container">
     <div class="concept-content">
         
         <!-- ส่วนหัวข้อคำโปรยชิ้นงาน -->
         <div class="concept-tag concept-reveal">— A SPOTLIGHT —</div>
         
-        <!-- หัวข้อใหญ่สลับฟอนต์เนี้ยบหรู (Six lights cross the night) -->
+        <!-- หัวข้อหลัก: เกี่ยวกับถังบ่ม นิ่ง ลึก ไม่ขายของ และไม่มีคำว่า Six -->
         <h1 class="concept-title concept-reveal">
-            Six <em>casks</em><br>
-            cross the<br>
+            Silent <em>casks</em><br>
+            breathe through the<br>
             night.
         </h1>
         
-        <!-- คัดลอกไปวางทับใน index_3.php ตรงส่วนข้อความได้เลยครับ -->
-<h1 class="concept-title concept-reveal">
-    Light<br>
-    crosses the<br>
-    <em>night</em>.
-</h1>
-
-<div class="concept-subtext concept-reveal">
-    <p>You enter alone into a dark room.</p>
-    <p>A silent frequency breathing in the shadows.</p>
-    <p>Let your gaze wander. Click the bright points to explore the space.</p>
-</div>
+        <!-- ข้อความซับไตเติ้ลแนวคิดแกลเลอรีสลัว -->
+        <div class="concept-subtext concept-reveal">
+            <p>You enter alone into a dark room.</p>
+            <p>A silent maturation hidden within the oak.</p>
+            <p>Let your gaze wander. Click the bright points to explore the space.</p>
+        </div>
         
         <!-- ปุ่มกดรูปทรงแคปซูลเรียบหรู (ENTER —) -->
         <div class="concept-action concept-reveal">
