@@ -220,16 +220,21 @@ body.normal-page .navbar {
 }
 
 .concept-subtext {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: rgba(234, 231, 223, 0.65);
-    margin-bottom: 45px;
+    margin-top: 25px;
+    margin-bottom: 35px;
 }
 
 .concept-subtext p {
-    margin: 4px 0;
+    color: rgba(234, 231, 223, 0.85); /* ดันความสว่างสู้แสงขึ้นมาเป็น 85% */
+    font-size: 0.95rem;               /* เพิ่มขนาดตัวอักษรให้ใหญ่ขึ้นหนีความเบลอ */
+    font-weight: 400;                 /* ดันเนื้ออักษรให้หนาขึ้น ไม่ผอมบางเกินไป */
+    letter-spacing: 1.5px;            /* ขยายระยะห่างตัวอักษรให้ดูพรีเมียมและอ่านง่าย */
+    line-height: 1.8;                 /* เว้นระยะบรรทัดให้โปร่งตา */
+    margin-bottom: 8px;
+    
+    /* 🌟 ไม้ตายแก้ตัวอักษรจาง: ถมเงาดำขอบฟุ้งหนุนหลังตัวหนังสือ */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 
+                 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 /* ปุ่มกดรูปทรง Outline แคปซูลบางเฉียบ */
