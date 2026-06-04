@@ -5,29 +5,46 @@
     --dark-bg: #060608;
 }
 
-/* ล็อกหน้าจอเริ่มต้นไม่ให้สกรอลล์แนวนอนหลุดเฟรม */
+/* ── 🌟 แก้ไขจุดนี้: แยกโครงสร้างพื้นฐาน ไม่ให้ล็อกเหมารวมทุกหน้า ── */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100vh;
-    overflow: hidden; /* ล็อกไว้ก่อน เดี๋ยวใช้ JS ปลดล็อกตอนคลิก */
-    background-color: var(--dark-bg);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ── ซ่อน NAVBAR เริ่มต้น (แก้ปัญหาตามรูป image_5d53e1.png) ── */
-.navbar {
+/* เฉพาะหน้าแรกตอนเปิดตัว: สั่งล็อกหน้าจอไว้ทำอนิเมชั่น */
+body.is-intro-page {
+    height: 100vh;
+    overflow: hidden; 
+    background-color: var(--dark-bg);
+}
+
+/* หน้าอื่นๆ ย่อยๆ: ปล่อยเลื่อนแนวตั้งได้อิสระ ไม่โดนลูกหลง */
+body.normal-page {
+    overflow-y: auto;
+    background-color: #0b0b0d; 
+}
+
+/* ── 🌟 ซ่อน NAVBAR เริ่มต้น (บีบให้ทำงานเฉพาะบนหน้าแรก body.is-intro-page เท่านั้น) ── */
+body.is-intro-page .navbar {
     opacity: 0;
     transform: translateY(-20px);
     transition: opacity 1s ease, transform 1s cubic-bezier(0.25, 1, 0.5, 1);
-    pointer-events: none; /* ห้ามคลิกจนกว่าจะเปิดตัว */
+    pointer-events: none; /* ห้ามคลิกจนกว่าจะกดเปิดตัว */
 }
 
-.navbar.show-menu {
+body.is-intro-page .navbar.show-menu {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+}
+
+/* ถ้าเป็นหน้าปกติ ให้เนฟบาร์แสดงตัว 100% ทันที ไม่ต้องซ่อน */
+body.normal-page .navbar {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
 }
 
 /* ── คลาสจัดตัวอักษรแยกชิ้นสำหรับทำอนิเมชั่นผุดทีละตัว ── */
@@ -88,14 +105,14 @@ html, body {
     opacity: 1;
     pointer-events: auto;
 }
-/* ── 🌟 ปรับปรุงรัศมีแสงทองให้บางเบาและวงแคบลงตาม image_5ceaa6.jpg ── */
+
+/* ── 🌟 รัศมีแสงทองบางเบาตามแบบ image_5ceaa6.jpg ── */
 #introOverlay {
     background: radial-gradient(
         circle at center, 
-        rgba(191, 160, 48, 0.07) 0%,    /* ลดความเข้มเหลือแค่ 7% บางเฉียบ */
-        rgba(170, 108, 57, 0.02) 20%,   /* ดรอปแสงลงอย่างรวดเร็ว */
-        #060608 45%                     /* บีบให้กลืนเป็นสีดำสนิทตั้งแต่ระยะ 45% (วงจะเล็กลงมาก) */
+        rgba(191, 160, 48, 0.07) 0%,    
+        rgba(170, 108, 57, 0.02) 20%,   
+        #060608 45%                     
     );
-    
     transition: opacity 1s ease-in-out;
 }

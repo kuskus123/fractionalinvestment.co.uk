@@ -1,4 +1,11 @@
 <?php 
+  // 🌟 บรรทัดนี้สำคัญมาก: บอกระบบว่าเป็นหน้าแรก
+  $is_home = true; 
+  
+  $page_title = "FAHMAI | Premium Alternative Asset";
+  require_once __DIR__ . '/components/header.php';
+?>
+<?php 
   $page_title = "FAHMAI | Premium Alternative Asset";
   require_once __DIR__ . '/components/header.php';
 ?>

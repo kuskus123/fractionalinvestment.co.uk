@@ -15,4 +15,4 @@
     
     <link href="css/style.css?v=horizontal" rel="stylesheet">
 </head>
-<body class="text-white">
+<body class="text-white <?php echo (isset($is_home) && $is_home) ? 'is-intro-page' : 'normal-page'; ?>">
