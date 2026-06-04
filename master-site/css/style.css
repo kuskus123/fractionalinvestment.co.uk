@@ -178,7 +178,7 @@ body.normal-page .navbar {
    MASTERPIECE GALLERY SYSTEM (Dark Room)
    ========================================== */
 
-/* ── เลเยอร์หลักของพื้นที่แสดงงาน (ล็อกกึ่งกลางแม่นยำเรขาคณิต) ── */
+/* ── เลเยอร์หลักของพื้นที่แสดงงาน ── */
 .concept-container {
     position: fixed;
     top: 0;
@@ -199,33 +199,48 @@ body.normal-page .navbar {
     z-index: 1;
 }
 
-/* จังหวะปลดล็อกโฮมเพจ: เปลี่ยนตู้คอนเทนเนอร์ให้คุมสกรอลล์แนวดิ่งอิสระ */
+/* จังหวะปลดล็อกโฮมเพจ: สลัดรูปถังบ่มและไฟฉายทิ้ง ถมพื้นดำคลีนตามสั่ง */
 body.homepage-unlocked .concept-container {
     overflow-y: auto;
     display: block !important; 
-    
-    /* 📸 [ช่องแสตนด์บายรูปภาพโฮมเพจในอนาคต] */
-    /* background-image: url('../assets/images/your-new-homepage-bg.webp') !important; */
-    
-    /* 🌟 แก้ไข: เติม !important ล็อกตายให้รูปถังบ่มวาร์ปหายไปร้อยเปอร์เซ็นต์ */
-    background-image: none !important; 
+    background-image: none !important; /* 🌟 เติม !important เพื่อหักล้างสไตล์อินไลน์สลับเข้าโหมดดำเงา */
     background-color: #060608 !important; 
 }
-body.homepage-unlocked .concept-container::before {
-    /* 
-       ✨ เลเยอร์คุมความมืดสลัว (Overlay Mask) หน้าโฮมเพจ
-       - ตอนเป็นพื้นหลังดำ: ตัวนี้จะช่วยไล่เฉดเงานุ่มๆ ให้บอร์ดข้อมูลมีมิติอ่านง่าย 
-       - ตอนกัสใส่รูปในอนาคต: ตัวนี้จะทำหน้าที่เป็นฟิลเตอร์ถมดำ 88% บังคับให้รูปใหม่มืดลงอัตโนมัติ ไม่ให้แย่งซีนตัวหนังสือครับ
-    */
+
+/* 🌟 ดัน z-index ขึ้นมาเป็น 1 และขึงขอบให้เต็มพื้นที่ ป้องกันไม่ให้แผ่นกรองแสงจมลงใต้รูปถังบ่ม */
+.concept-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     background: radial-gradient(
         circle at center, 
-        rgba(12, 12, 14, 0.88) 0%,   /* ถ้าใส่รูปแล้วอยากให้รูปชัดขึ้น ให้ปรับเลข 0.88 ดรอปลงมาได้ตามใจชอบ */
-        #060608 100%
-    ) !important;
-    position: fixed; /* ล็อกหน้ากากเงาให้ตรึงนิ่งอยู่เบื้องหลังเวลาสกรอลล์เมาส์ */
+        rgba(238, 227, 205, 0.14) 0%,   /* จุดส่องไฟฉายหน้าแรก */
+        rgba(6, 6, 8, 0.88) 18%,        
+        rgba(6, 6, 8, 0.98) 40%,        
+        #060608 100%                    
+    );
+    z-index: 1; /* ล็อกไว้ชั้นบนสุดเหนือพื้นหลังภาพ */
+    pointer-events: none;
+    transition: background 1.8s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
-/* คลาสพิเศษเมื่อกด Enter: ขยายรัศมีแสงไฟฉายให้กว้างขึ้น */
+/* 🌟 หน้ากากคุมมิติความดาร์กพรีเมียมเฉพาะบนหน้า Homepage */
+body.homepage-unlocked .concept-container::before {
+    background: radial-gradient(
+        circle at center, 
+        rgba(12, 12, 14, 0.88) 0%,   
+        #060608 100%
+    ) !important;
+    position: fixed; 
+    z-index: 1 !important;
+}
+
+/* คลาสพิเศษเมื่อกด Enter ขยายรัศมีแสงไฟฉาย (ไม่ได้ใช้งานแล้วในโหมดถมดำคลีน แต่ตั้งเผื่อสคริปต์เรียกหา) */
 .concept-container.light-expanded::before {
     background: radial-gradient(
         circle at center, 
@@ -235,7 +250,7 @@ body.homepage-unlocked .concept-container::before {
     );
 }
 
-/* เมื่อสั่งสกรอลล์โฮมเพจ: สั่งล็อกให้หน้ากากกับแคนวาสละอองฝุ่นตรึงนิ่งอยู่เบื้องหลัง */
+/* เมื่อสั่งสกรอลล์โฮมเพจ: สั่งล็อกให้หน้ากากกับแคนวาสละอองฝุ่นตรึงนิ่ง */
 body.homepage-unlocked .concept-container::before,
 body.homepage-unlocked #particleCanvas {
     position: fixed;
@@ -254,13 +269,13 @@ body.homepage-unlocked #particleCanvas {
     width: 100%;
     height: 100%;
     pointer-events: none; 
-    z-index: 1;
+    z-index: 2; /* ดันมาอยู่เหนือแผ่นกรองแสง */
 }
 
-/* ── เลเยอร์เนื้อหาประตูด่านแรก (คุม Alignment บังคับอยู่ตรงกลางไฟฉาย) ── */
+/* ── เลเยอร์เนื้อหาประตูด่านหน้าแรก (ดันหนีขึ้นมาจากเลเยอร์ไฟฉาย) ── */
 .concept-content {
     position: relative;
-    z-index: 2; 
+    z-index: 3; /* 🌟 ดันขึ้นมาเลเยอร์สูงสุดเพื่อให้ตัวหนังสือลอยเหนือดวงไฟฉายชัดเจน */
     display: flex;
     flex-direction: column;
     align-items: center;    
@@ -384,7 +399,6 @@ body.homepage-unlocked #particleCanvas {
    ========================================== */
 
 /* พื้นที่เนื้อหาตัวจริงของหน้าแรก */
-/* 🌟 ไม้ตายเซฟตี้: ใส่ display: none ซ่อนไว้ก่อน เพื่อไม่ให้มันมาแชร์หน้ากว้าง Flexbox กับหน้าแรกจนเบี้ยวซ้าย */
 .homepage-real-content {
     position: relative;
     display: none; 
@@ -392,19 +406,17 @@ body.homepage-unlocked #particleCanvas {
     width: 100%;
     max-width: 1200px;
     padding: 0 20px;
-    z-index: 2;
+    z-index: 3; /* ดันขึ้นมาระนาบสูงสุด */
     opacity: 0;
     transform: translateY(30px); 
     transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
     box-sizing: border-box;
 }
 
-/* 🌟 คืนชีพกลับมาแสดงผลปกติ เมื่อได้รับสคริปต์ปลดล็อกปลดปล่อยหน้าโฮมเพจ */
 body.homepage-unlocked .homepage-real-content {
     display: block;
 }
 
-/* คลาสสั่งเฟดเปิดตัวเนื้อหาโฮมเพจ */
 .homepage-real-content.content-reveal {
     opacity: 1;
     transform: translateY(0);
