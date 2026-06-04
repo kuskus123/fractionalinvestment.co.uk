@@ -50,7 +50,7 @@
                 <p class="card-article-excerpt">
                     An analytical breakdown of why heavily-peated casks from Scotland’s southern coast are reaching historic valuation premiums.
                 </p>
-                <a href="#" class="btn-read-intel">READ INTEL —</a>
+                <a href="blog1.php" class="btn-read-intel">READ INTEL —</a>
             </div>
         </article>
 
@@ -71,7 +71,7 @@
                 <p class="card-article-excerpt">
                     Examining the molecular extraction rates of Quercus robur versus Quercus alba and their long-term financial implications.
                 </p>
-                <a href="#" class="btn-read-intel">READ INTEL —</a>
+               <a href="blog2.php" class="btn-read-intel">READ INTEL —</a>
             </div>
         </article>
 
@@ -92,7 +92,7 @@
                 <p class="card-article-excerpt">
                     How private collectors utilize HMRC-regulated bonded storage environments to shield capital from macro-currency volatility.
                 </p>
-                <a href="#" class="btn-read-intel">READ INTEL —</a>
+                <a href="blog3.php" class="btn-read-intel">READ INTEL —</a>
             </div>
         </article>
 
