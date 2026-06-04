@@ -619,40 +619,102 @@ body.homepage-unlocked .homepage-real-content {
 
 /* ── 🌟 ชุดเครื่องมือเสริมหน้า Guide ป้องกันหน้าเว็บโล่ง (Editorial Elements) ── */
 
-/* 1. คลาสอักษรตัวแรกยักษ์สไตล์นิตยสาร (Drop Cap) */
-.article-body-content p.has-drop-cap::first-letter {
-    font-family: 'Cinzel', serif;
-    font-size: 3.8rem;
-    font-weight: 400;
-    float: left;
-    color: var(--primary-gold);
-    line-height: 0.85;
-    margin-top: 6px;
-    margin-right: 12px;
+.luxury-article-wrapper {
+    max-width: 920px; /* ขยายหน้ากว้างขึ้นเล็กน้อยให้สัดส่วนดูอิ่มเต็มตากว่าเดิม */
+    margin: 160px auto 100px auto; 
+    padding: 75px 65px; /* เพิ่มพื้นที่ระยะห่าง (Padding) ด้านในให้ดูเป็นระเบียบ */
+    box-sizing: border-box;
+    
+    /* 🌟 ไม้ตายแก้หน้าโล่ง: ครอบเนื้อหาด้วยบอร์ดแผ่นหลังสีดาร์กชาร์โคลโปร่งแสง (Premium Dossier Board) */
+    background: rgba(12, 12, 15, 0.7); 
+    border: 1px solid rgba(191, 160, 48, 0.08); /* ขึงเส้นขอบทองบางเบา 8% เพื่อล็อกขอบเขตสายตาไม่ให้เวิ้งว้าง */
+    border-radius: 4px;
+    backdrop-filter: blur(15px); /* เบลอละอองฝุ่นทองคำเบื้องหลังเบาๆ เพิ่มมิติลึกลับลักชูรี */
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.85);
 }
 
-/* 2. บล็อกคำพูดเลี่ยมทองคั่นกลางพารากราฟ (Premium Pull-Quote) */
-.luxury-pull-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.8rem;
-    color: #eae7df;
-    line-height: 1.4;
-    text-align: center;
-    max-width: 650px;
-    margin: 45px auto;
-    padding: 25px 0;
-    border-top: 1px solid rgba(191, 160, 48, 0.25);
-    border-bottom: 1px solid rgba(191, 160, 48, 0.25);
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+/* ระบบปรับแต่งขนาดหน้าจอ Responsive ป้องกันบอร์ดล้นในมือถือ */
+@media (max-width: 992px) {
+    .luxury-article-wrapper {
+        margin: 120px 20px 60px 20px;
+        padding: 45px 30px;
+    }
 }
-.luxury-pull-quote span {
-    display: block;
+
+.article-hero {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.article-meta {
     font-family: 'Cinzel', serif;
-    font-style: normal;
     font-size: 0.75rem;
     color: var(--primary-gold);
-    letter-spacing: 2px;
-    margin-top: 15px;
-    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.article-main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: #eae7df;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.article-lead-in {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: rgba(234, 231, 223, 0.55); /* ปรับความสว่างบทนำขึ้นเล็กน้อย */
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.article-divider {
+    width: 80px;
+    height: 1px;
+    background: var(--primary-gold);
+    margin: 40px auto 0 auto;
+    opacity: 0.4;
+}
+
+/* ไส้ในตัวอักษรบทความ */
+.article-body-content h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: #eae7df;
+    margin-top: 50px;
+    margin-bottom: 22px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.article-body-content h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    color: var(--primary-gold);
+    margin-top: 35px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+/* 🌟 ปรับเปลี่ยนพลังความอ่านง่าย (Readability Engine) บนหน้าจอมืด */
+.article-body-content p {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.1rem; /* ขยายขนาดฟอนต์ขึ้นเล็กน้อยเพื่อลดการเพ่งสายตา */
+    color: #e3e0d5; /* เปลี่ยนเป็นสีงาช้างอุ่น (Warm Ivory) สว่าง 100% ไม่โปร่งแสง ตัวหนังสือจะเด้งลอยเด่นเหนือกองพื้นหลังมืด */
+    line-height: 1.95; /* เพิ่มระยะห่างช่องไฟระหว่างบรรทัดให้โปร่ง สบายตา สไตล์นิตยสารอินเตอร์ */
+    margin-bottom: 28px;
+    text-align: justify; 
+    letter-spacing: 0.2px; /* ขยายช่องไฟตัวอักษร Serif ให้หายใจสะดวกขึ้น */
+}
+
+.article-body-content em {
+    color: var(--primary-gold);
+    font-style: italic;
 }
