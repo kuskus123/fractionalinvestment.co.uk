@@ -5,7 +5,7 @@
     --dark-bg: #060608;
 }
 
-/* ── 🌟 โครงสร้างพื้นฐาน ── */
+/* ── โครงสร้างพื้นฐาน ── */
 html, body {
     margin: 0;
     padding: 0;
@@ -32,12 +32,12 @@ body.normal-page {
     background-color: #0b0b0d; 
 }
 
-/* ── 🌟 ซ่อน NAVBAR เริ่มต้น (บีบให้ทำงานเฉพาะบนหน้าแรก body.is-intro-page เท่านั้น) ── */
+/* ── ซ่อน NAVBAR เริ่มต้น (บีบให้ทำงานเฉพาะบนหน้าแรก body.is-intro-page เท่านั้น) ── */
 body.is-intro-page .navbar {
     opacity: 0;
     transform: translateY(-20px);
     transition: opacity 1s ease, transform 1s cubic-bezier(0.25, 1, 0.5, 1);
-    pointer-events: none; /* ห้ามคลิกจนกว่าจะกดเปิดตัว */
+    pointer-events: none; 
 }
 
 body.is-intro-page .navbar.show-menu {
@@ -53,7 +53,7 @@ body.normal-page .navbar {
     pointer-events: auto !important;
 }
 
-/* ── 🌟 แถบเมนูนำทางหรูหราประจำโฮมเพจ (Luxury Minimalist Navbar) ── */
+/* ── แถบเมนูนำทางหรูหราประจำโฮมเพจ (Luxury Minimalist Navbar) ── */
 .luxury-nav {
     position: fixed;
     top: 0;
@@ -118,13 +118,12 @@ body.normal-page .navbar {
     justify-content: center;
 }
 
-/* บังคับอักษรแต่ละตัวให้เว้นห่างและเตรียมพร้อมรับแรงดีด */
 .lumen-title span {
     display: inline-block;
     opacity: 0;
     transform: translateY(40px);
     letter-spacing: 35px;
-    text-indent: 35px; /* คุมระนาบกึ่งกลางเป๊ะไม่ให้เบี้ยว */
+    text-indent: 35px; 
     color: #e6e3da;
 }
 
@@ -136,7 +135,7 @@ body.normal-page .navbar {
     color: rgba(191, 160, 48, 0.6);
     margin-top: 25px;
     text-transform: uppercase;
-    opacity: 0; /* ซ่อนไว้รอคิว */
+    opacity: 0; 
 }
 
 /* ── เส้นแสงระดับพรีเมียมคุมแยกชิ้น ── */
@@ -145,14 +144,14 @@ body.normal-page .navbar {
     height: 1px;
     background: linear-gradient(to right, transparent, rgba(191, 160, 48, 0.45), transparent);
     margin: 0 auto;
-    transform: scaleX(0); /* เริ่มต้นหดตัวจากตรงกลางเป็น 0 */
+    transform: scaleX(0); 
 }
 
 .lumen-style-branding {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
-    cursor: pointer; /* เปลี่ยนเมาส์เป็นรูปมือให้รู้ว่ากดคลิกเข้าเว็บได้ */
+    cursor: pointer; 
 }
 
 /* ── ซ่อนคอนเทนต์ส่วนอื่นชั่วคราว ── */
@@ -165,7 +164,7 @@ body.normal-page .navbar {
     pointer-events: auto;
 }
 
-/* ── 🌟 รัศมีแสงทองบางเบาตอนอินโทร ── */
+/* ── รัศมีแสงทองบางเบาตอนอินโทร ── */
 #introOverlay {
     background: radial-gradient(
         circle at center, 
@@ -201,10 +200,13 @@ body.normal-page .navbar {
     z-index: 1;
 }
 
-/* จังหวะปลดล็อกโฮมเพจ: เปลี่ยนตู้คอนเทนเนอร์ให้คุมสกรอลล์แนวดิ่งอิสระ */
+/* 🌟 แก้ไขไม้ตาย: จังหวะปลดล็อกโฮมเพจ ให้คงสถานะ Flex จัดระเบียบกึ่งกลางแนวตั้งไว้ตลอดกาล ไม่เบี้ยวซ้ายอีกแล้ว */
 body.homepage-unlocked .concept-container {
     overflow-y: auto;
-    display: block; /* เปลี่ยนเป็น block เพื่อให้เนื้อหาไหลลงไปข้างล่างได้ตามปกติ */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 /* 🌟 เลเยอร์หน้ากากถมดำสลัวจำลองลำแสงไฟฉาย (Flashlight Beam) */
@@ -217,17 +219,17 @@ body.homepage-unlocked .concept-container {
     height: 100%;
     background: radial-gradient(
         circle at center, 
-        rgba(238, 227, 205, 0.14) 0%,   /* จุดโฟกัสไฟฉายสีขาวนวลอุ่น ๆ จาง ๆ แค่ 14% */
-        rgba(6, 6, 8, 0.88) 18%,        /* ลำแสงไฟฉายเริ่มกระจายและตัดลงอย่างรวดเร็ว */
-        rgba(6, 6, 8, 0.98) 40%,        /* เข้าสู่มิติเงามืดรอบวงไฟฉายหนาแน่น 98% */
-        #060608 100%                    /* ขอบนอกสุดดับมืดสนิท */
+        rgba(238, 227, 205, 0.14) 0%,   
+        rgba(6, 6, 8, 0.88) 18%,        
+        rgba(6, 6, 8, 0.98) 40%,        
+        #060608 100%                    
     );
     z-index: 0;
     pointer-events: none;
-    transition: background 1.8s cubic-bezier(0.25, 1, 0.5, 1); /* คุมความนุ่มจังหวะสาดแสงไฟฉายให้กว้างขึ้น */
+    transition: background 1.8s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
-/* 🌟 คลาสพิเศษเมื่อกด Enter: ขยายรัศมีแสงไฟฉายให้กระจายเป็นไอแสงสีทองวิสกี้นุ่มๆ คุมความพรีเมียม */
+/* คลาสพิเศษเมื่อกด Enter: ขยายรัศมีแสงไฟฉายให้กว้างขึ้น */
 .concept-container.light-expanded::before {
     background: radial-gradient(
         circle at center, 
@@ -276,6 +278,7 @@ body.homepage-unlocked #particleCanvas {
     color: rgba(191, 160, 48, 0.55);
     margin-bottom: 30px;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .concept-title {
@@ -286,6 +289,7 @@ body.homepage-unlocked #particleCanvas {
     color: #eae7df; 
     margin-bottom: 35px;
     letter-spacing: 1px;
+    text-align: center; /* บังคับอยู่ตรงกลางแน่นๆ */
 }
 
 .concept-title em {
@@ -298,6 +302,7 @@ body.homepage-unlocked #particleCanvas {
 .concept-subtext {
     margin-top: 25px;
     margin-bottom: 35px;
+    text-align: center;
 }
 
 /* บล็อกซับไตเติลเอียง Serif คมชัดสู้แสงไฟฉาย */
@@ -309,6 +314,7 @@ body.homepage-unlocked #particleCanvas {
     letter-spacing: 1px;                              
     line-height: 1.8;                                 
     margin-bottom: 8px;
+    text-align: center; /* บังคับข้อความย่อยอยู่ตรงกลาง */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 
                  0 4px 10px rgba(0, 0, 0, 0.8);
 }
@@ -327,6 +333,7 @@ body.homepage-unlocked #particleCanvas {
     text-indent: 4px;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     background: transparent;
+    margin: 0 auto;
 }
 
 .btn-concept-enter:hover {
@@ -342,6 +349,7 @@ body.homepage-unlocked #particleCanvas {
     letter-spacing: 4px;
     color: rgba(234, 231, 223, 0.35);
     margin-top: 50px;
+    text-align: center;
 }
 
 /* จุดไข่ปลาเรียงสถานะ */
@@ -373,10 +381,10 @@ body.homepage-unlocked #particleCanvas {
 }
 
 /* ==========================================
-   🌟 HOMEPAGE MAIN CORE COMPONENTS (Below Fold)
+   HOMEPAGE MAIN CORE COMPONENTS (Below Fold)
    ========================================== */
 
-/* พื้นที่เนื้อหาตัวจริงของหน้าแรก (ดันตัวลงไปกองอยู่ด้านล่างรอสกรอลล์) */
+/* พื้นที่เนื้อหาตัวจริงของหน้าแรก */
 .homepage-real-content {
     position: relative;
     width: 100%;
@@ -434,6 +442,7 @@ body.homepage-unlocked #particleCanvas {
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 40px;
     margin-top: 50px;
+    width: 100%;
 }
 
 @media (max-width: 768px) {

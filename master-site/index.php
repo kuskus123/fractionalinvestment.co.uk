@@ -29,7 +29,7 @@
 </div>
 
 <!-- 2. พื้นที่จัดระเบียบหน้าแกลเลอรีจำลองและระบบสกรอลล์โฮมเพจ -->
-<div id="conceptSection" class="concept-container" style="background-image: url('assets/images/Bghome.jpg');">
+<div id="conceptSection" class="concept-container" style="background-image: url('assets/images/Bghome.webp');">
     
     <!-- ผืนผ้าใบละอองฝุ่น (จะรันยาวต่อเนื่องไม่ขาดตอนสายตา) -->
     <canvas id="particleCanvas"></canvas>
