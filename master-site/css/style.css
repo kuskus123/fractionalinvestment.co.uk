@@ -1196,3 +1196,130 @@ body.homepage-unlocked .homepage-real-content {
     letter-spacing: 4px;
     text-indent: 4px;
 }
+/* master-site/css/style.css */
+
+/* ==========================================================================
+   🌟 LUXURY MOBILE RESPONSIVE SYSTEM (ขัดเกลาหน้าจอสมาร์ตโฟนและแท็บเล็ต)
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* 1. ปรับสปอตไลท์เพดานให้กระชับเป็นทรงกลม (Circle) แสงจะได้ไม่บิดเบี้ยวบนจอแนวตั้ง */
+    body.normal-page {
+        background: radial-gradient(
+            circle at top center, 
+            rgba(191, 160, 48, 0.08) 0%,    /* เพิ่มความเข้มแสงขึ้นเล็กน้อยสู้แสงสะท้อนจอมือถือ */
+            rgba(11, 11, 13, 0.7) 45%,
+            #0b0b0d 85%
+        ) no-repeat !important;
+        background-color: #0b0b0d !important;
+    }
+
+    /* 2. จัดระเบียบแถบเมนูนำทาง ย่อขนาดและจัดกึ่งกลางเพื่อความคลีน */
+    .luxury-nav {
+        padding: 15px 20px !important;
+        flex-direction: column; /* สั่งให้ชื่อแบรนด์กับเมนูเรียงตั้งกัน */
+        gap: 12px;
+        background: rgba(6, 6, 8, 0.95) !important; /* ถมพื้นหลังเมนูกันตัวหนังสือบทความวิ่งมาซ้อน */
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(191, 160, 48, 0.05);
+    }
+    
+    .nav-brand {
+        font-size: 1rem !important;
+        letter-spacing: 3px;
+    }
+
+    /* เปิดระบบเลื่อนสกรอลล์แนวนอนเบาๆ ให้กดเมนูง่าย ไม่ล้นจอ */
+    .nav-links {
+        gap: 18px !important;
+        width: 100%;
+        justify-content: center;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 4px;
+    }
+    .nav-links::-webkit-scrollbar {
+        display: none; /* ซ่อนแถบสกรอลล์อุบาทว์ตาบนมือถือ */
+    }
+
+    /* 3. สยบปัญหาฟอนต์ยักษ์ล้นจอ ย่อขนาดหัวข้อหลักทุกหน้าให้เกาะกลุ่มสวยงาม */
+    .article-main-title, 
+    .faq-main-title, 
+    .blog-main-title {
+        font-size: 1.85rem !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0px !important;
+    }
+    
+    .concept-title {
+        font-size: 2.4rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* 4. ปรับระยะขอบปลอกหมอน (Padding) ของคอนเทนเนอร์ไม่ให้ชิดขอบจอเกินไป */
+    .luxury-article-wrapper, 
+    .luxury-faq-wrapper, 
+    .luxury-blog-wrapper, 
+    .luxury-about-wrapper {
+        margin: 130px auto 60px auto !important;
+        padding: 0 20px !important;
+    }
+
+    .article-lead-in, 
+    .faq-lead-in, 
+    .blog-lead-in, 
+    .about-lead-in {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* 5. ปรับพฤติกรรมตัวอักษรเนื้อหา (บนมือถือชิดซ้ายอ่านง่ายกว่า Justify) */
+    .article-body-content p {
+        font-size: 1rem !important;
+        line-height: 1.8 !important;
+        text-align: left !important;
+        margin-bottom: 22px;
+    }
+
+    /* ปรับขนาดตัวอักษรแรกยักษ์ (Drop Cap) และบล็อกคำพูดเลี่ยมทองคั่นกลาง */
+    .article-body-content p.has-drop-cap::first-letter {
+        font-size: 3rem !important;
+        margin-top: 2px !important;
+        margin-right: 8px !important;
+    }
+
+    .luxury-pull-quote {
+        font-size: 1.3rem !important;
+        padding: 20px 0 !important;
+        margin: 35px auto !important;
+        max-width: 100% !important;
+    }
+
+    /* 6. ขัดเกลากล่องยืดหด FAQ ให้กระชับพอดีนิ้วโป้งกด */
+    .luxury-accordion-trigger {
+        padding: 20px !important;
+    }
+    
+    .luxury-accordion-trigger span:first-child {
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+        padding-right: 15px;
+    }
+
+    .luxury-accordion-content .inner-content {
+        padding: 0 20px 22px 20px !important;
+    }
+
+    /* 7. บีบฟอร์มติดต่อ Private Office ให้กระชับแน่นพรีเมียม */
+    .luxury-contact-container {
+        padding: 35px 20px !important;
+    }
+    
+    .private-office-form {
+        gap: 28px !important;
+    }
+
+    .luxury-form-group label {
+        font-size: 0.68rem !important;
+    }
+}
