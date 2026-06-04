@@ -386,21 +386,22 @@ body.homepage-unlocked #particleCanvas {
 /* พื้นที่เนื้อหาตัวจริงของหน้าแรก */
 /* 🌟 ไม้ตายเด็ด: ใช้ position: absolute แขวนไว้ที่ 100vh ด้านล่าง เพื่อตัดขาดไม่ให้ไปเบียดเลเยอร์ด่านแรกเบี้ยวอีก */
 .homepage-real-content {
-    position: absolute;
-    top: 100vh;
-    left: 50%;
-    transform: translateX(-50%) translateY(50px);
+    position: relative;
+    margin: 140px auto 60px auto; /* ดันระยะลงมาจาก Navbar 140px ให้พอดีระดับสายตา */
     width: 100%;
     max-width: 1200px;
-    padding: 120px 20px;
+    padding: 0 20px;
     z-index: 2;
     opacity: 0;
-    transition: all 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateY(30px); /* เตรียมระยะดีดตัวสไลด์ขึ้นตอนเฟดเข้า */
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    box-sizing: border-box;
 }
 
+/* คลาสสั่งเฟดเปิดตัวเนื้อหาโฮมเพจ */
 .homepage-real-content.content-reveal {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
 }
 
 /* บล็อกหัวข้อ Niche ประจำโดเมน */

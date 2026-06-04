@@ -46,7 +46,7 @@
             });
         }
 
-        // 3. 🌟 ลอจิกไม้ตายฉากเปลี่ยนผ่านมิติ (The Cinematic Enterprise Transition)เมื่อกด ENTER —
+        // 3. 🌟 ลอจิกฉากเปลี่ยนผ่านมิติสลับเนื้อหาขึ้นมาแทนที่ทันทีบนหน้าแรก
         const btnEnterHomepage = document.getElementById("btnEnterHomepage");
         if (btnEnterHomepage) {
             btnEnterHomepage.addEventListener("click", function(e) {
@@ -59,37 +59,32 @@
                 
                 const transitionTimeline = gsap.timeline();
                 
-                // สเต็ป ก: สั่งดีดตัวอักษรข้อความดั้งเดิมจมหายลงไปข้างล่าง
+                // สเต็ป ก: สั่งดีดข้อความเกริ่นนำดั้งเดิมจมหายลงด้านล่าง
                 transitionTimeline.to("#darkRoomGateContent", {
                     opacity: 0,
-                    y: 40,
-                    duration: 0.8,
+                    y: 30,
+                    duration: 0.6,
                     ease: "power2.in",
                     onComplete: () => {
                         document.getElementById("darkRoomGateContent").style.display = "none";
                         if(navigationDots) navigationDots.style.display = "none";
                         
-                        // ระเบิดขยายวงแสงไฟฉายหลังฉากให้กระจายสว่างขึ้นนุ่มๆ คุมโทน
+                        // ขยายรัศมีไฟฉายเบื้องหลังให้สว่างนวลตาขึ้น
                         conceptContainer.classList.add("light-expanded");
-                        // ปลดล็อกระบบ Body บังคับเบราว์เซอร์ให้ไถสกรอลล์เมาส์แนวดิ่งได้ปกติแล้ว!
+                        // ปลดล็อกระบบบอดี้ให้สกรอลล์เผื่อกรณีเนื้อหาการ์ดยาวเกินจอ
                         document.body.classList.add("homepage-unlocked");
                     }
                 })
-                // สเต็ป ข: ดึงแถบเมนูนำทางลับหล่นลงมาจากขอบบนจออย่างพรีเมียม
+                // สเต็ป ข: ดึงแถบเมนูนำทาง (Navbar) สไลด์หล่นลงมาจากขอบบนจอ
                 .to(globalNavbar, {
-                    onStart: () => globalNavbar.classList.add("nav-visible")
+                    onStart: () => globalNavbar.classList.add("nav-visible"),
+                    duration: 0.4
                 })
-                // สเต็ป ค: สไลด์ม้วนดึงข้อมูลบอร์ดตัวจริงโฮมเพจ สวนขยับขึ้นมาจากล่างจออย่างอลังการ
+                // สเต็ป ค: สั่งให้เนื้อหาโฮมเพจตัวจริง (Niche + การ์ด CTA) เฟดสไลด์ผุดขึ้นมาแทนที่อย่างอลังการ
                 .to(trueHomepageSection, {
                     onStart: () => trueHomepageSection.classList.add("content-reveal"),
-                    duration: 0.5
-                })
-                // สเต็ป ง: สั่งลากหน้าจอให้สกรอลล์เลื่อนลงมาโฟกัสที่เนื้อหาโฮมเพจท่อนล่างให้อัตโนมัติแบบนุ่มๆ
-                .to(window, {
-                    scrollTo: { y: window.innerHeight * 0.35 },
-                    duration: 1.6,
-                    ease: "power3.inOut"
-                }, "-=0.4");
+                    duration: 0.4
+                });
             });
         }
 
