@@ -88,3 +88,16 @@ html, body {
     opacity: 1;
     pointer-events: auto;
 }
+/* ── 🌟 ระบบแสงออร่าทองคำส่องจากกลางจอหลังตัวหนังสือ ── */
+#introOverlay {
+    /* ใช้ Gradient วงกลมระเบิดแสงจากตรงกลาง (circle at center) */
+    background: radial-gradient(
+        circle at center, 
+        rgba(191, 160, 48, 0.18) 0%,    /* แสงสีทองเข้มตรงจุดกึ่งกลาง */
+        rgba(170, 108, 57, 0.06) 35%,   /* ผ่อนลงเป็นสีน้ำตาลแอมเบอร์จางๆ */
+        #060608 75%                     /* ค่อยๆ กลืนหายไปกับความมืดที่ขอบจอ */
+    );
+    
+    /* เพิ่มเอฟเฟกต์นุ่มนวลชวนมอง */
+    transition: opacity 1s ease-in-out;
+}

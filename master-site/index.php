@@ -7,7 +7,7 @@
 <?php require_once __DIR__ . '/components/navbar.php'; ?>
 
 <!-- หน้าจอ Intro Splash Screen เต็มจอครอบทับไว้ก่อน -->
-<div id="introOverlay" style="position: fixed; top:0; left:0; width:100%; height:100vh; z-index: 999; display:flex; align-items:center; justify-content:center; background:#060608;">
+<div id="introOverlay" style="position: fixed; top:0; left:0; width:100%; height:100vh; z-index: 999; display:flex; align-items:center; justify-content:center;">
     <div class="lumen-style-branding" id="clickTrigger">
         <!-- เส้นสีทองตัวบน -->
         <div class="lumen-line" id="topLine"></div>
