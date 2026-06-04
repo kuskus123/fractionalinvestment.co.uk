@@ -664,3 +664,173 @@ body.homepage-unlocked .homepage-real-content {
     margin-top: 15px;
     text-transform: uppercase;
 }
+/* master-site/css/style.css */
+
+/* ── 🌟 ดีไซน์ระบบกล่องข้อความคำถามยืดหดหน้า FAQ (Premium Accordion System) ── */
+.luxury-faq-wrapper {
+    max-width: 850px;
+    margin: 160px auto 100px auto;
+    padding: 0 25px;
+    box-sizing: border-box;
+}
+
+.faq-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.faq-meta {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--primary-gold);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.faq-main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: #eae7df;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.faq-lead-in {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: rgba(234, 231, 223, 0.5);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.faq-divider {
+    width: 80px;
+    height: 1px;
+    background: var(--primary-gold);
+    margin: 40px auto 0 auto;
+    opacity: 0.4;
+}
+
+/* บล็อกตัวโครงสร้างกลุ่ม Accordion */
+.faq-accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.luxury-accordion-item {
+    background: linear-gradient(135deg, rgba(20, 20, 25, 0.35) 0%, rgba(10, 10, 12, 0.55) 100%);
+    border: 1px solid rgba(191, 160, 48, 0.08);
+    border-radius: 4px;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+}
+
+.luxury-accordion-item:hover, .luxury-accordion-item.active {
+    border-color: rgba(191, 160, 48, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(191, 160, 48, 0.03);
+}
+
+/* ปุ่มกดกางหน้าต่าง Accordion */
+.luxury-accordion-trigger {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 26px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.luxury-accordion-trigger span:first-child {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    color: #eae7df;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.luxury-accordion-item:hover .luxury-accordion-trigger span:first-child,
+.luxury-accordion-item.active .luxury-accordion-trigger span:first-child {
+    color: var(--primary-gold);
+}
+
+/* ➕/➖ ไอคอนเครื่องหมายบวก-ลบ เลี่ยมทองแบบ Minimalist */
+.accordion-icon {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+}
+
+.accordion-icon::before, .accordion-icon::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(234, 231, 223, 0.4);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* เส้นแนวนอนประจำสัญลักษณ์ */
+.accordion-icon::before {
+    top: 6px;
+    left: 0;
+    width: 14px;
+    height: 1px;
+}
+
+/* เส้นแนวตั้งประจำสัญลักษณ์ */
+.accordion-icon::after {
+    top: 0;
+    left: 6px;
+    width: 1px;
+    height: 14px;
+}
+
+.luxury-accordion-item:hover .accordion-icon::before,
+.luxury-accordion-item:hover .accordion-icon::after {
+    background-color: var(--primary-gold);
+}
+
+/* จังหวะหมุนพับซ่อนเส้นตั้ง เพื่อสลับฟีลจากเครื่องหมายบวกกลายเป็นเครื่องหมายลบ */
+.luxury-accordion-item.active .accordion-icon::before {
+    background-color: var(--primary-gold);
+}
+.luxury-accordion-item.active .accordion-icon::after {
+    transform: rotate(90deg);
+    opacity: 0;
+    background-color: var(--primary-gold);
+}
+
+/* บล็อกบรรจุเนื้อหาคำตอบด้านใน */
+.luxury-accordion-content {
+    height: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.luxury-accordion-content .inner-content {
+    padding: 0 35px 32px 35px;
+}
+
+.luxury-accordion-content p {
+    font-family: 'Georgia', serif;
+    font-size: 0.98rem;
+    color: rgba(234, 231, 223, 0.65);
+    line-height: 1.85;
+    margin: 0;
+    text-align: justify;
+}
+
+.luxury-accordion-content em {
+    color: var(--primary-gold);
+    font-style: italic;
+}
