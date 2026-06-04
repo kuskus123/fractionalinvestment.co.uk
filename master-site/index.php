@@ -1,3 +1,4 @@
+<!-- master-site/index_3.php -->
 <?php 
   $page_title = "FAHMAI | The Dark Room Concept";
   require_once __DIR__ . '/components/header.php';
@@ -15,34 +16,32 @@
     </div>
 </div>
 
-<!-- 2. หน้าแกลเลอรีจำลองพรีเมียม (ไม่มีประโยคเสียงท้ายจอ คลีนตา 100%) -->
-<div id="conceptSection" class="concept-container">
+<!-- 2. 🌟 หน้าแกลเลอรีจำลอง (กัสสามารถเปลี่ยนพาธรูปภาพใน url() ตรงนี้แยกตามโดเมนเว็บลูกได้เลยครับ) -->
+<div id="conceptSection" class="concept-container" style="background-image: url('assets/images/bg-cask-dark.jpg');">
+    
+    <!-- 🌟 ผ้าใบสำหรับคำนวณกราฟิกละอองฝุ่นสีทองลอยเอื่อยๆ -->
+    <canvas id="particleCanvas"></canvas>
+
     <div class="concept-content">
-        
-        <!-- ส่วนหัวข้อคำโปรยชิ้นงาน -->
         <div class="concept-tag concept-reveal">— A SPOTLIGHT —</div>
         
-        <!-- หัวข้อหลัก: เกี่ยวกับถังบ่ม นิ่ง ลึก ไม่ขายของ -->
         <h1 class="concept-title concept-reveal">
             Silent <em>casks</em><br>
             breathe through the<br>
             night.
         </h1>
         
-        <!-- ข้อความซับไตเติ้ลแนวคิดแกลเลอรีสลัว -->
         <div class="concept-subtext concept-reveal">
             <p>You enter alone into a dark room.</p>
             <p>A silent maturation hidden within the oak.</p>
             <p>Let your gaze wander. Click the bright points to explore the space.</p>
         </div>
         
-        <!-- ปุ่มกดรูปทรงแคปซูลเรียบหรู (ENTER —) -->
         <div class="concept-action concept-reveal">
             <a href="#" class="btn-concept-enter">ENTER —</a>
         </div>
     </div>
     
-    <!-- จุดไข่ปลาบอกระนาบสถานะสไลเดอร์ด้านล่างสุดของรูปภาพ -->
     <div class="concept-dots">
         <span class="dot active"></span>
         <span class="dot"></span>
