@@ -1,63 +1,28 @@
-<footer class="py-4 text-center text-muted border-top border-secondary bg-dark">
-        <div class="container">
-            <small>&copy; <?php echo date('Y'); ?> Cask Investment Portfolio. All rights reserved.</small>
-        </div>
+<footer class="py-3 text-center text-muted bg-black" style="position: fixed; bottom: 0; width: 100%; z-index: 10; background: rgba(0,0,0,0.5) !important; backdrop-filter: blur(5px);">
+        <small>&copy; <?php echo date('Y'); ?> FAHMAI. All rights reserved.</small>
     </footer>
 
-    <!-- 1. โหลดคลังสคริปต์หลักของ Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- 2. โหลดเครื่องยนต์หลัก GSAP และตัวดักการสกรอลล์ ScrollTrigger สำหรับเอฟเฟกต์ระดับโปร -->
+    <!-- โหลดแกนหลัก GSAP และ ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-    <!-- 3. ลอจิกควบคุมแอนิเมชันสไตล์ Interactive Web อาศัยทรัพยากร GPU -->
     <script>
-        // เปิดใช้งานโมดูลดักจับการเลื่อนหน้าจอ
         gsap.registerPlugin(ScrollTrigger);
 
-        // 🌟 เอฟเฟกต์ที่ 1: ตัวอักษรผุดเลื่อนขึ้นมาทีละแถวอย่างนุ่มนวลเมื่อเลื่อนจอมาถึง
-        gsap.utils.toArray('.gsap-reveal').forEach((text) => {
-            gsap.to(text, {
-                scrollTrigger: {
-                    trigger: text,
-                    start: "top 85%", // เริ่มทำเมื่อข้อความโผล่พ้นขอบล่างจอมา 15%
-                    toggleActions: "play none none none" // เล่นรอบเดียวจบเพื่อความคลีน
-                },
-                opacity: 1,
-                y: 0,
-                duration: 1.2,
-                ease: "power3.out"
-            });
-        });
+        const container = document.querySelector(".horizontal-container");
+        const sections = gsap.utils.toArray(".horiz-section");
 
-        // 🌟 เอฟเฟกต์ที่ 2: เปลี่ยนสีพื้นหลังตัวเว็บยืดหยุ่นตามเซกชันปัจจุบัน (สไตล์ lunchlab.fr)
-        gsap.utils.toArray('section[data-bg]').forEach((section) => {
-            const targetColor = section.getAttribute('data-bg');
-            
-            ScrollTrigger.create({
-                trigger: section,
-                start: "top 50%", // เปลี่ยนสีเมื่อกึ่งกลางของเซกชันเลื่อนมาถึงกลางจอ
-                end: "bottom 50%",
-                onEnter: () => document.body.style.backgroundColor = targetColor,
-                onEnterBack: () => document.body.style.backgroundColor = targetColor
-            });
-        });
-
-        // 🌟 เอฟเฟกต์ที่ 3: ระบบการ์ดเหลื่อมความเร็วพารัลแลกซ์ (Parallax Cards) 
-        gsap.utils.toArray('.card-parallax').forEach((card) => {
-            const speed = card.getAttribute('data-speed');
-            
-            gsap.to(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true // สั่งให้อนิเมชั่นผูกความเร็วตามน้ำหนักการหมุนเมาส์ของยูสเซอร์
-                },
-                y: speed,
-                ease: "none"
-            });
+        // ลอจิกสั่งล็อกหน้าจอแนวดิ่ง แล้วเปลี่ยนแรงสกรอลล์ให้วิ่งไปทางขวาแทน (สไตล์เว็บระดับโลก)
+        gsap.to(sections, {
+            xPercent: -100 * (sections.length - 1),
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".horizontal-wrapper",
+                pin: true,        // ล็อกหน้าจอไว้ไม่ให้เลื่อนลงล่างจนกว่าจะสไลด์ขวาจบ
+                scrub: 1,         // ให้ความลื่นไหลของหน้าเว็บผูกตามน้ำหนักนิ้วคนหมุนเมาส์
+                snap: 1 / (sections.length - 1), // ดูดหน้าจอเข้าจุดกึ่งกลางเซกชันโดยอัตโนมัติให้เนียนตา
+                end: () => "+=" + container.offsetWidth // กำหนดความลึกการเลื่อนตามความยาวหน้าเว็บจริง
+            }
         });
     </script>
 </body>

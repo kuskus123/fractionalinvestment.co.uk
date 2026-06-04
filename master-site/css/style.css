@@ -1,57 +1,103 @@
 /* master-site/css/style.css */
 
 :root {
-    --primary-gold: #D4AF37;
-    --whisky-amber: #AA6C39;
-    --dark-bg: #0b0b0d;
-    --card-bg: #16161a;
+    --primary-gold: #bfa030;
+    --dark-bg: #060608; /* ปรับพื้นหลังให้มืดลึกแบบในรูปเรฟ */
 }
 
-/* ตั้งค่าให้ Body เปลี่ยนสีพื้นหลังได้อย่างนุ่มนวล */
-body {
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden; /* ซ่อนแถบเลื่อนแนวนอนดิบของเบราว์เซอร์ */
     background-color: var(--dark-bg);
-    color: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
-    transition: background-color 0.8s ease; /* ดักจังหวะเปลี่ยนสีให้เนียน */
 }
 
-/* คลาสสำหรับซ่อนตัวหนังสือไว้ข้างล่าง ก่อนจะสั่งให้เลื่อนผุดขึ้นมา */
-.reveal-wrapper {
+/* ── CONTAINER จัดหน้าเว็บเรียงแนวนอน ── */
+.horizontal-wrapper {
     overflow: hidden;
-    display: block;
+    width: 100%;
 }
 
-.gsap-reveal {
-    opacity: 0;
-    transform: translateY(60px);
+.horizontal-container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 500vw; /* 5 เซกชัน * 100vw */
+    height: 100vh;
 }
 
-/* ปรับแต่งการ์ด Insights ให้เป็นแนวโปร่งแสงกระจกหรูหรา (Glassmorphic) */
+/* บังคับให้แต่ละเซกชันถมเต็มพื้นที่ 1 หน้าจอพอดี */
+.horiz-section {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 8%;
+}
+
+/* ── FAHMAI TYPOGRAPHY CLONE (image_5d5f26.jpg) ── */
+.lumen-style-branding {
+    text-align: center;
+    position: relative;
+    padding: 60px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ตัวอักษรใหญ่ บางเฉียบ เว้นระยะห่างสะใจ */
+.lumen-title {
+    font-family: 'Cinzel', serif;
+    font-size: 5.5rem;
+    font-weight: 400;
+    letter-spacing: 35px; /* ดึงช่องว่างตัวอักษรให้ห่างแบบหรูหรา */
+    color: #e6e3da;
+    text-transform: uppercase;
+    margin: 0;
+    padding-left: 35px; /* ชดเชยบาลานซ์ตัวสุดท้ายที่โดนดัน */
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+/* ซับไตเติ้ลตัวเอียงขนาดเล็กตรงกลาง */
+.lumen-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    letter-spacing: 6px;
+    color: rgba(191, 160, 48, 0.6);
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+/* เส้นแสงบน-ล่างที่ขอบค่อยๆ เฟดหายไปสองฝั่ง */
+.lumen-style-branding::before,
+.lumen-style-branding::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 450px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(191, 160, 48, 0.35), transparent);
+}
+
+.lumen-style-branding::before {
+    top: 0;
+}
+
+.lumen-style-branding::after {
+    bottom: 0;
+}
+
+/* ปรับแต่งกล่อง Insights (Glassmorphism) ให้เนียนตาเวลาเลื่อนผ่าน */
 .premium-card {
-    background: rgba(22, 22, 26, 0.6) !important;
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease;
-}
-
-.premium-card:hover {
-    border-color: var(--primary-gold) !important;
-}
-
-/* ปุ่มแม่เหล็กจำลองโครงสร้าง */
-.magnetic-wrap {
-    display: inline-block;
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* ปุ่มทองคำพรีเมียมเดิม */
-.btn-gold-premium {
-    background: linear-gradient(135deg, var(--primary-gold) 0%, #bfa030 100%);
-    color: #000000 !important;
-    font-weight: 700;
-    letter-spacing: 1px;
-    border: none;
-    border-radius: 4px;
-    transition: box-shadow 0.4s ease;
+    background: rgba(22, 22, 26, 0.4) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.03) !important;
+    white-space: normal; /* ป้องกันเนื้อหาการ์ดไหลเป็นเส้นตรง */
 }
