@@ -17,7 +17,7 @@
 </div>
 
 <!-- 2. 🌟 หน้าแกลเลอรีจำลอง (กัสสามารถเปลี่ยนพาธรูปภาพใน url() ตรงนี้แยกตามโดเมนเว็บลูกได้เลยครับ) -->
-<div id="conceptSection" class="concept-container" style="background-image: url('assets/images/Bghome.jpg');">
+<div id="conceptSection" class="concept-container" style="background-image: url('assets/images/Bghome.webp');">
     
     <!-- 🌟 ผ้าใบสำหรับคำนวณกราฟิกละอองฝุ่นสีทองลอยเอื่อยๆ -->
     <canvas id="particleCanvas"></canvas>
