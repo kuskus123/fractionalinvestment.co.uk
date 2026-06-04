@@ -834,3 +834,170 @@ body.homepage-unlocked .homepage-real-content {
     color: var(--primary-gold);
     font-style: italic;
 }
+/* master-site/css/style.css */
+
+/* ── 🌟 ดีไซน์ระเบียบหน้ากระดานข่าว Grid บทความวงใน (Strategic Intel Grid System) ── */
+.luxury-blog-wrapper {
+    max-width: 1200px; /* ขยายหน้ากว้างขึ้นเพื่อรองรับการวางหน้ากระดาน 3 คอลัมน์คู่ขนาน */
+    margin: 160px auto 100px auto;
+    padding: 0 35px;
+    box-sizing: border-box;
+}
+
+.blog-hero {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.blog-meta {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--primary-gold); /* ดึงค่าสีทองหลักจากตัวแปร :root มาใช้งาน */
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.blog-main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: #eae7df;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.blog-lead-in {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: rgba(234, 231, 223, 0.5);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.blog-divider {
+    width: 80px;
+    height: 1px;
+    background: var(--primary-gold);
+    margin: 40px auto 0 auto;
+    opacity: 0.4;
+}
+
+/* ตัวจัดการเลย์เอาต์ Grid สลับคอลัมน์อัตโนมัติตามขนาดหน้าจอคอมพิวเตอร์และมือถือ */
+.luxury-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* บล็อกกล่องการ์ดเดี่ยวสไตล์แฟ้มข้อมูลลับ */
+.blog-intel-card {
+    background: linear-gradient(135deg, rgba(20, 20, 25, 0.35) 0%, rgba(10, 10, 12, 0.55) 100%);
+    border: 1px solid rgba(191, 160, 48, 0.08); /* ตีกรอบเส้นทองบางเบา 8% ป้องกันความเวิ้งว้าง */
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.5s ease, 
+                box-shadow 0.5s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 🌟 เอฟเฟกต์ตอนร่อนเมาส์ผ่าน: การ์ดดีดตัวขึ้น 6 พิกเซลพร้อมยิงเงาดำลึกสาดหนุนหลัง */
+.blog-intel-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(191, 160, 48, 0.35);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(191, 160, 48, 0.04);
+}
+
+/* พื้นที่ช่องสแตนด์บายรูปภาพประจำการ์ด */
+.card-image-area {
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid rgba(191, 160, 48, 0.08);
+}
+
+.blog-image-placeholder {
+    width: 100%;
+    height: 210px;
+    background: #0d0d11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: rgba(234, 231, 223, 0.2);
+    letter-spacing: 2px;
+}
+
+/* พื้นที่จัดระเบียบตัวอักษรด้านล่างรูปภาพ */
+.card-content-area {
+    padding: 30px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.card-meta-tags {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    color: rgba(234, 231, 223, 0.4);
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.meta-dot {
+    width: 3px;
+    height: 3px;
+    background-color: var(--primary-gold);
+    border-radius: 50%;
+}
+
+.card-article-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    color: #eae7df;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0 0 15px 0;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.blog-intel-card:hover .card-article-title {
+    color: var(--primary-gold); /* หัวข้อบทความเปลี่ยนเป็นสีทองผุดขึ้นมาสู้แสงเมาส์ */
+}
+
+.card-article-excerpt {
+    font-family: 'Georgia', serif;
+    font-size: 0.9rem;
+    color: rgba(234, 231, 223, 0.55);
+    line-height: 1.7;
+    margin: 0 0 30px 0;
+    text-align: justify;
+}
+
+/* ปุ่มลิงก์สไตล์ Text-CTA ด้านล่างสุดของการ์ด */
+.btn-read-intel {
+    align-self: flex-start;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: rgba(234, 231, 223, 0.5);
+    text-decoration: none !important;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.blog-intel-card:hover .btn-read-intel {
+    color: var(--primary-gold);
+    letter-spacing: 3px; /* ตัวอักษรยืดกว้างขึ้นเล็กน้อยเพื่อเพิ่มมิติไดนามิก */
+}
