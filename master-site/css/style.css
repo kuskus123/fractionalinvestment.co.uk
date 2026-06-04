@@ -21,7 +21,7 @@ body.is-intro-page {
     transition: overflow 0.3s ease;
 }
 
-/* 🌟 คลาสพิเศษที่จะใช้สคริปต์ JS ยัดใส่ Body เพื่อปลดล็อกให้เลื่อนเมาส์ดิ่งลงได้หลังกด Enter */
+/* คลาสพิเศษที่จะใช้สคริปต์ JS ยัดใส่ Body เพื่อปลดล็อกให้เลื่อนเมาส์ดิ่งลงได้หลังกด Enter */
 body.homepage-unlocked {
     overflow-y: auto !important;
 }
@@ -32,7 +32,7 @@ body.normal-page {
     background-color: #0b0b0d; 
 }
 
-/* ── ซ่อน NAVBAR เริ่มต้น (บีบให้ทำงานเฉพาะบนหน้าแรก body.is-intro-page เท่านั้น) ── */
+/* ── ซ่อน NAVBAR เริ่มต้น ── */
 body.is-intro-page .navbar {
     opacity: 0;
     transform: translateY(-20px);
@@ -46,7 +46,6 @@ body.is-intro-page .navbar.show-menu {
     pointer-events: auto;
 }
 
-/* ถ้าเป็นหน้าปกติ ให้เนฟบาร์แสดงตัว 100% ทันที ไม่ต้องซ่อน */
 body.normal-page .navbar {
     opacity: 1 !important;
     transform: translateY(0) !important;
@@ -179,7 +178,7 @@ body.normal-page .navbar {
    MASTERPIECE GALLERY SYSTEM (Dark Room)
    ========================================== */
 
-/* ── เลเยอร์หลักของพื้นที่แสดงงาน ── */
+/* ── เลเยอร์หลักของพื้นที่แสดงงาน (ล็อกกึ่งกลางแน่นปึ้ก) ── */
 .concept-container {
     position: fixed;
     top: 0;
@@ -191,22 +190,19 @@ body.normal-page .navbar {
     background-repeat: no-repeat;
     background-color: #060608;
     
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;          
+    justify-content: center !important; 
+    align-items: center !important;     
     opacity: 0;
     visibility: hidden;
     transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.4s ease;
     z-index: 1;
 }
 
-/* 🌟 แก้ไขไม้ตาย: จังหวะปลดล็อกโฮมเพจ ให้คงสถานะ Flex จัดระเบียบกึ่งกลางแนวตั้งไว้ตลอดกาล ไม่เบี้ยวซ้ายอีกแล้ว */
+/* จังหวะปลดล็อกโฮมเพจ: เปลี่ยนตู้คอนเทนเนอร์ให้คุมสกรอลล์แนวดิ่งอิสระ */
 body.homepage-unlocked .concept-container {
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    display: block !important; 
 }
 
 /* 🌟 เลเยอร์หน้ากากถมดำสลัวจำลองลำแสงไฟฉาย (Flashlight Beam) */
@@ -265,10 +261,14 @@ body.homepage-unlocked #particleCanvas {
 .concept-content {
     position: relative;
     z-index: 2; 
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    text-align: center;     
+    width: 100%;
     max-width: 800px;
     padding: 0 20px;
-    margin: 0 auto;
+    margin: 0 auto;         
 }
 
 .concept-tag {
@@ -278,7 +278,6 @@ body.homepage-unlocked #particleCanvas {
     color: rgba(191, 160, 48, 0.55);
     margin-bottom: 30px;
     text-transform: uppercase;
-    text-align: center;
 }
 
 .concept-title {
@@ -289,9 +288,9 @@ body.homepage-unlocked #particleCanvas {
     color: #eae7df; 
     margin-bottom: 35px;
     letter-spacing: 1px;
-    text-align: center; /* บังคับอยู่ตรงกลางแน่นๆ */
+    text-align: center;     
+    width: 100%;
 }
-
 .concept-title em {
     font-style: italic;
     color: #bfa030;
@@ -314,7 +313,7 @@ body.homepage-unlocked #particleCanvas {
     letter-spacing: 1px;                              
     line-height: 1.8;                                 
     margin-bottom: 8px;
-    text-align: center; /* บังคับข้อความย่อยอยู่ตรงกลาง */
+    text-align: center; 
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 
                  0 4px 10px rgba(0, 0, 0, 0.8);
 }
@@ -385,21 +384,23 @@ body.homepage-unlocked #particleCanvas {
    ========================================== */
 
 /* พื้นที่เนื้อหาตัวจริงของหน้าแรก */
+/* 🌟 ไม้ตายเด็ด: ใช้ position: absolute แขวนไว้ที่ 100vh ด้านล่าง เพื่อตัดขาดไม่ให้ไปเบียดเลเยอร์ด่านแรกเบี้ยวอีก */
 .homepage-real-content {
-    position: relative;
+    position: absolute;
+    top: 100vh;
+    left: 50%;
+    transform: translateX(-50%) translateY(50px);
     width: 100%;
     max-width: 1200px;
-    margin: 100vh auto 0 auto; 
     padding: 120px 20px;
     z-index: 2;
     opacity: 0;
-    transform: translateY(50px);
     transition: all 1.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .homepage-real-content.content-reveal {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
 
 /* บล็อกหัวข้อ Niche ประจำโดเมน */
