@@ -633,12 +633,18 @@ body.homepage-unlocked .homepage-real-content {
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.85);
 }
 
-/* ระบบปรับแต่งขนาดหน้าจอ Responsive ป้องกันบอร์ดล้นในมือถือ */
-@media (max-width: 992px) {
-    .luxury-article-wrapper {
-        margin: 120px 20px 60px 20px;
-        padding: 45px 30px;
-    }
+/* ── 🌟 ดีไซน์ระเบียบหน้าอ่านบทความ Guide (เวอร์ชันมินิมอลไร้กรอบ คลีนตา อ่านง่ายสูงสุด) ── */
+.luxury-article-wrapper {
+    max-width: 800px; /* ล็อกความกว้างเท่าเดิมเพื่อให้สายตาไม่ต้องกวาดกว้าง */
+    margin: 160px auto 100px auto; 
+    padding: 0 25px;
+    box-sizing: border-box;
+    
+    /* 🌟 ทุบแผ่นบอร์ดหลัง ขอบทอง และเอฟเฟกต์เบลอทิ้งทั้งหมดเพื่อคืนชีพความโล่งลึกลับตามใจกัส */
+    background: transparent !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
 }
 
 .article-hero {
@@ -668,7 +674,7 @@ body.homepage-unlocked .homepage-real-content {
     font-family: 'Georgia', serif;
     font-style: italic;
     font-size: 1.15rem;
-    color: rgba(234, 231, 223, 0.55); /* ปรับความสว่างบทนำขึ้นเล็กน้อย */
+    color: rgba(234, 231, 223, 0.55); 
     line-height: 1.7;
     max-width: 650px;
     margin: 0 auto;
@@ -703,15 +709,15 @@ body.homepage-unlocked .homepage-real-content {
     font-weight: 400;
 }
 
-/* 🌟 ปรับเปลี่ยนพลังความอ่านง่าย (Readability Engine) บนหน้าจอมืด */
+/* 🌟 พลังความอ่านง่ายแบบไร้กล่อง: ใช้สีงาช้างเข้มสว่าง 100% ตัดกับพื้นดำตรงๆ */
 .article-body-content p {
     font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 1.1rem; /* ขยายขนาดฟอนต์ขึ้นเล็กน้อยเพื่อลดการเพ่งสายตา */
-    color: #e3e0d5; /* เปลี่ยนเป็นสีงาช้างอุ่น (Warm Ivory) สว่าง 100% ไม่โปร่งแสง ตัวหนังสือจะเด้งลอยเด่นเหนือกองพื้นหลังมืด */
-    line-height: 1.95; /* เพิ่มระยะห่างช่องไฟระหว่างบรรทัดให้โปร่ง สบายตา สไตล์นิตยสารอินเตอร์ */
+    font-size: 1.1rem; 
+    color: #e3e0d5; /* สีงาช้างอุ่น ไม่โปร่งแสง ตัวอักษรจะคมกริบไม่จมหาย */
+    line-height: 1.95; /* ช่องไฟกว้าง อ่านสบายตาบนความมืด */
     margin-bottom: 28px;
     text-align: justify; 
-    letter-spacing: 0.2px; /* ขยายช่องไฟตัวอักษร Serif ให้หายใจสะดวกขึ้น */
+    letter-spacing: 0.2px; 
 }
 
 .article-body-content em {
