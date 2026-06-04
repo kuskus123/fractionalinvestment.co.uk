@@ -640,17 +640,29 @@ body.homepage-unlocked .homepage-real-content {
 .luxury-article-wrapper {
     max-width: 800px;
     margin: 160px auto 100px auto; /* เว้นพื้นที่ด้านบนหลบแนว Navbar */
-    padding: 0 25px;
+    padding: 60px 25px 25px 25px; /* เพิ่ม Padding ด้านบนเล็กน้อยเพื่อให้จังหวะแสงตกกระทบสวยงาม */
     box-sizing: border-box;
-    background: transparent !important;
+    
+    /* 🌟 ไม้ตายฉีดลำแสงรูปทรงกรวยส่องดิ่งลงมาจากเพดาน (ตามรูป Untitled.png) */
+    /* ใช้สีทองพรีเมียมความสว่างบางเบาพิเศษ 6% ไล่เฉดวาดเฉียงลงไปตัดดับกับความมืดสนิทอย่างนุ่มนวล */
+    background: radial-gradient(
+        ellipse at top center, 
+        rgba(191, 160, 48, 0.06) 0%,    /* จุดกำเนิดแสงสปอตไลท์ด้านบนสุด */
+        rgba(191, 160, 48, 0.02) 40%,   /* แสงเริ่มแผ่ขยายและจางลงนุ่มๆ */
+        rgba(6, 6, 8, 0) 75%            /* ตัดดับกลืนหายเข้าสู่ความมืดสนิทอย่างสมบูรณ์ */
+    ) !important;
+    
     border: none !important;
     backdrop-filter: none !important;
     box-shadow: none !important;
 }
 
+/* ส่วนหัวข้อหลักลอยเหนือกองแสง */
 .article-hero {
     text-align: center;
     margin-bottom: 50px;
+    position: relative;
+    z-index: 2; /* ดันหัวข้อลอยเด่นเหนือกองเฉดแสง */
 }
 
 .article-meta {
@@ -669,6 +681,8 @@ body.homepage-unlocked .homepage-real-content {
     line-height: 1.3;
     letter-spacing: 1px;
     margin-bottom: 25px;
+    /* ยิงเงาตัวอักษรบางๆ ป้องกันแสงกลืน */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 .article-lead-in {
@@ -689,7 +703,12 @@ body.homepage-unlocked .homepage-real-content {
     opacity: 0.4;
 }
 
-/* ไส้ในตัวอักษรบทความ เน้น Georgia Serif คลีนตา */
+/* ไส้ในตัวอักษรบทความ */
+.article-body-content {
+    position: relative;
+    z-index: 2;
+}
+
 .article-body-content h2 {
     font-family: 'Cinzel', serif;
     font-size: 1.6rem;
@@ -716,7 +735,7 @@ body.homepage-unlocked .homepage-real-content {
     color: rgba(234, 231, 223, 0.75);
     line-height: 1.9;
     margin-bottom: 25px;
-    text-align: justify; /* จัดระเบียบขอบข้อความซ้ายขวาให้เสมอกันสไตล์นิตยสารสากล */
+    text-align: justify;
 }
 
 .article-body-content em {
