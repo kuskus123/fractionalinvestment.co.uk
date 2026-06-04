@@ -2,68 +2,56 @@
 
 :root {
     --primary-gold: #bfa030;
-    --dark-bg: #060608; /* ปรับพื้นหลังให้มืดลึกแบบในรูปเรฟ */
+    --dark-bg: #060608;
 }
 
+/* ล็อกหน้าจอเริ่มต้นไม่ให้สกรอลล์แนวนอนหลุดเฟรม */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100vh;
-    overflow-x: hidden; /* ซ่อนแถบเลื่อนแนวนอนดิบของเบราว์เซอร์ */
+    overflow: hidden; /* ล็อกไว้ก่อน เดี๋ยวใช้ JS ปลดล็อกตอนคลิก */
     background-color: var(--dark-bg);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ── CONTAINER จัดหน้าเว็บเรียงแนวนอน ── */
-.horizontal-wrapper {
-    overflow: hidden;
-    width: 100%;
+/* ── ซ่อน NAVBAR เริ่มต้น (แก้ปัญหาตามรูป image_5d53e1.png) ── */
+.navbar {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1s ease, transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none; /* ห้ามคลิกจนกว่าจะเปิดตัว */
 }
 
-.horizontal-container {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 500vw; /* 5 เซกชัน * 100vw */
-    height: 100vh;
+.navbar.show-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
-/* บังคับให้แต่ละเซกชันถมเต็มพื้นที่ 1 หน้าจอพอดี */
-.horiz-section {
-    width: 100vw;
-    height: 100vh;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    box-sizing: border-box;
-    padding: 0 8%;
-}
-
-/* ── FAHMAI TYPOGRAPHY CLONE (image_5d5f26.jpg) ── */
-.lumen-style-branding {
-    text-align: center;
-    position: relative;
-    padding: 60px 0;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* ตัวอักษรใหญ่ บางเฉียบ เว้นระยะห่างสะใจ */
+/* ── คลาสจัดตัวอักษรแยกชิ้นสำหรับทำอนิเมชั่นผุดทีละตัว ── */
 .lumen-title {
     font-family: 'Cinzel', serif;
     font-size: 5.5rem;
     font-weight: 400;
-    letter-spacing: 35px; /* ดึงช่องว่างตัวอักษรให้ห่างแบบหรูหรา */
-    color: #e6e3da;
     text-transform: uppercase;
     margin: 0;
-    padding-left: 35px; /* ชดเชยบาลานซ์ตัวสุดท้ายที่โดนดัน */
-    text-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
-/* ซับไตเติ้ลตัวเอียงขนาดเล็กตรงกลาง */
+/* บังคับอักษรแต่ละตัวให้เว้นห่างและเตรียมพร้อมรับแรงดีด */
+.lumen-title span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px);
+    letter-spacing: 35px;
+    text-indent: 35px; /* คุมระนาบกึ่งกลางเป๊ะไม่ให้เบี้ยว */
+    color: #e6e3da;
+}
+
 .lumen-subtitle {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -72,32 +60,31 @@ html, body {
     color: rgba(191, 160, 48, 0.6);
     margin-top: 25px;
     text-transform: uppercase;
+    opacity: 0; /* ซ่อนไว้รอคิว */
 }
 
-/* เส้นแสงบน-ล่างที่ขอบค่อยๆ เฟดหายไปสองฝั่ง */
-.lumen-style-branding::before,
-.lumen-style-branding::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+/* ── เส้นแสงระดับพรีเมียมคุมแยกชิ้น ── */
+.lumen-line {
     width: 450px;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(191, 160, 48, 0.35), transparent);
+    background: linear-gradient(to right, transparent, rgba(191, 160, 48, 0.45), transparent);
+    margin: 0 auto;
+    transform: scaleX(0); /* เริ่มต้นหดตัวจากตรงกลางเป็น 0 */
 }
 
-.lumen-style-branding::before {
-    top: 0;
+.lumen-style-branding {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    cursor: pointer; /* เปลี่ยนเมาส์เป็นรูปมือให้รู้ว่ากดคลิกเข้าเว็บได้ */
 }
 
-.lumen-style-branding::after {
-    bottom: 0;
+/* ── ซ่อนคอนเทนต์ส่วนอื่นชั่วคราว ── */
+.horizontal-wrapper {
+    opacity: 0;
+    pointer-events: none;
 }
-
-/* ปรับแต่งกล่อง Insights (Glassmorphism) ให้เนียนตาเวลาเลื่อนผ่าน */
-.premium-card {
-    background: rgba(22, 22, 26, 0.4) !important;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.03) !important;
-    white-space: normal; /* ป้องกันเนื้อหาการ์ดไหลเป็นเส้นตรง */
+.horizontal-wrapper.active-site {
+    opacity: 1;
+    pointer-events: auto;
 }

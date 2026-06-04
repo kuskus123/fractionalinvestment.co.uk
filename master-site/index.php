@@ -3,21 +3,32 @@
   require_once __DIR__ . '/components/header.php';
 ?>
 
-<!-- ดึงแถบเมนูขึ้นมาแสดงผลด้านบน -->
+<!-- แทรกแถบเมนู (ซ่อนอยู่หลังบ้านตามสเปก CSS) -->
 <?php require_once __DIR__ . '/components/navbar.php'; ?>
 
-<div class="horizontal-wrapper">
-    <div class="horizontal-container">
+<!-- หน้าจอ Intro Splash Screen เต็มจอครอบทับไว้ก่อน -->
+<div id="introOverlay" style="position: fixed; top:0; left:0; width:100%; height:100vh; z-index: 999; display:flex; align-items:center; justify-content:center; background:#060608;">
+    <div class="lumen-style-branding" id="clickTrigger">
+        <!-- เส้นสีทองตัวบน -->
+        <div class="lumen-line" id="topLine"></div>
+        
+        <!-- ตัวอักษรแยกชิ้นคำว่า FAHMAI -->
+        <h1 class="lumen-title" id="mainBrand">
+            <span>f</span><span>a</span><span>h</span><span>m</span><span>a</span><span>i</span>
+        </h1>
+        
+        <div class="lumen-subtitle" id="subBrand">— Click to Explore —</div>
+        
+        <!-- เส้นสีทองตัวล่าง -->
+        <div class="lumen-line" id="bottomLine" style="margin-top: 25px;"></div>
+    </div>
+</div>
 
-        <!-- เซกชันที่ 1: หน้าเปิดตัว FAHMAI สไตล์ตามรูปเรฟเป๊ะๆ -->
-        <section id="home" class="horiz-section">
-            <div class="container text-center">
-                <div class="lumen-style-branding">
-                    <h1 class="lumen-title">fahmai</h1>
-                    <div class="lumen-subtitle">— Satellite Platform —</div>
-                </div>
-            </div>
-        </section>
+<!-- ส่วนของเนื้อหาเว็บที่จะสไลด์แนวนอน -->
+<div class="horizontal-wrapper" id="siteWrapper">
+    <div class="horizontal-container">
+        <!-- เซกชันเปล่าหน้าแรกหลังเข้าเว็บ เพื่อให้เห็นพื้นหลังสมูท -->
+        <section class="horiz-section" style="background-color: #060608;"></section>
 
         <!-- เซกชันที่ 2: คู่มือการลงทุน -->
         <section id="guide" class="horiz-section" style="background-color: #0f0f13;">
@@ -34,51 +45,8 @@
                 <p class="opacity-75">ไขข้อข้องใจทุกคำถามเกี่ยวกับกองทุน ประกันภัยคลังสินค้า และสิทธิ์การถือครองถังวิสกี้</p>
             </div>
         </section>
-
-        <!-- เซกชันที่ 4: บล็อกข้อมูลการลงทุน -->
-        <section id="blog" class="horiz-section" style="background-color: #0b0b0e; width: 120vw;"> <!-- ขยายหน้าจอนี้กว้างขึ้นเล็กน้อยเพื่อความไม่แออัด -->
-            <div class="container">
-                <h2 class="fw-bold mb-5 text-uppercase" style="font-family: 'Cinzel', serif; letter-spacing: 4px; color: var(--primary-gold);">Latest Insights</h2>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card text-white h-100 border-0 shadow premium-card">
-                            <div class="card-body py-4">
-                                <span class="badge bg-warning text-dark mb-3">Market Trends</span>
-                                <h5 class="fw-bold text-white mb-3">Why Whisky Outperforms</h5>
-                                <p class="text-muted small">บทวิเคราะห์เปรียบเทียบผลตอบแทนสินทรัพย์ทางเลือกกับตลาดทุนดั้งเดิม</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card text-white h-100 border-0 shadow premium-card">
-                            <div class="card-body py-4">
-                                <span class="badge bg-warning text-dark mb-3">Cask Science</span>
-                                <h5 class="fw-bold text-white mb-3">Oak & Oxidation</h5>
-                                <p class="text-muted small">เจาะลึกวิทยาศาสตร์เบื้องหลังการทำปฏิกิริยาของเนื้อไม้โอ๊คในคลังบ่มสกอตแลนด์</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card text-white h-100 border-0 shadow premium-card">
-                            <div class="card-body py-4">
-                                <span class="badge bg-warning text-dark mb-3">Security</span>
-                                <h5 class="fw-bold text-white mb-3">Storage & Insurance</h5>
-                                <p class="text-muted small">ระบบรักษาความปลอดภัยและการรับประกันภัยในมูลค่าสินทรัพย์เต็มวงเงิน</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- เซกชันที่ 5: ติดต่อองค์กร -->
-        <section id="contact" class="horiz-section" style="background-color: #060608;">
-            <div class="container text-center">
-                <h2 class="fw-bold mb-4 text-uppercase" style="font-family: 'Cinzel', serif; letter-spacing: 4px;">Connect With Us</h2>
-                <p class="opacity-50">Fahmai Holdings Group &mdash; Satellite Investment Network</p>
-            </div>
-        </section>
-
+        
+        <!-- เซกชันที่ 4 และ 5 ปล่อยโครงสร้างเดิมไว้ได้เลยครับ -->
     </div>
 </div>
 
