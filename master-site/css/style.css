@@ -116,3 +116,142 @@ body.normal-page .navbar {
     );
     transition: opacity 1s ease-in-out;
 }
+/* ==========================================
+   MASTERPIECE GALLERY SYSTEM (image_5cd116.jpg) 
+   ========================================== */
+
+.concept-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #060608;
+    
+    /* ย้อมแบคกราวด์มืดลึกไล่ระดับความสลัวแบบในภาพ */
+    background-image: linear-gradient(to bottom, rgba(6, 6, 8, 0.88), rgba(6, 6, 8, 0.94));
+    background-size: cover;
+    background-position: center;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* ซ่อนสถานะเริ่มต้นไว้ก่อนเพื่อรอรับคำสั่งสับเปลี่ยนจากปุ่ม FAHMAI */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.4s ease;
+    z-index: 1;
+}
+
+/* คลาสเปิดใช้งานหน้าแกลเลอรี */
+.concept-container.show-concept {
+    opacity: 1;
+    visibility: visible;
+}
+
+.concept-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.concept-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 7px;
+    color: rgba(191, 160, 48, 0.55);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* ถอดรหัสขนาดและน้ำหนักฟอนต์ตามโครงสร้างรูปเรฟ */
+.concept-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5.2rem;
+    font-weight: 300;
+    line-height: 1.15;
+    color: #eae7df; /* สีขาวงาช้างหรูหราไม่สว่างจ้าเกินไป */
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+}
+
+/* คำว่า casks ที่ทำเป็นตัวเอียงสีทองบางกริ๊บตามคำว่า lights */
+.concept-title em {
+    font-style: italic;
+    color: #bfa030;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+}
+
+.concept-subtext {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(234, 231, 223, 0.65);
+    margin-bottom: 45px;
+}
+
+.concept-subtext p {
+    margin: 4px 0;
+}
+
+/* ปุ่มกดรูปทรง Outline แคปซูลบางเฉียบ */
+.btn-concept-enter {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    color: #eae7df !important;
+    text-decoration: none !important;
+    border: 1px solid rgba(234, 231, 223, 0.25);
+    padding: 11px 40px;
+    border-radius: 30px;
+    letter-spacing: 4px;
+    text-indent: 4px;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    background: transparent;
+}
+
+.btn-concept-enter:hover {
+    border-color: #bfa030;
+    box-shadow: 0 0 20px rgba(191, 160, 48, 0.15);
+    letter-spacing: 6px;
+    text-indent: 6px;
+}
+
+.concept-footer-note {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: rgba(234, 231, 223, 0.35);
+    margin-top: 50px;
+}
+
+/* จุดไข่ปลาเรียงสถานะด่านล่าง */
+.concept-dots {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 14px;
+}
+
+.concept-dots .dot {
+    width: 5px;
+    height: 5px;
+    background: rgba(234, 231, 223, 0.15);
+    border-radius: 50%;
+}
+
+.concept-dots .dot.active {
+    background: #bfa030;
+    box-shadow: 0 0 8px #bfa030;
+}
+
+/* คลาสเตรียมความพร้อมการเฟดผุดข้อความสเต็ปสอง */
+.concept-reveal {
+    opacity: 0;
+    transform: translateY(15px);
+}
