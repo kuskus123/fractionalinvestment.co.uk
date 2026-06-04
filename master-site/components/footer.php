@@ -132,6 +132,29 @@
             }
             setup(); loop();
         }
+        // master-site/components/components/footer.php
+
+        // 🌟 สคริปต์คำนวณลำแสงไฟฉายอัจฉริยะวิ่งตามเมาส์พร้อมแรงหน่วง (Dynamic Flashlight Inertia)
+        const flashlightContainer = document.getElementById("conceptSection");
+        if (flashlightContainer) {
+            window.addEventListener("mousemove", function(e) {
+                // เซฟตี้: ถ้าผู้ใช้กด ENTER เข้าหน้าโฮมเพจหลักไปแล้ว ให้หยุดทำงานทันทีเพื่อประหยัด CPU 
+                if (document.body.classList.contains("homepage-unlocked")) return;
+                
+                // แปลงพิกัดพิกเซลของเมาส์ให้กลายเป็นเปอร์เซ็นต์หน้าจอ (0 - 100%)
+                const mouseXPercentage = (e.clientX / window.innerWidth) * 100;
+                const mouseYPercentage = (e.clientY / window.innerHeight) * 100;
+                
+                // ใช้มหาเทพ GSAP สั่งอัปเดตตัวแปร CSS พร้อมใส่ค่าหน่วงเวลา (Duration 0.4 วินาที)
+                // จะทำให้ลำแสงไฟฉายมีความนุ่มนวล สมจริง ไม่กระตุกแข็งกระด้าง
+                gsap.to(flashlightContainer, {
+                    "--mouse-x": mouseXPercentage + "%",
+                    "--mouse-y": mouseYPercentage + "%",
+                    duration: 0.5,
+                    ease: "power1.out"
+                });
+            });
+        }
     </script>
 </body>
 </html>
