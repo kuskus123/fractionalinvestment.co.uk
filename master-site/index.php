@@ -98,14 +98,4 @@
         </section>
 
     </div>
-    
-    <div class="concept-dots" id="navigationDots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
-</div>
-
 <?php require_once __DIR__ . '/components/footer.php'; ?>
