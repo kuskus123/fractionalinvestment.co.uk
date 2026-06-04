@@ -203,26 +203,26 @@ body.normal-page .navbar {
 body.homepage-unlocked .concept-container {
     overflow-y: auto;
     display: block !important; 
+    
+    /* 📸 [ช่องแสตนด์บายรูปภาพโฮมเพจในอนาคต] */
+    /* background-image: url('../assets/images/your-new-homepage-bg.webp') !important; */
+    
+    /* 🌟 แก้ไข: เติม !important ล็อกตายให้รูปถังบ่มวาร์ปหายไปร้อยเปอร์เซ็นต์ */
+    background-image: none !important; 
+    background-color: #060608 !important; 
 }
-
-/* เลเยอร์หน้ากากถมดำสลัวจำลองลำแสงไฟฉาย (Flashlight Beam) */
-.concept-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+body.homepage-unlocked .concept-container::before {
+    /* 
+       ✨ เลเยอร์คุมความมืดสลัว (Overlay Mask) หน้าโฮมเพจ
+       - ตอนเป็นพื้นหลังดำ: ตัวนี้จะช่วยไล่เฉดเงานุ่มๆ ให้บอร์ดข้อมูลมีมิติอ่านง่าย 
+       - ตอนกัสใส่รูปในอนาคต: ตัวนี้จะทำหน้าที่เป็นฟิลเตอร์ถมดำ 88% บังคับให้รูปใหม่มืดลงอัตโนมัติ ไม่ให้แย่งซีนตัวหนังสือครับ
+    */
     background: radial-gradient(
         circle at center, 
-        rgba(238, 227, 205, 0.14) 0%,   
-        rgba(6, 6, 8, 0.88) 18%,        
-        rgba(6, 6, 8, 0.98) 40%,        
-        #060608 100%                    
-    );
-    z-index: 0;
-    pointer-events: none;
-    transition: background 1.8s cubic-bezier(0.25, 1, 0.5, 1); 
+        rgba(12, 12, 14, 0.88) 0%,   /* ถ้าใส่รูปแล้วอยากให้รูปชัดขึ้น ให้ปรับเลข 0.88 ดรอปลงมาได้ตามใจชอบ */
+        #060608 100%
+    ) !important;
+    position: fixed; /* ล็อกหน้ากากเงาให้ตรึงนิ่งอยู่เบื้องหลังเวลาสกรอลล์เมาส์ */
 }
 
 /* คลาสพิเศษเมื่อกด Enter: ขยายรัศมีแสงไฟฉายให้กว้างขึ้น */
