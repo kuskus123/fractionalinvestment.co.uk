@@ -1,3 +1,4 @@
+<!-- master-site/guide.php -->
 <?php 
   $page_title = "Beginner's Guide to Whisky Cask Investment | FAHMAI";
   require_once __DIR__ . '/components/header.php';
@@ -28,12 +29,20 @@
 
     <article class="article-body-content">
         <h2>1. The Mechanics of Liquid Wealth</h2>
-        <p>
+        
+        <!-- 🌟 ยัดคลาส class="has-drop-cap" ที่ย่อหน้าแรกสุดเพื่อเปิดระบบตัวอักษรใหญ่พรีเมียม -->
+        <p class="has-drop-cap">
             Whisky cask investment is fundamentally different from traditional equities or bottled spirits. Unlike bottled whisky, which ceases to mature once sealed in glass, whisky remaining inside the original oak cask actively interacts with its environment, developing complexity, color, and depth over decades. This natural chemical evolution forms the baseline of its financial appreciation.
         </p>
         <p>
             As the distillate breathes through the wood, a portion evaporates annually—a phenomenon known as the "Angel's Share." While volume decreases slightly, the concentration of rare flavors increases, driving up the market value of the remaining liquid asset.
         </p>
+
+        <!-- 🌟 แทรกบล็อกโควตคำพูดคั่นกลางระหว่างพารากราฟเพื่อทุบความโล่งของสายตา -->
+        <blockquote class="luxury-pull-quote">
+            "Unlike bottled spirits, a cask is a living, breathing asset that actively appreciates in flavor complexity and financial rarity every single year."
+            <span>— Institutional Maturation Insights</span>
+        </blockquote>
 
         <h2>2. Understanding Risk Factors and Provenance</h2>
         <p>
@@ -49,8 +58,7 @@
         <p>
             A sophisticated investor never enters a position without a clear exit architecture. Whisky casks offer multiple high-liquidity channels for realization: direct auction to luxury collectors, private sales to independent bottlers seeking rare components, or corporate buy-backs by major holding structures like <em>Fah Mai Holdings</em> or <em>Platinum Cask</em>.
         </p>
-        
-        </article>
+    </article>
 </main>
 
 <?php require_once __DIR__ . '/components/footer.php'; ?>

@@ -615,3 +615,44 @@ body.homepage-unlocked .homepage-real-content {
     color: var(--primary-gold);
     font-style: italic;
 }
+/* master-site/css/style.css */
+
+/* ── 🌟 ชุดเครื่องมือเสริมหน้า Guide ป้องกันหน้าเว็บโล่ง (Editorial Elements) ── */
+
+/* 1. คลาสอักษรตัวแรกยักษ์สไตล์นิตยสาร (Drop Cap) */
+.article-body-content p.has-drop-cap::first-letter {
+    font-family: 'Cinzel', serif;
+    font-size: 3.8rem;
+    font-weight: 400;
+    float: left;
+    color: var(--primary-gold);
+    line-height: 0.85;
+    margin-top: 6px;
+    margin-right: 12px;
+}
+
+/* 2. บล็อกคำพูดเลี่ยมทองคั่นกลางพารากราฟ (Premium Pull-Quote) */
+.luxury-pull-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.8rem;
+    color: #eae7df;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 650px;
+    margin: 45px auto;
+    padding: 25px 0;
+    border-top: 1px solid rgba(191, 160, 48, 0.25);
+    border-bottom: 1px solid rgba(191, 160, 48, 0.25);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.luxury-pull-quote span {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-style: normal;
+    font-size: 0.75rem;
+    color: var(--primary-gold);
+    letter-spacing: 2px;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
