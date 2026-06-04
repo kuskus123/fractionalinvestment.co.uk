@@ -178,7 +178,7 @@ body.normal-page .navbar {
    MASTERPIECE GALLERY SYSTEM (Dark Room)
    ========================================== */
 
-/* ── เลเยอร์หลักของพื้นที่แสดงงาน (ล็อกกึ่งกลางแน่นปึ้ก) ── */
+/* ── เลเยอร์หลักของพื้นที่แสดงงาน (ล็อกกึ่งกลางแม่นยำเรขาคณิต) ── */
 .concept-container {
     position: fixed;
     top: 0;
@@ -205,7 +205,7 @@ body.homepage-unlocked .concept-container {
     display: block !important; 
 }
 
-/* 🌟 เลเยอร์หน้ากากถมดำสลัวจำลองลำแสงไฟฉาย (Flashlight Beam) */
+/* เลเยอร์หน้ากากถมดำสลัวจำลองลำแสงไฟฉาย (Flashlight Beam) */
 .concept-container::before {
     content: '';
     position: absolute;
@@ -257,7 +257,7 @@ body.homepage-unlocked #particleCanvas {
     z-index: 1;
 }
 
-/* ── เลเยอร์เนื้อหาประตูด่านแรก ── */
+/* ── เลเยอร์เนื้อหาประตูด่านแรก (คุม Alignment บังคับอยู่ตรงกลางไฟฉาย) ── */
 .concept-content {
     position: relative;
     z-index: 2; 
@@ -384,18 +384,24 @@ body.homepage-unlocked #particleCanvas {
    ========================================== */
 
 /* พื้นที่เนื้อหาตัวจริงของหน้าแรก */
-/* 🌟 ไม้ตายเด็ด: ใช้ position: absolute แขวนไว้ที่ 100vh ด้านล่าง เพื่อตัดขาดไม่ให้ไปเบียดเลเยอร์ด่านแรกเบี้ยวอีก */
+/* 🌟 ไม้ตายเซฟตี้: ใส่ display: none ซ่อนไว้ก่อน เพื่อไม่ให้มันมาแชร์หน้ากว้าง Flexbox กับหน้าแรกจนเบี้ยวซ้าย */
 .homepage-real-content {
     position: relative;
-    margin: 140px auto 60px auto; /* ดันระยะลงมาจาก Navbar 140px ให้พอดีระดับสายตา */
+    display: none; 
+    margin: 140px auto 60px auto; 
     width: 100%;
     max-width: 1200px;
     padding: 0 20px;
     z-index: 2;
     opacity: 0;
-    transform: translateY(30px); /* เตรียมระยะดีดตัวสไลด์ขึ้นตอนเฟดเข้า */
+    transform: translateY(30px); 
     transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
     box-sizing: border-box;
+}
+
+/* 🌟 คืนชีพกลับมาแสดงผลปกติ เมื่อได้รับสคริปต์ปลดล็อกปลดปล่อยหน้าโฮมเพจ */
+body.homepage-unlocked .homepage-real-content {
+    display: block;
 }
 
 /* คลาสสั่งเฟดเปิดตัวเนื้อหาโฮมเพจ */
