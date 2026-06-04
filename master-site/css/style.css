@@ -5,7 +5,7 @@
     --dark-bg: #060608;
 }
 
-/* ── 🌟 แก้ไขจุดนี้: แยกโครงสร้างพื้นฐาน ไม่ให้ล็อกเหมารวมทุกหน้า ── */
+/* ── 🌟 โครงสร้างพื้นฐาน ── */
 html, body {
     margin: 0;
     padding: 0;
@@ -18,6 +18,12 @@ body.is-intro-page {
     height: 100vh;
     overflow: hidden; 
     background-color: var(--dark-bg);
+    transition: overflow 0.3s ease;
+}
+
+/* 🌟 คลาสพิเศษที่จะใช้สคริปต์ JS ยัดใส่ Body เพื่อปลดล็อกให้เลื่อนเมาส์ดิ่งลงได้หลังกด Enter */
+body.homepage-unlocked {
+    overflow-y: auto !important;
 }
 
 /* หน้าอื่นๆ ย่อยๆ: ปล่อยเลื่อนแนวตั้งได้อิสระ ไม่โดนลูกหลง */
@@ -45,6 +51,59 @@ body.normal-page .navbar {
     opacity: 1 !important;
     transform: translateY(0) !important;
     pointer-events: auto !important;
+}
+
+/* ── 🌟 แถบเมนูนำทางหรูหราประจำโฮมเพจ (Luxury Minimalist Navbar) ── */
+.luxury-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(-20px);
+    background: linear-gradient(to bottom, rgba(6, 6, 8, 0.85) 0%, rgba(6, 6, 8, 0) 100%);
+    pointer-events: none;
+    transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.luxury-nav.nav-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.nav-brand {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    color: #eae7df;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: rgba(234, 231, 223, 0.6);
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-gold);
 }
 
 /* ── คลาสจัดตัวอักษรแยกชิ้นสำหรับทำอนิเมชั่นผุดทีละตัว ── */
@@ -106,7 +165,7 @@ body.normal-page .navbar {
     pointer-events: auto;
 }
 
-/* ── 🌟 รัศมีแสงทองบางเบาตามแบบ image_5ceaa6.jpg ── */
+/* ── 🌟 รัศมีแสงทองบางเบาตอนอินโทร ── */
 #introOverlay {
     background: radial-gradient(
         circle at center, 
@@ -116,13 +175,12 @@ body.normal-page .navbar {
     );
     transition: opacity 1s ease-in-out;
 }
+
 /* ==========================================
-   MASTERPIECE GALLERY SYSTEM (image_5cd116.jpg) 
+   MASTERPIECE GALLERY SYSTEM (Dark Room)
    ========================================== */
 
-/* master-site/css/style.css */
-
-/* ── 🌟 เลเยอร์หลักของพื้นที่แสดงงาน ── */
+/* ── เลเยอร์หลักของพื้นที่แสดงงาน ── */
 .concept-container {
     position: fixed;
     top: 0;
@@ -143,7 +201,13 @@ body.normal-page .navbar {
     z-index: 1;
 }
 
-/* 🌟 เพิ่มเลเยอร์หน้ากากถมดำสลัว (Overlay Mask) บังคับให้รูปมืดลงตามสไตล์ Dark Room */
+/* จังหวะปลดล็อกโฮมเพจ: เปลี่ยนตู้คอนเทนเนอร์ให้คุมสกรอลล์แนวดิ่งอิสระ */
+body.homepage-unlocked .concept-container {
+    overflow-y: auto;
+    display: block; /* เปลี่ยนเป็น block เพื่อให้เนื้อหาไหลลงไปข้างล่างได้ตามปกติ */
+}
+
+/* 🌟 เลเยอร์หน้ากากถมดำสลัวจำลองลำแสงไฟฉาย (Flashlight Beam) */
 .concept-container::before {
     content: '';
     position: absolute;
@@ -151,19 +215,32 @@ body.normal-page .navbar {
     left: 0;
     width: 100%;
     height: 100%;
-    /* 
-       🌟 จำลองลำแสงไฟฉาย (Flashlight Beam) 
-       บีบรัศมีให้แคบลงเป็นวงกลมตรงกลาง แล้วตัดดับเข้าความมืดมิดรอบข้างทันที
-    */
     background: radial-gradient(
         circle at center, 
-        rgba(238, 227, 205, 0.14) 0%,   /* จุดโฟกัสไฟฉายสีขาวนวลอุ่น ๆ จาง ๆ แค่ 14% ไม่สว่างจ้า */
-        rgba(6, 6, 8, 0.88) 18%,        /* ลำแสงไฟฉายเริ่มกระจายและตัดลงอย่างรวดเร็วที่ระยะ 18% */
+        rgba(238, 227, 205, 0.14) 0%,   /* จุดโฟกัสไฟฉายสีขาวนวลอุ่น ๆ จาง ๆ แค่ 14% */
+        rgba(6, 6, 8, 0.88) 18%,        /* ลำแสงไฟฉายเริ่มกระจายและตัดลงอย่างรวดเร็ว */
         rgba(6, 6, 8, 0.98) 40%,        /* เข้าสู่มิติเงามืดรอบวงไฟฉายหนาแน่น 98% */
-        #060608 100%                    /* ขอบนอกสุดดับมืดสนิทร้อยเปอร์เซ็นต์ */
+        #060608 100%                    /* ขอบนอกสุดดับมืดสนิท */
     );
     z-index: 0;
     pointer-events: none;
+    transition: background 1.8s cubic-bezier(0.25, 1, 0.5, 1); /* คุมความนุ่มจังหวะสาดแสงไฟฉายให้กว้างขึ้น */
+}
+
+/* 🌟 คลาสพิเศษเมื่อกด Enter: ขยายรัศมีแสงไฟฉายให้กระจายเป็นไอแสงสีทองวิสกี้นุ่มๆ คุมความพรีเมียม */
+.concept-container.light-expanded::before {
+    background: radial-gradient(
+        circle at center, 
+        rgba(212, 143, 56, 0.06) 0%,   
+        rgba(6, 6, 8, 0.88) 55%,       
+        #060608 100%
+    );
+}
+
+/* เมื่อสั่งสกรอลล์โฮมเพจ: สั่งล็อกให้หน้ากากกับแคนวาสละอองฝุ่นตรึงนิ่งอยู่เบื้องหลัง */
+body.homepage-unlocked .concept-container::before,
+body.homepage-unlocked #particleCanvas {
+    position: fixed;
 }
 
 .concept-container.show-concept {
@@ -179,16 +256,17 @@ body.normal-page .navbar {
     width: 100%;
     height: 100%;
     pointer-events: none; 
-    z-index: 1; /* อยู่เหนือหน้ากากถมดำ แต่อยู่หลังตัวหนังสือ */
+    z-index: 1;
 }
 
-/* ── เลเยอร์เนื้อหาหน้าสุด ── */
+/* ── เลเยอร์เนื้อหาประตูด่านแรก ── */
 .concept-content {
     position: relative;
-    z-index: 2; /* ดันข้อความทั้งหมดให้อยู่ระนาบหน้าสุดร้อยเปอร์เซ็นต์ */
+    z-index: 2; 
     text-align: center;
     max-width: 800px;
     padding: 0 20px;
+    margin: 0 auto;
 }
 
 .concept-tag {
@@ -200,18 +278,16 @@ body.normal-page .navbar {
     text-transform: uppercase;
 }
 
-/* ถอดรหัสขนาดและน้ำหนักฟอนต์ตามโครงสร้างรูปเรฟ */
 .concept-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 5.2rem;
     font-weight: 300;
     line-height: 1.15;
-    color: #eae7df; /* สีขาวงาช้างหรูหราไม่สว่างจ้าเกินไป */
+    color: #eae7df; 
     margin-bottom: 35px;
     letter-spacing: 1px;
 }
 
-/* คำว่า casks ที่ทำเป็นตัวเอียงสีทองบางกริ๊บตามคำว่า lights */
 .concept-title em {
     font-style: italic;
     color: #bfa030;
@@ -224,20 +300,19 @@ body.normal-page .navbar {
     margin-bottom: 35px;
 }
 
-/* 🌟 บล็อกคืนชีพฟอนต์เอียง Serif และคงความคมชัดสู้แสงไฟฉาย */
+/* บล็อกซับไตเติลเอียง Serif คมชัดสู้แสงไฟฉาย */
 .concept-subtext p {
-    font-family: 'Georgia', 'Times New Roman', serif; /* บังคับดึงฟอนต์หรูหรามีหัวกลับมา */
-    font-style: italic;                               /* ดึงความเอียงละมุนอันเดิมกลับมา */
-    color: rgba(234, 231, 223, 0.85);                 /* ความสว่างสู้แสง 85% อ่านง่าย */
+    font-family: 'Georgia', 'Times New Roman', serif; 
+    font-style: italic;                               
+    color: rgba(234, 231, 223, 0.85);                 
     font-size: 0.95rem;                               
-    letter-spacing: 1px;                              /* เว้นระยะห่างตัวเอียงให้ละมุนตา */
+    letter-spacing: 1px;                              
     line-height: 1.8;                                 
     margin-bottom: 8px;
-    
-    /* ถมเงาดำหนุนหลังกันกลืนลงผิวไม้เหมือนเดิม */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 
                  0 4px 10px rgba(0, 0, 0, 0.8);
 }
+
 /* ปุ่มกดรูปทรง Outline แคปซูลบางเฉียบ */
 .btn-concept-enter {
     display: inline-block;
@@ -269,7 +344,7 @@ body.normal-page .navbar {
     margin-top: 50px;
 }
 
-/* จุดไข่ปลาเรียงสถานะด่านล่าง */
+/* จุดไข่ปลาเรียงสถานะ */
 .concept-dots {
     position: absolute;
     bottom: 45px;
@@ -277,6 +352,7 @@ body.normal-page .navbar {
     transform: translateX(-50%);
     display: flex;
     gap: 14px;
+    z-index: 5;
 }
 
 .concept-dots .dot {
@@ -291,8 +367,136 @@ body.normal-page .navbar {
     box-shadow: 0 0 8px #bfa030;
 }
 
-/* คลาสเตรียมความพร้อมการเฟดผุดข้อความสเต็ปสอง */
 .concept-reveal {
     opacity: 0;
     transform: translateY(15px);
+}
+
+/* ==========================================
+   🌟 HOMEPAGE MAIN CORE COMPONENTS (Below Fold)
+   ========================================== */
+
+/* พื้นที่เนื้อหาตัวจริงของหน้าแรก (ดันตัวลงไปกองอยู่ด้านล่างรอสกรอลล์) */
+.homepage-real-content {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 100vh auto 0 auto; 
+    padding: 120px 20px;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.homepage-real-content.content-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* บล็อกหัวข้อ Niche ประจำโดเมน */
+.niche-showcase-block {
+    text-align: center;
+    margin-bottom: 90px;
+}
+
+.niche-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    color: var(--primary-gold);
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.niche-main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.6rem;
+    color: #eae7df;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+.niche-description {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: rgba(234, 231, 223, 0.7);
+    line-height: 1.9;
+    max-width: 750px;
+    margin: 0 auto;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+/* ระบบการ์ดคู่ขนานดักส่งลูกค้าเลี่ยมทอง (Strategic CTA Grid) */
+.cta-twin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .cta-twin-grid { grid-template-columns: 1fr; }
+}
+
+.luxury-gate-card {
+    background: linear-gradient(135deg, rgba(20, 20, 25, 0.65) 0%, rgba(10, 10, 12, 0.85) 100%);
+    border: 1px solid rgba(191, 160, 48, 0.15);
+    padding: 60px 45px;
+    border-radius: 4px;
+    text-align: left;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.luxury-gate-card:hover {
+    border-color: rgba(191, 160, 48, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(191, 160, 48, 0.08);
+}
+
+.card-gate-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: rgba(234, 231, 223, 0.4);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.card-gate-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.75rem;
+    color: #eae7df;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.card-gate-desc {
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    color: rgba(234, 231, 223, 0.55);
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.btn-gate-link {
+    align-self: flex-start;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    color: var(--primary-gold);
+    text-decoration: none;
+    letter-spacing: 2px;
+    padding: 12px 30px;
+    border: 1px solid rgba(191, 160, 48, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-gate-link:hover {
+    background: var(--primary-gold);
+    color: #060608;
+    border-color: var(--primary-gold);
 }
