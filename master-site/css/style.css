@@ -530,3 +530,88 @@ body.homepage-unlocked .homepage-real-content {
     color: #060608;
     border-color: var(--primary-gold);
 }
+/* master-site/css/style.css */
+
+/* ── 🌟 ดีไซน์ระเบียบหน้าอ่านบทความ Guide (Typography Focused) ── */
+.luxury-article-wrapper {
+    max-width: 800px;
+    margin: 160px auto 100px auto; /* เว้นพื้นที่ด้านบนหลบแนว Navbar */
+    padding: 0 25px;
+    box-sizing: border-box;
+}
+
+.article-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.article-meta {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--primary-gold);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.article-main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: #eae7df;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.article-lead-in {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: rgba(234, 231, 223, 0.5);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.article-divider {
+    width: 80px;
+    height: 1px;
+    background: var(--primary-gold);
+    margin: 40px auto 0 auto;
+    opacity: 0.4;
+}
+
+/* ไส้ในตัวอักษรบทความ เน้น Georgia Serif คลีนตา อ่านสบายไม่ล้า */
+.article-body-content h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: #eae7df;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.article-body-content h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    color: var(--primary-gold);
+    margin-top: 35px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.article-body-content p {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.05rem;
+    color: rgba(234, 231, 223, 0.75);
+    line-height: 1.9;
+    margin-bottom: 25px;
+    text-align: justify; /* จัดระเบียบขอบข้อความซ้ายขวาให้เสมอกันสไตล์นิตยสารสากล */
+}
+
+.article-body-content em {
+    color: var(--primary-gold);
+    font-style: italic;
+}
