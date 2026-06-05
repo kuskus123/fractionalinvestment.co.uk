@@ -25,17 +25,22 @@ body.homepage-unlocked {
     overflow-y: auto !important;
 }
 
-/* 🌟 ลำแสงสปอตไลท์เพดาน แผ่รัศมีเนียนตาทั่วทั้งหน้าจอ ไม่โดนตัดขอบ */
+/* 🌟 1. ปรับปรุงสถาปัตยกรรมแสงหน้าย่อยบน PC (Guide, FAQ, Blog, Contact) ให้กลับมาสว่างคมชัด */
 body.normal-page {
     overflow-y: auto;
     background: radial-gradient(
-        ellipse at top center, 
-        rgba(191, 160, 48, 0.05) 0%,    /* จุดกำเนิดแสงสปอตไลท์บนสุดของหน้าจอ */
-        rgba(11, 11, 13, 0.6) 35%,      /* แสงแผ่กระจายออกไปด้านข้างอย่างนุ่มนวล */
-        #0b0b0d 70%                     /* กลืนหายเข้าสู่ความมืดสนิทอย่างไร้รอยต่อ */
-    ) no-repeat;
-    background-color: #0b0b0d; 
-    background-attachment: scroll;
+        ellipse 75% 60% at top center, 
+        rgba(191, 160, 48, 0.08) 0%,    /* ปรับความสว่างขึ้นเป็น 8% ให้แสงทองส่องจับหัวข้ออย่างมีมิติ */
+        rgba(11, 11, 13, 0.45) 45%,     /* กระจายรัศมีโอบอุ้มตัวอักษรเนื้อหา */
+        #0b0b0d 85%                     /* กลืนหายเข้าสู่ความมืดสนิทก้นหน้าเพจ */
+    ) no-repeat !important;
+    background-color: #0b0b0d !important; 
+    background-attachment: scroll !important;
+}
+
+/* ล้างเลเยอร์เงาโมบายล์ไม่ให้รั่วไหลขึ้นมากวนระบบแสงของจอ PC */
+body.normal-page::before {
+    display: none !important;
 }
 
 /* ── ซ่อน NAVBAR เริ่มต้น ── */
@@ -178,8 +183,6 @@ body.normal-page .navbar {
         #060608 45%                     
     );
     transition: opacity 1s ease-in-out;
-    
-    /* 🌟 เพิ่มคำสั่งนี้เข้าไป เพื่อให้เมาส์กลายเป็นรูปมือเสมือนปุ่มกดทั่วทั้งหน้าจอ PC */
     cursor: pointer; 
 }
 
@@ -187,7 +190,6 @@ body.normal-page .navbar {
    MASTERPIECE GALLERY SYSTEM (Dark Room)
    ========================================== */
 
-/* ── เลเยอร์หลักของพื้นที่แสดงงาน ── */
 .concept-container {
     position: fixed;
     top: 0;
@@ -198,7 +200,6 @@ body.normal-page .navbar {
     background-position: center;
     background-repeat: no-repeat;
     background-color: #060608;
-    
     display: flex !important;          
     justify-content: center !important; 
     align-items: center !important;     
@@ -208,7 +209,6 @@ body.normal-page .navbar {
     z-index: 1;
 }
 
-/* จังหวะปลดล็อกโฮมเพจ: สลัดรูปถังบ่มและไฟฉายทิ้ง ถมพื้นดำคลีนตามสั่ง */
 body.homepage-unlocked .concept-container {
     overflow-y: auto;
     display: block !important; 
@@ -216,7 +216,6 @@ body.homepage-unlocked .concept-container {
     background-color: #060608 !important; 
 }
 
-/* 🌟 ดัน z-index ขึ้นมาเป็น 1 และขึงขอบให้เต็มพื้นที่ ป้องกันไม่ให้แผ่นกรองแสงจมลงใต้รูปถังบ่ม */
 .concept-container::before {
     content: '';
     position: absolute;
@@ -238,28 +237,25 @@ body.homepage-unlocked .concept-container {
     transition: background 1.8s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
-/* 🌟 หน้ากากคุมมิติความดาร์กพรีเมียมเฉพาะบนหน้า Homepage */
-/* ล้างระบบวงกลมมืดกลางจอเดิม ทุบทิ้งแล้วสลับมาใช้กรวยแสงส่องจากเพดานโดยตรง */
+/* 🌟 2. ล็อกสิทธิ์ระบบกรวยลำแสงค่ำ (Conic Spotlight) ให้แสดงผลเฉพาะบนหน้าแรกของ PC เท่านั้น */
 body.homepage-unlocked .concept-container::before {
+    content: '' !important;
+    display: block !important;
     background: conic-gradient(
         from 150deg at top center, 
-        rgba(6, 6, 8, 0) 0deg,            /* บังคับขอบซ้ายมืดสนิท */
-        rgba(191, 160, 48, 0.15) 30deg,   /* 🌟 เริ่มจุดสว่างลำแสงฝั่งซ้ายพาดลงล่าง */
-        rgba(191, 160, 48, 0.20) 35deg,   /* แกนกลางลำแสงสีทอง ส่องสาดตรงเข้าหาท่อนตัวหนังสือหลัก */
-        rgba(191, 160, 48, 0.15) 40deg,   /* สิ้นสุดจุดสว่างลำแสงฝั่งขวาพาดลงล่าง */
-        rgba(6, 6, 8, 0) 60deg,           /* บังคับขอบขวามืดสนิท */
+        rgba(6, 6, 8, 0) 0deg,
+        rgba(191, 160, 48, 0.15) 30deg,   
+        rgba(191, 160, 48, 0.22) 35deg,   /* แกนกลางลำแสงสปอตไลท์ผ่าเข้ากลางตัวหนังสือพอดี */
+        rgba(191, 160, 48, 0.15) 40deg,   
+        rgba(6, 6, 8, 0) 60deg,           
         rgba(6, 6, 8, 0) 360deg
     ) !important;
-    
-    /* 🌟 ไม้ตาย: สั่งเบลอแผ่นแสงทอง (Blur) 40px เพื่อขัดเกลาขอบลำแสงที่คมแข็ง ให้แผ่ซ่านวลเนียนตาเป็นสปอตไลท์โรงละคร */
-    filter: blur(40px); 
-    
-    position: fixed; 
+    filter: blur(40px) !important; 
+    position: fixed !important; 
     z-index: 1 !important;
-    transform: scale(1.1); /* ขยายขนาด 10% ป้องกันขอบแหว่งสีขาวจากการสั่ง Blur */
+    transform: scale(1.1) !important; 
 }
 
-/* 🌟 เติมเอฟเฟกต์เงาหนุนหลังตัวหนังสือ (Text Shadow) เพื่อให้ตัวอักษรอ่านง่าย คมชัด ทะลุออกมาจากแสงแฟลช */
 .niche-main-title {
     font-family: 'Cinzel', serif;
     font-size: 2.6rem;
@@ -267,21 +263,20 @@ body.homepage-unlocked .concept-container::before {
     letter-spacing: 2px;
     line-height: 1.4;
     margin-bottom: 30px;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 
-                 0 2px 4px rgba(0, 0, 0, 0.9); /* การันตีตัวหนังสือไม่จมหายแม้เปิดเจอจอความสว่างสูง */
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 2px 4px rgba(0, 0, 0, 0.9); 
 }
 
 .niche-description {
     font-family: 'Georgia', serif;
     font-style: italic;
     font-size: 1.05rem;
-    color: rgba(234, 231, 223, 0.75); /* ปรับความสว่างเนื้อหาขึ้นเล็กน้อยเพื่อเพิ่ม Contrast */
+    color: rgba(234, 231, 223, 0.75); 
     line-height: 1.9;
     max-width: 750px;
     margin: 0 auto;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
 }
-/* เมื่อสั่งสกรอลล์โฮมเพจ: สั่งล็อกให้หน้ากากกับแคนวาสละอองฝุ่นตรึงนิ่ง */
+
 body.homepage-unlocked .concept-container::before,
 body.homepage-unlocked #particleCanvas {
     position: fixed;
@@ -292,7 +287,6 @@ body.homepage-unlocked #particleCanvas {
     visibility: visible;
 }
 
-/* ── เลเยอร์คลังสคริปต์ละอองฝุ่น ── */
 #particleCanvas {
     position: absolute;
     top: 0;
@@ -303,7 +297,6 @@ body.homepage-unlocked #particleCanvas {
     z-index: 2; 
 }
 
-/* ── เลเยอร์เนื้อหาประตูด่านหน้าแรก ── */
 .concept-content {
     position: relative;
     z-index: 3; 
@@ -359,8 +352,7 @@ body.homepage-unlocked #particleCanvas {
     line-height: 1.8;                                 
     margin-bottom: 8px;
     text-align: center; 
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 
-                 0 4px 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .btn-concept-enter {
@@ -462,36 +454,12 @@ body.homepage-unlocked .homepage-real-content {
     margin-bottom: 15px;
 }
 
-.niche-main-title {
-    font-family: 'Cinzel', serif;
-    font-size: 2.6rem;
-    color: #eae7df;
-    letter-spacing: 2px;
-    line-height: 1.4;
-    margin-bottom: 30px;
-}
-
-.niche-description {
-    font-family: 'Georgia', serif;
-    font-style: italic;
-    font-size: 1.05rem;
-    color: rgba(234, 231, 223, 0.7);
-    line-height: 1.9;
-    max-width: 750px;
-    margin: 0 auto;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-}
-
 .cta-twin-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 40px;
     margin-top: 50px;
     width: 100%;
-}
-
-@media (max-width: 768px) {
-    .cta-twin-grid { grid-template-columns: 1fr; }
 }
 
 .luxury-gate-card {
@@ -555,7 +523,7 @@ body.homepage-unlocked .homepage-real-content {
     border-color: var(--primary-gold);
 }
 
-/* ── 🌟 ดีไซน์ระเบียบหน้าอ่านบทความ Guide (Typography Focused ดั้งเดิมโปร่งสะอาด) ── */
+/* ── 🌟 ดีไซน์ระเบียบหน้าอ่านบทความ Guide ── */
 .luxury-article-wrapper {
     max-width: 800px;
     margin: 160px auto 100px auto; 
@@ -567,7 +535,6 @@ body.homepage-unlocked .homepage-real-content {
     box-shadow: none !important;
 }
 
-/* ส่วนหัวข้อหลักลอยเหนือกองแสง */
 .article-hero {
     text-align: center;
     margin-bottom: 50px;
@@ -612,7 +579,6 @@ body.homepage-unlocked .homepage-real-content {
     opacity: 0.4;
 }
 
-/* ไส้ในตัวอักษรบทความ */
 .article-body-content {
     position: relative;
     z-index: 2;
@@ -652,7 +618,6 @@ body.homepage-unlocked .homepage-real-content {
     font-style: italic;
 }
 
-/* 1. คลาสอักษรตัวแรกยักษ์สไตล์นิตยสาร (Drop Cap) */
 .article-body-content p.has-drop-cap::first-letter {
     font-family: 'Cinzel', serif;
     font-size: 3.8rem;
@@ -664,7 +629,6 @@ body.homepage-unlocked .homepage-real-content {
     margin-right: 12px;
 }
 
-/* 2. บล็อกคำพูดเลี่ยมทองคั่นกลางพารากราฟ (Premium Pull-Quote) */
 .luxury-pull-quote {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -689,9 +653,8 @@ body.homepage-unlocked .homepage-real-content {
     margin-top: 15px;
     text-transform: uppercase;
 }
-/* master-site/css/style.css */
 
-/* ── 🌟 ดีไซน์ระบบกล่องข้อความคำถามยืดหดหน้า FAQ (Premium Accordion System) ── */
+/* ── 🌟 ดีไซน์ระบบกล่องข้อความคำถามยืดหดหน้า FAQ ── */
 .luxury-faq-wrapper {
     max-width: 850px;
     margin: 160px auto 100px auto;
@@ -741,7 +704,6 @@ body.homepage-unlocked .homepage-real-content {
     opacity: 0.4;
 }
 
-/* บล็อกตัวโครงสร้างกลุ่ม Accordion */
 .faq-accordion-container {
     display: flex;
     flex-direction: column;
@@ -762,7 +724,6 @@ body.homepage-unlocked .homepage-real-content {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(191, 160, 48, 0.03);
 }
 
-/* ปุ่มกดกางหน้าต่าง Accordion */
 .luxury-accordion-trigger {
     width: 100%;
     background: transparent;
@@ -789,7 +750,6 @@ body.homepage-unlocked .homepage-real-content {
     color: var(--primary-gold);
 }
 
-/* ➕/➖ ไอคอนเครื่องหมายบวก-ลบ เลี่ยมทองแบบ Minimalist */
 .accordion-icon {
     position: relative;
     width: 14px;
@@ -804,7 +764,6 @@ body.homepage-unlocked .homepage-real-content {
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* เส้นแนวนอนประจำสัญลักษณ์ */
 .accordion-icon::before {
     top: 6px;
     left: 0;
@@ -812,7 +771,6 @@ body.homepage-unlocked .homepage-real-content {
     height: 1px;
 }
 
-/* เส้นแนวตั้งประจำสัญลักษณ์ */
 .accordion-icon::after {
     top: 0;
     left: 6px;
@@ -825,7 +783,6 @@ body.homepage-unlocked .homepage-real-content {
     background-color: var(--primary-gold);
 }
 
-/* จังหวะหมุนพับซ่อนเส้นตั้ง เพื่อสลับฟีลจากเครื่องหมายบวกกลายเป็นเครื่องหมายลบ */
 .luxury-accordion-item.active .accordion-icon::before {
     background-color: var(--primary-gold);
 }
@@ -835,7 +792,6 @@ body.homepage-unlocked .homepage-real-content {
     background-color: var(--primary-gold);
 }
 
-/* บล็อกบรรจุเนื้อหาคำตอบด้านใน */
 .luxury-accordion-content {
     height: 0;
     overflow: hidden;
@@ -859,11 +815,10 @@ body.homepage-unlocked .homepage-real-content {
     color: var(--primary-gold);
     font-style: italic;
 }
-/* master-site/css/style.css */
 
-/* ── 🌟 ดีไซน์ระเบียบหน้ากระดานข่าว Grid บทความวงใน (Strategic Intel Grid System) ── */
+/* ── 🌟 ดีไซน์ระเบียบหน้ากระดานข่าว Grid บทความวงใน ── */
 .luxury-blog-wrapper {
-    max-width: 1200px; /* ขยายหน้ากว้างขึ้นเพื่อรองรับการวางหน้ากระดาน 3 คอลัมน์คู่ขนาน */
+    max-width: 1200px; 
     margin: 160px auto 100px auto;
     padding: 0 35px;
     box-sizing: border-box;
@@ -877,7 +832,7 @@ body.homepage-unlocked .homepage-real-content {
 .blog-meta {
     font-family: 'Cinzel', serif;
     font-size: 0.75rem;
-    color: var(--primary-gold); /* ดึงค่าสีทองหลักจากตัวแปร :root มาใช้งาน */
+    color: var(--primary-gold); 
     letter-spacing: 3px;
     margin-bottom: 20px;
 }
@@ -911,7 +866,6 @@ body.homepage-unlocked .homepage-real-content {
     opacity: 0.4;
 }
 
-/* ตัวจัดการเลย์เอาต์ Grid สลับคอลัมน์อัตโนมัติตามขนาดหน้าจอคอมพิวเตอร์และมือถือ */
 .luxury-blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -920,27 +874,22 @@ body.homepage-unlocked .homepage-real-content {
     width: 100%;
 }
 
-/* บล็อกกล่องการ์ดเดี่ยวสไตล์แฟ้มข้อมูลลับ */
 .blog-intel-card {
     background: linear-gradient(135deg, rgba(20, 20, 25, 0.35) 0%, rgba(10, 10, 12, 0.55) 100%);
-    border: 1px solid rgba(191, 160, 48, 0.08); /* ตีกรอบเส้นทองบางเบา 8% ป้องกันความเวิ้งว้าง */
+    border: 1px solid rgba(191, 160, 48, 0.08); 
     border-radius: 4px;
     overflow: hidden;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
-                border-color 0.5s ease, 
-                box-shadow 0.5s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease, box-shadow 0.5s ease;
     display: flex;
     flex-direction: column;
 }
 
-/* 🌟 เอฟเฟกต์ตอนร่อนเมาส์ผ่าน: การ์ดดีดตัวขึ้น 6 พิกเซลพร้อมยิงเงาดำลึกสาดหนุนหลัง */
 .blog-intel-card:hover {
     transform: translateY(-6px);
     border-color: rgba(191, 160, 48, 0.35);
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(191, 160, 48, 0.04);
 }
 
-/* พื้นที่ช่องสแตนด์บายรูปภาพประจำการ์ด */
 .card-image-area {
     width: 100%;
     position: relative;
@@ -960,7 +909,6 @@ body.homepage-unlocked .homepage-real-content {
     letter-spacing: 2px;
 }
 
-/* พื้นที่จัดระเบียบตัวอักษรด้านล่างรูปภาพ */
 .card-content-area {
     padding: 30px 28px;
     display: flex;
@@ -999,7 +947,7 @@ body.homepage-unlocked .homepage-real-content {
 }
 
 .blog-intel-card:hover .card-article-title {
-    color: var(--primary-gold); /* หัวข้อบทความเปลี่ยนเป็นสีทองผุดขึ้นมาสู้แสงเมาส์ */
+    color: var(--primary-gold); 
 }
 
 .card-article-excerpt {
@@ -1011,7 +959,6 @@ body.homepage-unlocked .homepage-real-content {
     text-align: justify;
 }
 
-/* ปุ่มลิงก์สไตล์ Text-CTA ด้านล่างสุดของการ์ด */
 .btn-read-intel {
     align-self: flex-start;
     font-family: 'Cinzel', serif;
@@ -1024,11 +971,10 @@ body.homepage-unlocked .homepage-real-content {
 
 .blog-intel-card:hover .btn-read-intel {
     color: var(--primary-gold);
-    letter-spacing: 3px; /* ตัวอักษรยืดกว้างขึ้นเล็กน้อยเพื่อเพิ่มมิติไดนามิก */
+    letter-spacing: 3px; 
 }
-/* master-site/css/style.css */
 
-/* ── 🌟 ดีไซน์ระบบฟอร์มติดต่อดัก Lead ลูกค้ากระเป๋าหนัก (Private Office Form) ── */
+/* ── 🌟 ดีไซน์ระบบฟอร์มติดต่อดัก Lead ลูกค้ากระเป๋าหนัก ── */
 .luxury-about-wrapper {
     max-width: 850px;
     margin: 160px auto 100px auto;
@@ -1078,7 +1024,6 @@ body.homepage-unlocked .homepage-real-content {
     opacity: 0.4;
 }
 
-/* โครงสร้างกล่องคอนเทนเนอร์ฟอร์ม */
 .luxury-contact-container {
     background: linear-gradient(135deg, rgba(20, 20, 25, 0.25) 0%, rgba(10, 10, 12, 0.45) 100%);
     border: 1px solid rgba(191, 160, 48, 0.06);
@@ -1109,7 +1054,6 @@ body.homepage-unlocked .homepage-real-content {
     margin: 0;
 }
 
-/* ระบบฟอร์มไร้กรอบ (Floating Label Input Architecture) */
 .private-office-form {
     display: flex;
     flex-direction: column;
@@ -1122,22 +1066,17 @@ body.homepage-unlocked .homepage-real-content {
     gap: 35px;
 }
 
-@media (max-width: 768px) {
-    .form-row-twin { grid-template-columns: 1fr; }
-}
-
 .luxury-form-group {
     position: relative;
     width: 100%;
 }
 
-/* ดีไซน์ไส้ในช่องกรอก */
 .luxury-form-group input, 
 .luxury-form-group textarea {
     width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(234, 231, 223, 0.15); /* มีแค่เส้นใต้บางเบา */
+    border-bottom: 1px solid rgba(234, 231, 223, 0.15); 
     padding: 10px 0;
     font-family: 'Georgia', serif;
     font-size: 1.05rem;
@@ -1151,7 +1090,6 @@ body.homepage-unlocked .homepage-real-content {
     resize: none;
 }
 
-/* ดีไซน์ตัวอักษร Label ตัวบอกชื่อช่องกรอก (สไตล์ลอยได้เมื่อถูกคลิก) */
 .luxury-form-group label {
     position: absolute;
     top: 10px;
@@ -1164,7 +1102,6 @@ body.homepage-unlocked .homepage-real-content {
     transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* 🌟 Magic UI Logic: เมื่อคลิกช่องกรอก หรือมีตัวอักษรอยู่ข้างใน ให้เด้ง Label ขึ้นด้านบนอัตโนมัติ */
 .luxury-form-group input:focus ~ label,
 .luxury-form-group input:not(:placeholder-shown) ~ label,
 .luxury-form-group textarea:focus ~ label,
@@ -1175,7 +1112,6 @@ body.homepage-unlocked .homepage-real-content {
     letter-spacing: 1px;
 }
 
-/* เส้นอนิเมชันวิ่งสว่างใต้ช่องกรอกเวลาโฟกัส */
 .luxury-form-group .input-bar {
     position: absolute;
     bottom: 0;
@@ -1192,7 +1128,6 @@ body.homepage-unlocked .homepage-real-content {
     width: 100%;
 }
 
-/* ปุ่มกดส่งข้อมูลทรง Outline แคปซูลหรูหรา */
 .form-submit-area {
     text-align: right;
     margin-top: 15px;
@@ -1221,208 +1156,101 @@ body.homepage-unlocked .homepage-real-content {
     letter-spacing: 4px;
     text-indent: 4px;
 }
-/* master-site/css/style.css */
 
 /* ==========================================================================
-   🌟 LUXURY MOBILE RESPONSIVE SYSTEM (ขัดเกลาหน้าจอสมาร์ตโฟนและแท็บเล็ต)
+   🌟 3. MASTER UNIFIED MOBILE RESPONSIVE SYSTEM (ยุบรวมโค้ดมือถือไม่ให้ตีกันซ้ำซ้อน)
    ========================================================================== */
 @media (max-width: 768px) {
     
-    /* 1. ปรับสปอตไลท์เพดานให้กระชับเป็นทรงกลม (Circle) แสงจะได้ไม่บิดเบี้ยวบนจอแนวตั้ง */
+    /* สยบระบบแสงเพี้ยนและอาการวาบเทาขาวบนโทรศัพท์สัมผัส */
     body.normal-page {
+        background: #0b0b0d !important; 
+    }
+    
+    /* ขึงเลเยอร์แสงสลัวแบบคงที่ (Fixed Overlay) บังคับสาดแสงเนียนเฉพาะสมาร์ตโฟน */
+    body.normal-page::before {
+        display: block !important;
+        content: '' !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
         background: radial-gradient(
             circle at top center, 
-            rgba(191, 160, 48, 0.08) 0%,    /* เพิ่มความเข้มแสงขึ้นเล็กน้อยสู้แสงสะท้อนจอมือถือ */
-            rgba(11, 11, 13, 0.7) 45%,
-            #0b0b0d 85%
-        ) no-repeat !important;
-        background-color: #0b0b0d !important;
+            rgba(191, 160, 48, 0.08) 0%,    
+            rgba(11, 11, 13, 0.4) 40%,     
+            transparent 75%                
+        ) !important;
+        z-index: -1 !important; 
+        pointer-events: none !important;
     }
 
-    /* 2. จัดระเบียบแถบเมนูนำทาง ย่อขนาดและจัดกึ่งกลางเพื่อความคลีน */
+    /* จัดระเบียบแถบเมนูนำทาง (Navbar) หดช่องไฟกระชับเข้ากึ่งกลางไม่ให้ล้นหลุดจอ */
     .luxury-nav {
-        padding: 15px 20px !important;
-        flex-direction: column; /* สั่งให้ชื่อแบรนด์กับเมนูเรียงตั้งกัน */
-        gap: 12px;
-        background: rgba(6, 6, 8, 0.95) !important; /* ถมพื้นหลังเมนูกันตัวหนังสือบทความวิ่งมาซ้อน */
-        backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(191, 160, 48, 0.05);
+        flex-direction: column !important; 
+        align-items: center !important;
+        padding: 15px 10px !important;
+        background: rgba(6, 6, 8, 0.98) !important; 
+        backdrop-filter: blur(20px) !important;
+        border-bottom: 1px solid rgba(191, 160, 48, 0.05) !important;
     }
-    
+
     .nav-brand {
         font-size: 1rem !important;
-        letter-spacing: 3px;
+        margin-bottom: 12px !important;
+        letter-spacing: 3px !important;
     }
 
-    /* เปิดระบบเลื่อนสกรอลล์แนวนอนเบาๆ ให้กดเมนูง่าย ไม่ล้นจอ */
     .nav-links {
-        gap: 18px !important;
-        width: 100%;
-        justify-content: center;
-        overflow-x: auto;
-        white-space: nowrap;
-        padding-bottom: 4px;
-    }
-    .nav-links::-webkit-scrollbar {
-        display: none; /* ซ่อนแถบสกรอลล์อุบาทว์ตาบนมือถือ */
+        gap: 12px !important; 
+        justify-content: center !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        flex-wrap: wrap !important;
     }
 
-    /* 3. สยบปัญหาฟอนต์ยักษ์ล้นจอ ย่อขนาดหัวข้อหลักทุกหน้าให้เกาะกลุ่มสวยงาม */
-    .article-main-title, 
-    .faq-main-title, 
-    .blog-main-title {
-        font-size: 1.85rem !important;
-        line-height: 1.3 !important;
-        letter-spacing: 0px !important;
-    }
-    
-    .concept-title {
-        font-size: 2.4rem !important;
-        line-height: 1.2 !important;
+    .nav-links a {
+        font-size: 0.65rem !important; 
+        letter-spacing: 1px !important;
     }
 
-    /* 4. ปรับระยะขอบปลอกหมอน (Padding) ของคอนเทนเนอร์ไม่ให้ชิดขอบจอเกินไป */
-    .luxury-article-wrapper, 
-    .luxury-faq-wrapper, 
-    .luxury-blog-wrapper, 
-    .luxury-about-wrapper {
-        margin: 130px auto 60px auto !important;
-        padding: 0 20px !important;
-    }
-
-    .article-lead-in, 
-    .faq-lead-in, 
-    .blog-lead-in, 
-    .about-lead-in {
-        font-size: 1rem !important;
-        line-height: 1.6 !important;
-    }
-
-    /* 5. ปรับพฤติกรรมตัวอักษรเนื้อหา (บนมือถือชิดซ้ายอ่านง่ายกว่า Justify) */
-    .article-body-content p {
-        font-size: 1rem !important;
-        line-height: 1.8 !important;
-        text-align: left !important;
-        margin-bottom: 22px;
-    }
-
-    /* ปรับขนาดตัวอักษรแรกยักษ์ (Drop Cap) และบล็อกคำพูดเลี่ยมทองคั่นกลาง */
-    .article-body-content p.has-drop-cap::first-letter {
-        font-size: 3rem !important;
-        margin-top: 2px !important;
-        margin-right: 8px !important;
-    }
-
-    .luxury-pull-quote {
-        font-size: 1.3rem !important;
-        padding: 20px 0 !important;
-        margin: 35px auto !important;
-        max-width: 100% !important;
-    }
-
-    /* 6. ขัดเกลากล่องยืดหด FAQ ให้กระชับพอดีนิ้วโป้งกด */
-    .luxury-accordion-trigger {
-        padding: 20px !important;
-    }
-    
-    .luxury-accordion-trigger span:first-child {
-        font-size: 0.95rem !important;
-        line-height: 1.4 !important;
-        padding-right: 15px;
-    }
-
-    .luxury-accordion-content .inner-content {
-        padding: 0 20px 22px 20px !important;
-    }
-
-    /* 7. บีบฟอร์มติดต่อ Private Office ให้กระชับแน่นพรีเมียม */
-    .luxury-contact-container {
-        padding: 35px 20px !important;
-    }
-    
-    .private-office-form {
-        gap: 28px !important;
-    }
-
-    .luxury-form-group label {
-        font-size: 0.68rem !important;
-    }
-}
-/* master-site/css/style.css */
-
-/* ==========================================================================
-   🌟 LUXURY MOBILE RESPONSIVE SYSTEM (สยบปัญหาหน้าจอล้นในรูป 3837.jpg)
-   ========================================================================== */
-@media (max-width: 768px) {
-    
-    /* ─── 1. สยบอินโทรด่านแรกล้นจอ (แก้ไขจากรูป 3837.jpg โดยตรง) ─── */
+    /* สยบข้อความหน้า Intro แตกแถวหลุดขอบจอ ย่อขนาดตัวอักษรและช่องไฟให้สมดุลพอดีสายตา */
     .lumen-title {
-        font-size: 2.2rem !important; /* ย่อขนาดฟอนต์จากเดิม 5.5rem ให้พอดีสายตา */
+        font-size: 2.2rem !important; 
     }
-    
+
     .lumen-title span {
-        letter-spacing: 12px !important; /* หดช่องไฟจาก 35px เหลือ 12px ตัวหนังสือจะไม่หลุดขอบจอ */
-        text-indent: 12px !important;     /* รักษาสมดุลกึ่งกลางให้เท่ากับขนาดช่องไฟ */
-        transform: translateY(20px);      /* กระชับระยะแอนิเมชันตอนผุดขึ้นมา */
+        letter-spacing: 12px !important; 
+        text-indent: 12px !important;    
+        transform: translateY(20px) !important;
     }
-    
+
     .lumen-subtitle {
         font-size: 0.8rem !important;
         letter-spacing: 3px !important;
-        padding: 0 15px;
-        line-height: 1.5;
+        padding: 0 15px !important;
+        line-height: 1.5 !important;
     }
-    
+
     .lumen-line {
-        width: 75% !important; /* ทุบความกว้าง 450px ทิ้ง เปลี่ยนเป็นระบบเปอร์เซ็นต์ไม่ให้ดันขอบจอ */
-        max-width: 260px;
+        width: 70% !important; 
+        max-width: 250px !important;
     }
 
-    /* ─── 2. ปรับรัศมีแสงไฟสปอตไลท์เพดานหน้าปกติ ─── */
-    body.normal-page {
-        background: radial-gradient(
-            circle at top center, 
-            rgba(191, 160, 48, 0.08) 0%, /* ปรับเป็นทรงกลม (Circle) แสงจะได้ไม่บิดเบี้ยวบนจอแนวตั้ง */
-            rgba(11, 11, 13, 0.7) 45%,
-            #0b0b0d 85%
-        ) no-repeat !important;
-        background-color: #0b0b0d !important;
+    /* บดสเกลความกว้างโครงสร้างหน้า Grid คู่ขนานด้านล่าง */
+    .cta-twin-grid { 
+        grid-template-columns: 1fr !important; 
+        gap: 30px !important;
     }
 
-    /* ─── 3. จัดระเบียบแถบเมนูนำทาง (Navbar) บนโมบาย ─── */
-    .luxury-nav {
-        padding: 15px 20px !important;
-        flex-direction: column; /* สั่งให้ชื่อแบรนด์กับปุ่มเมนูเรียงตั้งกัน */
-        gap: 12px;
-        background: rgba(6, 6, 8, 0.95) !important; /* ถมแบคกราวนด์กันตัวหนังสือวิ่งมาซ้อน */
-        backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(191, 160, 48, 0.05);
-    }
-    
-    .nav-brand {
-        font-size: 1rem !important;
-        letter-spacing: 3px;
-    }
-
-    .nav-links {
-        gap: 18px !important;
-        width: 100%;
-        justify-content: center;
-        overflow-x: auto; /* เปิดระบบปัดสไลด์แนวนอนเบาๆ ป้องกันเมนูล้น */
-        white-space: nowrap;
-        padding-bottom: 4px;
-    }
-    
-    .nav-links::-webkit-scrollbar {
-        display: none; /* ซ่อนแถบสกรอลล์ไม่ให้รกสายตา */
-    }
-
-    /* ─── 4. สยบฟอนต์หัวข้อยักษ์ล้นจอในหน้าย่อย (Guide, FAQ, Blog, Contact) ─── */
+    /* สยบฟอนต์หัวข้อยักษ์และจัดระเบียบคอนเทนเนอร์หน้าย่อยทั้งหมด */
     .article-main-title, 
     .faq-main-title, 
     .blog-main-title,
     .about-main-title {
-        font-size: 1.85rem !important;
+        font-size: 1.8rem !important;
         line-height: 1.3 !important;
         letter-spacing: 0px !important;
     }
@@ -1436,7 +1264,7 @@ body.homepage-unlocked .homepage-real-content {
     .luxury-faq-wrapper, 
     .luxury-blog-wrapper, 
     .luxury-about-wrapper {
-        margin: 130px auto 60px auto !important; /* ปรับขอบหลบแนว Navbar ด้านบน */
+        margin: 140px auto 60px auto !important; 
         padding: 0 20px !important;
     }
 
@@ -1448,12 +1276,12 @@ body.homepage-unlocked .homepage-real-content {
         line-height: 1.6 !important;
     }
 
-    /* ─── 5. ขัดเกลาบล็อกเนื้อหาและดีไซน์นิตยสาร ─── */
+    /* ขัดเกลาบล็อกเนื้อหาและดีไซน์นิตยสารให้อ่านง่ายบนโทรศัพท์ */
     .article-body-content p {
         font-size: 1rem !important;
         line-height: 1.8 !important;
-        text-align: left !important; /* บนจอมือถือจัดชิดซ้ายจะอ่านง่ายกว่า Justify */
-        margin-bottom: 22px;
+        text-align: left !important; 
+        margin-bottom: 22px !important;
     }
 
     .article-body-content p.has-drop-cap::first-letter {
@@ -1469,7 +1297,6 @@ body.homepage-unlocked .homepage-real-content {
         max-width: 100% !important;
     }
 
-    /* ─── 6. กระชับกล่องยืดหด FAQ และฟอร์ม Contact ─── */
     .luxury-accordion-trigger {
         padding: 20px !important;
     }
@@ -1477,7 +1304,7 @@ body.homepage-unlocked .homepage-real-content {
     .luxury-accordion-trigger span:first-child {
         font-size: 0.95rem !important;
         line-height: 1.4 !important;
-        padding-right: 15px;
+        padding-right: 15px !important;
     }
 
     .luxury-accordion-content .inner-content {
@@ -1494,199 +1321,5 @@ body.homepage-unlocked .homepage-real-content {
 
     .luxury-form-group label {
         font-size: 0.68rem !important;
-    }
-}
-/* master-site/css/style.css */
-
-/* ==========================================================================
-   🌟 LUXURY MOBILE RESPONSIVE SYSTEM (สยบปัญหาหน้าจอล้นในรูป 3837.jpg และ 3839.jpg)
-   ========================================================================== */
-@media (max-width: 768px) {
-    
-    /* ─── 1. แก้ไขตัวอักษรเมนูNavbar โดนหั่นขอบหลุดจอในรูป 3839.jpg ─── */
-    .luxury-nav {
-        flex-direction: column !important; /* จัดให้โลโก้แบรนด์อยู่บน และลิงก์เมนูอยู่ล่าง */
-        align-items: center !important;
-        padding: 15px 15px !important;
-        background: rgba(6, 6, 8, 0.95) !important; /* ถมแบคกราวนด์หนากันตัวหนังสือเนื้อหาวิ่งมาซ้อน */
-        backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(191, 160, 48, 0.05);
-    }
-
-    .nav-brand {
-        font-size: 1.05rem !important;
-        margin-bottom: 12px !important;
-        letter-spacing: 3px !important;
-    }
-
-    .nav-links {
-        gap: 15px !important; /* 🌟 หดช่องไฟเมนูดิ่งลงมาจาก 35px เพื่อบีบให้ทุกเมนูหดเข้ากลางจอพอดี ไม่ล้นหลุดขอบ */
-        justify-content: center !important;
-        width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    .nav-links a {
-        font-size: 0.68rem !important; /* ย่อขนาดฟอนต์เมนูลงเล็กน้อยเพื่อความกระชับ */
-        letter-spacing: 1px !important; /* กระชับช่องไฟอักษรหลบขอบจอ */
-    }
-
-    /* ─── 2. แก้ไขข้อความ Intro แตกแถวล้นจอในรูป 3837.jpg ─── */
-    .lumen-title {
-        font-size: 2.2rem !important; /* ย่อขนาดฟอนต์ใหญ่จาก 5.5rem ให้รับกับหน้าจอมือถือ */
-    }
-
-    .lumen-title span {
-        letter-spacing: 12px !important; /* 🌟 หดช่องไฟจาก 35px เหลือ 12px ตัวอักษรจะไม่ดีดตกขอบจอ */
-        text-indent: 12px !important;    /* รักษาสมดุลกึ่งกลางให้เท่ากับขนาดช่องไฟ */
-        transform: translateY(20px);
-    }
-
-    .lumen-subtitle {
-        font-size: 0.8rem !important;
-        letter-spacing: 3px !important;
-        padding: 0 15px;
-    }
-
-    .lumen-line {
-        width: 75% !important; /* ทุบความกว้าง 450px ทิ้ง เปลี่ยนเป็นระบบเปอร์เซ็นต์ไม่ให้ดันขอบจอ */
-        max-width: 260px;
-    }
-
-    /* ─── 3. เคลียร์โครงสร้างหน้าอ่านย่อย (Guide, FAQ, Blog) ให้สมดุลบนโมบาย ─── */
-    body.normal-page {
-        background: radial-gradient(
-            circle at top center, 
-            rgba(191, 160, 48, 0.08) 0%, /* เปลี่ยนเป็นสปอตไลท์ทรงกลมกระชับหลบหน้าจอแนวตั้ง */
-            rgba(11, 11, 13, 0.7) 45%,
-            #0b0b0d 85%
-        ) no-repeat !important;
-    }
-
-    .luxury-article-wrapper, 
-    .luxury-faq-wrapper, 
-    .luxury-blog-wrapper {
-        margin: 130px auto 60px auto !important; /* เว้นพื้นที่ด้านบนหลบแนวแผง Navbar เมนูแนวดิ่ง */
-        padding: 0 20px !important;
-    }
-
-    .article-main-title, 
-    .faq-main-title, 
-    .blog-main-title {
-        font-size: 1.85rem !important;
-        line-height: 1.3 !important;
-    }
-
-    .article-body-content p {
-        font-size: 1rem !important;
-        line-height: 1.8 !important;
-        text-align: left !important; /* บนสมาร์ตโฟนจัดข้อความชิดซ้ายจะอ่านง่ายและไม่เกิดช่องว่างอุบาทว์ */
-    }
-}
-/* master-site/css/style.css */
-
-/* ==========================================================================
-   🌟 LUXURY MOBILE RESPONSIVE SYSTEM (สยบบั๊กล้นจอและแสงเพี้ยนบนมือถือ 100%)
-   ========================================================================== */
-@media (max-width: 768px) {
-    
-    /* ─── 1. สยบระบบแสงเพี้ยน/วาบเทาขาวบนมือถือ (แก้ไขจากรูป 3841.jpg) ─── */
-    body.normal-page {
-        background: #0b0b0d !important; /* บังคับถมพื้นหลังหลักให้ดำเงาสนิทตัดปัญหาแสงยืด */
-    }
-    
-    /* สร้างเลเยอร์ไฟสปอตไลท์เพดานลอยนิ่งตรึงไว้กับหน้าจอสัมผัส (Fixed Layer) แสงจะไม่ยืดตามความยาวฟอร์ม */
-    body.normal-page::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(
-            circle at top center, 
-            rgba(191, 160, 48, 0.07) 0%,    /* รัศมีไฟส่องทองบางเบา 7% */
-            rgba(11, 11, 13, 0.4) 40%,     /* เฉดสลัวคุมมิติดาร์กรูม */
-            transparent 75%                /* ตัดดับกลืนหายเข้าสู่ความมืดสนิทอย่างไร้รอยต่อ */
-        ) !important;
-        z-index: -1; /* ซ่อนไว้เบื้องหลังตัวอักษรเนื้อหาทั้งหมด */
-        pointer-events: none;
-    }
-
-    /* ─── 2. แก้ไขตัวอักษรเมนู Navbar โดนหั่นขอบหลุดจอ (แก้ไขจากรูป 3839.jpg) ─── */
-    .luxury-nav {
-        flex-direction: column !important; /* สั่งจัดแถวให้โลโก้แบรนด์อยู่บน และลิงก์เมนูอยู่ล่าง */
-        align-items: center !important;
-        padding: 15px 10px !important;
-        background: rgba(6, 6, 8, 0.98) !important; /* ถมแบคกราวนด์หนาพิเศษกันตัวหนังสือวิ่งมาซ้อน */
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(191, 160, 48, 0.05);
-    }
-
-    .nav-brand {
-        font-size: 1rem !important;
-        margin-bottom: 12px !important;
-        letter-spacing: 3px !important;
-    }
-
-    .nav-links {
-        gap: 12px !important; /* 🌟 บีบช่องไฟให้แคบดิ่งลงมาจาก 35px เพื่อดึงเมนูกลับมารวมตัวตรงกลาง ไม่ล้นหลุดขอบจอ */
-        justify-content: center !important;
-        width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        flex-wrap: wrap; /* เผื่อกรณีจอมือถือแคบจัด ให้ปัดสล็อตลงบรรทัดใหม่สวยๆ ไม่ล้นทะลัก */
-    }
-
-    .nav-links a {
-        font-size: 0.65rem !important; /* ย่อขนาดฟอนต์เมนูลงเล็กน้อยเพื่อให้เกาะกลุ่มแน่นพรีเมียม */
-        letter-spacing: 1px !important;
-    }
-
-    /* ─── 3. แก้ไขข้อความ Intro แตกแถวล้นจอ (แก้ไขจากรูป 3837.jpg) ─── */
-    .lumen-title {
-        font-size: 2.2rem !important;
-    }
-
-    .lumen-title span {
-        letter-spacing: 12px !important; /* หดช่องไฟจาก 35px เหลือ 12px ตัวอักษรกลับมารวมในจอครบถ้วน */
-        text-indent: 12px !important;
-        transform: translateY(20px);
-    }
-
-    .lumen-subtitle {
-        font-size: 0.8rem !important;
-        letter-spacing: 3px !important;
-        padding: 0 15px;
-    }
-
-    .lumen-line {
-        width: 70% !important;
-        max-width: 250px;
-    }
-
-    /* ─── 4. จัดระเบียบระยะขอบคอนเทนเนอร์หน้าย่อยทั้งหมดบนโมบาย ─── */
-    .luxury-article-wrapper, 
-    .luxury-faq-wrapper, 
-    .luxury-blog-wrapper,
-    .luxury-about-wrapper {
-        margin: 140px auto 60px auto !important; /* เว้นระยะขอบบนหลบแผง Navbar สองบรรทัด */
-        padding: 0 20px !important;
-    }
-
-    .article-main-title, 
-    .faq-main-title, 
-    .blog-main-title,
-    .about-main-title {
-        font-size: 1.8rem !important;
-        line-height: 1.3 !important;
-        letter-spacing: 0px !important;
-    }
-
-    .article-body-content p {
-        font-size: 1rem !important;
-        line-height: 1.8 !important;
-        text-align: left !important; /* จัดชิดซ้ายอ่านง่ายและดูเต็มระเบียบกว่า Justify บนโมบาย */
     }
 }
