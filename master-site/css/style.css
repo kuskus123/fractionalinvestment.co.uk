@@ -33,22 +33,21 @@ body.normal-page {
 }
 
 /* 🌟 ไม้ตายล็อกแสงสปอตไลท์เพดานตรึงนิ่งกับหน้าจอคอมพิวเตอร์ (ไม่ยืดตามความยาวบทความ) */
-body.normal-page::before {
-    content: '' !important;
-    display: block !important;
-    position: fixed !important; /* ตรึงแสงลอยนิ่งอยู่บนหน้าจอสัมผัส ไม่วิ่งตามสกรอลล์ */
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+body.normal-page {
+    overflow-y: auto;
+    /* 🚀 ใช้ 'fixed' บังคับล็อกรัศมีดวงไฟสปอตไลท์ไว้กับหน้าจอคอมพิวเตอร์ ไม่ยืดสเกลตามความยาวบทความ */
     background: radial-gradient(
-        ellipse 80% 60% at top center, 
-        rgba(191, 160, 48, 0.14) 0%,    /* 🌟 ปรับเร่งความสว่างแสงทองขึ้นเป็น 14% ขับตัวหนังสือให้อ่านง่าย */
-        rgba(11, 11, 13, 0.5) 45%,      /* แสงแผ่ซ่านวลเนียนประคองท่อนหัวข้อหลัก */
-        transparent 85%                 /* ตัดดับกลืนเข้าสู่ความมืดสนิทอย่างไร้รอยต่อ */
-    ) !important;
-    z-index: 1 !important;              /* ดันเลเยอร์แสงมาสแตนด์บายหลังแผงอักษร */
-    pointer-events: none !important;    /* ห้ามบังเมาส์ ป้องกันบั๊กกดลิงก์เมนูไม่ได้ */
+        ellipse 75% 60% at top center, 
+        rgba(191, 160, 48, 0.14) 0%,    /* ปรับเร่งความสว่างแสงทองคำเป็น 14% ขับอักษรให้อ่านง่าย */
+        rgba(11, 11, 13, 0.45) 45%,     /* รัศมีแผ่ซ่านวลเนียนประคองท่อนหัวข้อหลัก */
+        #060608 85%                     /* เฉดดับไล่โทนเข้าสู่พื้นดำเงาสนิทด้านล่าง */
+    ) no-repeat fixed !important;
+    background-color: #060608 !important; 
+}
+
+/* สั่งปิดแผ่นเลเยอร์โมบายล์บนจอเดสก์ท็อป เพื่อป้องกันบั๊กชั้นโค้ดซ้อนทับ */
+body.normal-page::before {
+    display: none !important;
 }
 
 /* ── ซ่อน NAVBAR เริ่มต้น ── */
