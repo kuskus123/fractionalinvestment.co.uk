@@ -22,7 +22,7 @@ body.theme-irish-emerald {
     --border-color: rgba(26, 67, 62, 0.15); /* สีขอบกล่อง */
 }
 
-/* 🔮 วิธีเพิ่มธีมที่ 3, 4, 5, 6 ในอนาคต:
+/* 🔮 วิธีเพิ่มธีมที่ 3, 4, 5, 6 ในอนาคt:
    กัสแค่ก๊อปปี้บล็อกด้านบน วางต่อท้ายตรงนี้ เปลี่ยนชื่อคลาส เช่น body.theme-ruby-red 
    แล้วเปลี่ยนรหัสสีด้านหลัง... จบ! ระบบทั้งเว็บจะพร้อมใช้งานธีมใหม่ทันที */
 
@@ -116,8 +116,9 @@ body {
    🔗 ZONE 3: VARIABLE BRIDGE (เชื่อมระบบเก่าเข้ากับธีมแปรผันอัจฉริยะออโต้)
    ========================================================================== */
 :root {
-    --primary-gold: var(--primary-color);    /* 🌟 ไม้ตาย: สั่งให้โค้ดเก่าดึงสีจากธีมปัจจุบันทันที */
-    --dark-bg: var(--bg-gradient-bottom);    /* 🌟 สั่งให้พื้นหลังแปรผันตามระบบโดเมน */
+    /* 🌟 ไม้ตายเชื่อมท่อ: สั่งให้โค้ดเก่าดั้งเดิมทังแผง วิ่งมาผูกสีตามระบบสลับโดเมนออโต้ */
+    --primary-gold: var(--primary-color);
+    --dark-bg: var(--bg-gradient-bottom, #060608);
 }
 
 /* ── โครงสร้างพื้นฐาน ── */
@@ -140,27 +141,26 @@ body.homepage-unlocked {
     overflow-y: auto !important;
 }
 
-/* 🌟 1. ปรับปรุงสถาปัตยกรรมแสงหน้าย่อยบน PC (Guide, FAQ, Blog, Contact) ให้กลับมาสว่างคมชัด */
+/* 🌟 ปรับปรุงสถาปัตยกรรมแสงหน้าย่อยบน PC (Guide, FAQ, Blog, Contact) ให้สลับเฉดสีตามโดเมน */
 body.normal-page {
     overflow-y: auto;
     background-color: var(--dark-bg) !important; 
     position: relative;
 }
 
-/* 🌟 ไม้ตายล็อกแสงสปอตไลท์เพดานตรึงนิ่งกับหน้าจอคอมพิวเตอร์ (ไม่ยืดตามความยาวบทความ) */
 body.normal-page {
     overflow-y: auto;
-    /* 🚀 เปลี่ยนจากรหัสสีทองล็อกตายตัว มาเป็นระบบไล่เฉดไฟตามสีประจำธีมโดเมน */
+    /* 🚀 เปลี่ยนจากรหัสสีล็อกตายตัว มาเป็นระบบไล่เฉดไฟตามสีประจำธีมโดเมนปัจจุบัน */
     background: radial-gradient(
         ellipse 75% 60% at top center, 
-        var(--primary-color) 0%,    /* 🌟 รัศมีแกนกลางสว่างตามสีธีมหลัก */
+        var(--primary-color) 0%,    
         rgba(11, 11, 13, 0.45) 45%,     
-        var(--dark-bg) 85%              /* 🌟 ดับแสงเข้าสู่เฉดมืดประจำโดเมน */
+        var(--dark-bg) 85%              
     ) no-repeat fixed !important;
     background-color: var(--dark-bg) !important; 
 }
 
-/* SATELLITE MOBILE LAYER PREVENT */
+/* สั่งปิดแผ่นเลเยอร์โมบายล์บนจอเดสก์ท็อป เพื่อป้องกันบั๊กชั้นโค้ดซ้อนทับ */
 body.normal-page::before {
     display: none !important;
 }
@@ -264,7 +264,7 @@ body.normal-page .navbar {
     font-style: italic;
     font-size: 1.1rem;
     letter-spacing: 6px;
-    color: var(--primary-gold); /* 🌟 เปลี่ยนมารับค่าธีม */
+    color: var(--primary-gold);
     margin-top: 25px;
     text-transform: uppercase;
     opacity: 0; 
@@ -302,7 +302,7 @@ body.normal-page .navbar {
         circle at center, 
         rgba(191, 160, 48, 0.07) 0%,    
         rgba(170, 108, 57, 0.02) 20%,   
-        var(--dark-bg) 45%              /* 🌟 รับค่ามืดตามธีม */
+        var(--dark-bg) 45%                     
     );
     transition: opacity 1s ease-in-out;
     cursor: pointer; 
@@ -359,20 +359,22 @@ body.homepage-unlocked .concept-container {
     transition: background 1.8s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
-/* 🌟 2. ล็อกสิทธิ์ระบบกรวยลำแสงค่ำ (Conic Spotlight) ให้แสดงผลเฉพาะบนหน้าแรกของ PC เท่านั้น */
+/* 🌟 2. ล็อกสิทธิ์ระบบกรวยลำแสงค่ำ (Conic Spotlight) บังคับปิดไฟรอบห้องให้มืดดับสนิทกั้นรูปถังบ่ม */
 body.homepage-unlocked .concept-container::before {
     content: '' !important;
     display: block !important;
+    /* 🎯 ไม้ตายย้อมห้องมืด: เปลี่ยนจุดจากสว่างโปร่งแสง ให้กลายร่างเป็นฟิล์มสีทึบของตัวแปรความมืดประจำโดเมน */
     background: conic-gradient(
         from 150deg at top center, 
-        rgba(6, 6, 8, 0) 0deg,
-        var(--primary-color) 30deg,   /* 🌟 กรวยแสงสปอตไลท์แปรสภาพสีตามแบรนด์ */
-        var(--primary-color) 35deg,   
-        var(--primary-color) 40deg,   
-        rgba(6, 6, 8, 0) 60deg,           
-        rgba(6, 6, 8, 0) 360deg
+        var(--dark-bg) 0deg,   
+        var(--dark-bg) 27deg,  
+        rgba(191, 160, 48, 0.12) 31deg,   
+        rgba(191, 160, 48, 0.24) 35deg,   /* รัศมีไฟสปอตไลท์สีทองผ่ากลางจอคมกริบ */
+        rgba(191, 160, 48, 0.12) 39deg,   
+        var(--dark-bg) 43deg,  
+        var(--dark-bg) 360deg 
     ) !important;
-    filter: blur(55px) !important;    /* เร่งเบลอให้นวลเนียนขึ้นเมื่อเปลี่ยนเฉด */
+    filter: blur(45px) !important; 
     position: fixed !important; 
     z-index: 1 !important;
     transform: scale(1.1) !important; 
@@ -385,6 +387,7 @@ body.homepage-unlocked .concept-container::before {
     letter-spacing: 2px;
     line-height: 1.4;
     margin-bottom: 30px;
+    /* 🌟 เพิ่มระดับเงาให้พาดหัวหลักลอยเด่น */
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 2px 4px rgba(0, 0, 0, 0.9); 
 }
 
@@ -451,12 +454,17 @@ body.homepage-unlocked #particleCanvas {
     letter-spacing: 1px;
     text-align: center;     
     width: 100%;
+    /* 🌟🎯 จุดแก้สำคัญ: ฉีดเงาหนาไล่ระดับ มิติอักษรขาวจะเด้งทะลุกรอบสายตาอ่านง่ายขั้นเทพ */
+    text-shadow: 0 15px 35px rgba(0, 0, 0, 0.98), 
+                 0 4px 12px rgba(0, 0, 0, 0.95), 
+                 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 .concept-title em {
     font-style: italic;
-    color: var(--primary-color); /* 🌟 อัปเดตตามธีม */
+    color: var(--primary-color);
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
+    text-shadow: 0 15px 35px rgba(0, 0, 0, 0.95), 0 4px 10px rgba(0, 0, 0, 0.9);
 }
 
 .concept-subtext {
@@ -474,7 +482,7 @@ body.homepage-unlocked #particleCanvas {
     line-height: 1.8;                                 
     margin-bottom: 8px;
     text-align: center; 
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 0 4px 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.95), 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .btn-concept-enter {
@@ -489,8 +497,10 @@ body.homepage-unlocked #particleCanvas {
     letter-spacing: 4px;
     text-indent: 4px;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    background: transparent;
+    background: rgba(6, 6, 8, 0.4);
     margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .btn-concept-enter:hover {

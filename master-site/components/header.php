@@ -1,3 +1,8 @@
+<?php 
+// 🛰️ SATELLITE CORE AUTOMATION
+// บังคับให้โหลดไฟล์คอนฟิกตัวจริงขึ้นมาเสมอ ไม่ว่าจะโดนเรียกใช้งานจากหน้าไหน
+require_once dirname(__DIR__) . '/config-system.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
