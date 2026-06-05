@@ -28,19 +28,27 @@ body.homepage-unlocked {
 /* 🌟 1. ปรับปรุงสถาปัตยกรรมแสงหน้าย่อยบน PC (Guide, FAQ, Blog, Contact) ให้กลับมาสว่างคมชัด */
 body.normal-page {
     overflow-y: auto;
-    background: radial-gradient(
-        ellipse 75% 60% at top center, 
-        rgba(191, 160, 48, 0.08) 0%,    /* ปรับความสว่างขึ้นเป็น 8% ให้แสงทองส่องจับหัวข้ออย่างมีมิติ */
-        rgba(11, 11, 13, 0.45) 45%,     /* กระจายรัศมีโอบอุ้มตัวอักษรเนื้อหา */
-        #0b0b0d 85%                     /* กลืนหายเข้าสู่ความมืดสนิทก้นหน้าเพจ */
-    ) no-repeat !important;
-    background-color: #0b0b0d !important; 
-    background-attachment: scroll !important;
+    background-color: #060608 !important; 
+    position: relative;
 }
 
-/* ล้างเลเยอร์เงาโมบายล์ไม่ให้รั่วไหลขึ้นมากวนระบบแสงของจอ PC */
+/* 🌟 ไม้ตายล็อกแสงสปอตไลท์เพดานตรึงนิ่งกับหน้าจอคอมพิวเตอร์ (ไม่ยืดตามความยาวบทความ) */
 body.normal-page::before {
-    display: none !important;
+    content: '' !important;
+    display: block !important;
+    position: fixed !important; /* ตรึงแสงลอยนิ่งอยู่บนหน้าจอสัมผัส ไม่วิ่งตามสกรอลล์ */
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: radial-gradient(
+        ellipse 80% 60% at top center, 
+        rgba(191, 160, 48, 0.14) 0%,    /* 🌟 ปรับเร่งความสว่างแสงทองขึ้นเป็น 14% ขับตัวหนังสือให้อ่านง่าย */
+        rgba(11, 11, 13, 0.5) 45%,      /* แสงแผ่ซ่านวลเนียนประคองท่อนหัวข้อหลัก */
+        transparent 85%                 /* ตัดดับกลืนเข้าสู่ความมืดสนิทอย่างไร้รอยต่อ */
+    ) !important;
+    z-index: 1 !important;              /* ดันเลเยอร์แสงมาสแตนด์บายหลังแผงอักษร */
+    pointer-events: none !important;    /* ห้ามบังเมาส์ ป้องกันบั๊กกดลิงก์เมนูไม่ได้ */
 }
 
 /* ── ซ่อน NAVBAR เริ่มต้น ── */
