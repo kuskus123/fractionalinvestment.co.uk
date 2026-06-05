@@ -1,3 +1,4 @@
+<?php include 'config-system.php'; ?>
 <?php 
   $page_title = "FAHMAI | Immersive Whisky Sourcing";
   require_once __DIR__ . '/components/header.php';

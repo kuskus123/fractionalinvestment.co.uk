@@ -1,3 +1,4 @@
+<?php include 'config-system.php'; ?>
 <!-- master-site/blog1.php -->
 <?php 
   $page_title = "The Rising Scarcity of Aged Islay Distillates | FAHMAI";

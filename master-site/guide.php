@@ -1,3 +1,4 @@
+<?php include 'config-system.php'; ?>
 <!-- master-site/guide.php -->
 <?php 
   $page_title = "Beginner's Guide to Whisky Cask Investment | FAHMAI";

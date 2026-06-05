@@ -1,3 +1,4 @@
+<?php include 'config-system.php'; ?>
 <?php 
   $page_title = "Frequently Asked Questions | FAHMAI";
   require_once __DIR__ . '/components/header.php';

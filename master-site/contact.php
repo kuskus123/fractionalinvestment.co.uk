@@ -1,3 +1,4 @@
+<?php include 'config-system.php'; ?>
 <!-- master-site/contact.php -->
 <?php 
   $page_title = "Bespoke Private Registry & Contact | FAHMAI";

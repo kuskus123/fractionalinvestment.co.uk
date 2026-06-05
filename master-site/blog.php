@@ -1,3 +1,4 @@
+<?php include 'config-system.php'; ?>
 <!-- master-site/blog.php -->
 <?php 
   $page_title = "Exclusive Market Intel & Analysis | FAHMAI";
