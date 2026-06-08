@@ -5,19 +5,19 @@
  */
 
 $web = [
-    'site_type'     => 'blog',              // 📰 เลือกประเภทหน้าจอ: 'news' หรือ 'blog'
+    'site_type'     => 'blog',              // 📰 เลือกประเภทหน้าจอ: 'news' (ดึงข่าวนอกออโต้) หรือ 'blog' (เขียนบทความเอง)
     'theme_class'   => 'theme-luxury-gold', // 🎨 เลือกธีมสี: 'theme-luxury-gold' หรือ 'theme-irish-emerald'
     'font_link'     => 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap',
     'font_family'   => "'Cinzel', serif",
     'brand_name'    => "FAHMAI",
+    
     // 🚪 ข้อความหน้า Intro & Header
     'header_logo'   => "GOLDEN CASK INTEL",
     'intro_heading' => "ACCESSING PRIVATE WHISKY INTEL",
     'intro_text'    => "ระบบคัดกรองข้อมูลคลังความรู้ทางเลือกวิสกี้ระดับโลก",
     'intro_btn'     => "ENTER TERMINAL",
     
-    // 🎯 สารมารถเปลียนข่าวได้ว่าจะเอาจากข่ายไหน
-    // ตัวอย่างเว็บนี้: ดึงเฉพาะค่าย THE SPIRITS BUSINESS ค่ายเดียวเดี่ยวๆ
+    // 🎯 สามารถเปลี่ยนข่าวได้ว่าจะเอาจากค่ายไหน (ทำงานเฉพาะตอนสับ 'site_type' => 'news')
     'news_sources'  => ['THE SPIRITS BUSINESS'],
    
     // 🏠 ข้อความหน้าย่อยอื่นๆ 
@@ -64,6 +64,7 @@ $web['guide_body_content'] = <<<HTML
     </p>
 </article>
 HTML;
+
 // =========================================================================
 // 🗂️ 🌟 ชุดข้อมูลคำถาม-คำตอบ (FAQ Items) เวอร์ชันหรูหราดึงเข้าลูปอัตโนมัติ
 // =========================================================================
@@ -81,15 +82,16 @@ $web['faq_items'] = [
         'answer'   => "As the distillate breathes through the wood, a small portion evaporates annually. While overall liquid volume decreases slightly over time, the concentration of rare flavor compounds increases dramatically, driving up the institutional value of the remaining vintage asset."
     ]
 ];
+
 // =========================================================================
-// 🔮 🌟 [NEW] คลังข้อมูลบทความเขียนเองประจำโดเมน (ทำงานเฉพาะโหมด 'blog')
+// 🔮 🌟 คลังข้อมูลบทความเขียนเองประจำโดเมน (ทำงานเฉพาะโหมด 'blog')
 // เพื่อนๆ สามารถเข้ามาสลับเปลี่ยนพาธรูปภาพและเนื้อหาบทความทั้งหมดได้ที่นี่เลยกัส
 // =========================================================================
 $web['articles'] = [
     [
         'tag'         => "MARKET INTEL",
         'date'        => "JUNE 08, 2026",
-        'image'       => "assets/images/Bghome.webp", // 🎯 จุดเปลี่ยนรูปภาพบทความที่ 1 (ใส่พาธไฟล์รูปในเครื่องได้เลย)
+        'image'       => "assets/images/Bghome.webp", 
         'title'       => "The Global Surge in Rare Single Malt Cask Values",
         'excerpt'     => "An analysis of why alternative whisky assets are outperforming traditional luxury markets amid macro inflation.",
         'full_content'=> "<h3>Macroeconomic Convergence</h3><p>As traditional equities face unprecedented volatility, institutional capital is quietly shifting toward physical assets with built-in scarcity. Premium single malt Scotch whisky casks represent a distinct frontier.</p>"
@@ -97,19 +99,18 @@ $web['articles'] = [
     [
         'tag'         => "MATURATION SCIENCE",
         'date'        => "MAY 24, 2026",
-        'image'       => "assets/images/Bghome.webp", // 🎯 จุดเปลี่ยนรูปภาพบทความที่ 2
+        'image'       => "assets/images/Bghome.webp", 
         'title'       => "The Chemistry of Oak: Subtraction vs Oxidation",
         'excerpt'     => "Decoding the chemical interactions inside a first-fill Bourbon barrel and how it eliminates harsh distillate elements.",
         'full_content'=> "<h3>The Purification Phase</h3><p>During the initial three years of cask confinement, the charred oak interior acts as a natural carbon filter. This process, scientifically termed Subtraction, actively bonds with and neutralizes volatile compounds.</p>"
     ],
-     [
+    [
         'tag'         => "MATURATION SCIENCE",
         'date'        => "MAY 24, 2026",
-        'image'       => "assets/images/Bghome.webp", // 🎯 จุดเปลี่ยนรูปภาพบทความที่ 2
+        'image'       => "assets/images/Bghome.webp", 
         'title'       => "The Chemistry of Oak: Subtraction vs Oxidation",
         'excerpt'     => "Decoding the chemical interactions inside a first-fill Bourbon barrel and how it eliminates harsh distillate elements.",
         'full_content'=> "<h3>The Purification Phase</h3><p>During the initial three years of cask confinement, the charred oak interior acts as a natural carbon filter. This process, scientifically termed Subtraction, actively bonds with and neutralizes volatile compounds.</p>"
     ]
 ];
-?>
 ?>
