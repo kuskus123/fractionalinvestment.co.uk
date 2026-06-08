@@ -5,7 +5,7 @@
  */
 
 $web = [
-    'site_type'     => 'news',              // 📰 เลือกประเภทหน้าจอ: 'news' หรือ 'blog'
+    'site_type'     => 'blog',              // 📰 เลือกประเภทหน้าจอ: 'news' หรือ 'blog'
     'theme_class'   => 'theme-luxury-gold', // 🎨 เลือกธีมสี: 'theme-luxury-gold' หรือ 'theme-irish-emerald'
     'font_link'     => 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap',
     'font_family'   => "'Cinzel', serif",
