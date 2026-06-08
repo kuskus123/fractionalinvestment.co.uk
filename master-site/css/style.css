@@ -304,12 +304,12 @@ body.normal-page .navbar {
 
 /* 👑 รัศมีแสงทองเปิดตัวหน้าแรก (โหมดธีมทองพรีเมียม) -> ดึงมิติแสงเงาเว้นช่องไฟตามภาพ image_03c50a.jpg */
 body.theme-luxury-gold #introOverlay {
-    background: radial-gradient(circle at center, rgba(191, 160, 48, 0.22) 0%, rgba(15, 14, 18, 0.85) 45%, #050507 75%) !important;
+    background: radial-gradient(circle at center, rgba(191, 160, 48, 0.12) 0%, rgba(15, 14, 18, 0.85) 45%, #050507 75%) !important;
 }
 
 /* 👑 รัศมีแสงมรกตเปิดตัวหน้าแรก (โหมดธีมเขียวป่าลึก) -> รองรับระบบสลับร่างสำหรับอีกโดเมน */
 body.theme-irish-emerald #introOverlay {
-    background: radial-gradient(circle at center, rgba(26, 67, 62, 0.22) 0%, rgba(10, 15, 12, 0.85) 45%, #020706 75%) !important;
+    background: radial-gradient(circle at center, rgba(26, 67, 62, 0.10) 0%, rgba(10, 15, 12, 0.85) 45%, #020706 75%) !important;
 }
 
 
