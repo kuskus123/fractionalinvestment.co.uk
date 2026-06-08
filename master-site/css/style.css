@@ -137,23 +137,31 @@ body.homepage-unlocked {
     overflow-y: auto !important;
 }
 
-/* 🌟 ปรับปรุงสถาปัตยกรรมแสงหน้าย่อยบน PC (Guide, FAQ, Blog, Contact) ให้สลับเฉดสีตามโดเมน */
+/* คุมโครงสร้างการเลื่อนหน้าจอทั่วไปบน Desktop */
 body.normal-page {
     overflow-y: auto;
-    background-color: var(--dark-bg) !important; 
     position: relative;
+    background-color: var(--dark-bg) !important;
 }
 
-body.normal-page {
-    overflow-y: auto;
-    /* 🚀 เปลี่ยนจากรหัสสีล็อกตายตัว มาเป็นระบบไล่เฉดไฟตามสีประจำธีมโดเมนปัจจุบัน */
+/* 👑 เคสที่ 1: เมื่อโดเมนเปิดธีม luxury-gold -> สาดแสงแอมเบอร์ทองคำนุ่มนวลกระจายลงมาจากเพดาน */
+body.theme-luxury-gold.normal-page {
     background: radial-gradient(
-        ellipse 75% 60% at top center, 
-        var(--primary-color) 0%,    
-        rgba(11, 11, 13, 0.45) 45%,     
-        var(--dark-bg) 85%              
+        ellipse 100% 70% at top center, 
+        rgba(191, 160, 48, 0.24) 0%,    
+        rgba(30, 26, 21, 0.50) 45%,     
+        #050507 90%                     
     ) no-repeat fixed !important;
-    background-color: var(--dark-bg) !important; 
+}
+
+/* 👑 เคสที่ 2: เมื่อโดเมนเปิดธีม irish-emerald -> สาดแสงเขียวป่าลึกไอริชละมุนสายตา */
+body.theme-irish-emerald.normal-page {
+    background: radial-gradient(
+        ellipse 100% 70% at top center, 
+        rgba(26, 67, 62, 0.28) 0%,      
+        rgba(10, 18, 16, 0.50) 45%,      
+        #020706 90%                     
+    ) no-repeat fixed !important;
 }
 
 /* สั่งปิดแผ่นเลเยอร์โมบายล์บนจอเดสก์ท็อป เพื่อป้องกันบั๊กชั้นโค้ดซ้อนทับ */
