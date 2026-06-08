@@ -51,7 +51,7 @@ $web = [
 ];
 
 // =========================================================================
-// 📖 🌟 ยัดเนื้อหาบทความแบบยาวของหน้า Guide เข้าสล็อตแปรผันตรงนี้เลยครับกัส
+// 📖 🌟 ยัดเนื้อหาบทความแบบยาวของหน้า Guide เข้าสล็อตแปรผันตรงนี้เลยใส่เป็นHTML
 // =========================================================================
 $web['guide_body_content'] = h2>1. THE ARCHITECTURE OF LIQUID WEALTH</h2>
         <p class='theme-drop-cap'>Whisky cask investment represents a distinct frontier in alternative asset management, fundamentally separated from traditional equities or commercial bottled spirits. While a standard bottle ceases its chemical transformation the moment the cork is sealed, a rare single malt remaining within its original oak cask behaves as a living, breathing ecosystem, interacting with the atmosphere to forge depth, color, and irreplaceable character over vertical decades.</p>
@@ -83,8 +83,6 @@ $web['guide_body_content'] = h2>1. THE ARCHITECTURE OF LIQUID WEALTH</h2>
         <h2>4. STRATEGIC EXIT ARCHITECTURE</h2>
         <p>A sophisticated asset management strategy never initiates a position without a clearly defined liquidity gateway. Premium single malt casks offer three distinct and highly lucrative exit channels for private collectors: direct acquisition by luxury independent bottlers, physical sales at international elite auctions, or structured buy-backs directly into major corporate holding portfolios.</p>
     ",
-HTML;
-
 // =========================================================================
 // 🗂️ 🌟 ชุดข้อมูลคำถาม-คำตอบ (FAQ Items) เวอร์ชันหรูหราดึงเข้าลูปอัตโนมัติ
 // =========================================================================
