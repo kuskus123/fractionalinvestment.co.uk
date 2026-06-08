@@ -6,7 +6,7 @@
 
 $web = [
     'site_type'     => 'news',              // 📰 เลือกประเภทหน้าจอ: 'news' (ดึงข่าวนอกออโต้) หรือ 'blog' (เขียนบทความเอง)
-    'theme_class'   => 'theme-luxury-gold', // 🎨 เลือกธีมสี: 'theme-luxury-gold' หรือ 'theme-irish-emerald'
+    'theme_class'   => 'LUXURY ROSE PINK', // 🎨 เลือกธีมสี: 'theme-luxury-gold' หรือ 'theme-irish-emerald'
     'font_link'     => 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap',
     'font_family'   => "'Cinzel', serif",
     'brand_name'    => "FAHMAI Hoding",
