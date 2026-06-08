@@ -1,5 +1,4 @@
 <?php 
-// 🌟 บรรทัดที่ 1: ดึงระบบตั้งค่าสัญญากลางและหัวเว็บเข้ามาเตรียมพร้อม
 require_once __DIR__ . '/config-system.php';
 require_once __DIR__ . '/components/header.php';
 ?>
@@ -18,23 +17,20 @@ require_once __DIR__ . '/components/header.php';
 
 <div class="guide-hero-section" style="margin-top: 150px; text-align: center; padding: 0 20px;">
     <span class="guide-meta" style="letter-spacing: 3px; font-size: 0.8rem; color: var(--primary-color);">INVESTMENT KNOWLEDGE</span>
-    
     <h1 class="guide-main-title" style="font-family: var(--site-font); font-size: 3rem; margin-top: 15px; margin-bottom: 15px;">
         <?php echo htmlspecialchars($web['guide_title']); ?>
     </h1>
-    
     <p class="guide-lead-in" style="font-family: 'Georgia', serif; font-style: italic; color: rgba(234, 231, 223, 0.7); max-width: 650px; margin: 0 auto 60px auto;">
         <?php echo htmlspecialchars($web['guide_subtitle']); ?>
     </p>
 </div>
 
 <div class="luxury-guide-container" style="max-width: 800px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
-    
-    <?php echo $web['guide_body_content']; ?>
+    <article class="article-body-content">
+        
+        <?php echo $web['guide_body_content']; ?>
 
+    </article>
 </div>
 
-<?php 
-// 🌟 ปิดท้ายด้วยการดึงฟุตเตอร์ท้ายเว็บเข้ามาประกอบร่าง
-require_once __DIR__ . '/components/footer.php'; 
-?>
+<?php require_once __DIR__ . '/components/footer.php'; ?>
