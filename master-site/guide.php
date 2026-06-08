@@ -8,7 +8,7 @@ require_once __DIR__ . '/components/header.php';
 <nav class="luxury-nav nav-visible" id="globalNavbar">
     <a href="index.php" class="nav-brand"><?php echo htmlspecialchars($web['header_logo']); ?></a>
     <ul class="nav-links">
-        <li><a href="index.php">HOME</a></li>
+        <li><a href="index.php?bypass=true">HOME</a></li>
         <li><a href="guide.php" class="active">GUIDE</a></li>
         <li><a href="faq.php">FAQ</a></li>
         <li><a href="blog.php">BLOG</a></li>

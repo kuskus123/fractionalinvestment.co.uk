@@ -5,10 +5,29 @@
   require_once __DIR__ . '/components/header.php';
 ?>
 
-<nav class="luxury-nav" id="globalNavbar">
-    <a href="index.php" class="nav-brand"><?php echo htmlspecialchars($web['brand_name']); ?></a>
+<?php 
+  // 🛰️ INTRO BYPASS DETECTOR: ตรวจจับสัญญาณพารามิเตอร์เพื่อข้ามหน้าจอเปิดตัว
+  $bypass_intro = isset($_GET['bypass']) && $_GET['bypass'] === 'true';
+?>
+
+<?php if ($bypass_intro): ?>
+<script>
+    document.body.classList.remove("is-intro-page");
+    document.body.classList.add("homepage-unlocked");
+</script>
+<style>
+    #introOverlay { display: none !important; }
+    #darkRoomGateContent { display: none !important; }
+    .concept-container { opacity: 1 !important; visibility: visible !important; }
+    .homepage-real-content { display: block !important; opacity: 1 !important; transform: translateY(0) !important; }
+    .luxury-nav { opacity: 1 !important; transform: translateY(0) !important; pointer-events: auto !important; }
+</style>
+<?php endif; ?>
+
+<nav class="luxury-nav <?php echo $bypass_intro ? 'nav-visible' : ''; ?>" id="globalNavbar">
+    <a href="index.php?bypass=true" class="nav-brand"><?php echo htmlspecialchars($web['brand_name']); ?></a>
     <ul class="nav-links">
-        <li><a href="index.php" class="active">HOME</a></li>
+        <li><a href="index.php?bypass=true" class="active">HOME</a></li>
         <li><a href="guide.php">GUIDE</a></li>
         <li><a href="faq.php">FAQ</a></li>
         <li><a href="blog.php">BLOG</a></li>
@@ -22,11 +41,10 @@
         
         <h1 class="lumen-title" id="mainBrand">
             <?php 
-            // 🚀 ENGINE SPLITTER: ดึงชื่อแบรนด์มาสับย่อยเป็นตัวอักษรทีละตัว รองรับทั้งไทยและอังกฤษ (UTF-8)
+            // 🚀 ENGINE SPLITTER: ดึงชื่อแบรนด์มาสับย่อยเรนเดอร์เป็นสแปนทีละตัวอักษรเพื่อทำแอนิเมชันเก๋ ๆ
             $brand_text = $web['brand_name'];
             $characters = preg_split('//u', $brand_text, -1, PREG_SPLIT_NO_EMPTY);
             
-            // พ่นเซ็ตแอนิเมชันทีละตัวอักษรให้อัตโนมัติ เพื่อนเปลี่ยนคำยาวแค่ไหนก็ไม่พัง
             foreach ($characters as $char) {
                 echo "<span>" . htmlspecialchars($char) . "</span>";
             }
@@ -74,7 +92,6 @@
 
        <section class="cta-twin-grid">
             
-            <!-- 💳 การ์ดใบที่ 1 (Dynamic Mapping) -->
             <div class="luxury-gate-card">
                 <div>
                     <div class="card-gate-tag"><?php echo htmlspecialchars($web['card1_tag']); ?></div>
@@ -86,7 +103,6 @@
                 <a href="<?php echo htmlspecialchars($web['card1_url']); ?>" target="_blank" class="btn-gate-link"><?php echo htmlspecialchars($web['card1_btn']); ?></a>
             </div>
 
-            <!-- 💳 การ์ดใบที่ 2 (Dynamic Mapping) -->
             <div class="luxury-gate-card">
                 <div>
                     <div class="card-gate-tag"><?php echo htmlspecialchars($web['card2_tag']); ?></div>
@@ -114,6 +130,13 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    <?php if ($bypass_intro): ?>
+    /* 🎯 จุดระเบิดวิศวกรรมฝุ่นแปรผันตรง: สั่งระบบฝุ่นทำงานทันทีตั้งแต่หน้าเว็บถูกข้ามเข้ามา */
+    if (typeof initGoldenDust === "function") {
+        initGoldenDust();
+    }
+    <?php endif; ?>
 });
 </script>
 
