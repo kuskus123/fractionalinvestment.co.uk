@@ -27,23 +27,21 @@ $web = [
     'faq_title'     => "PRIVATE SUPPORT FAQ",
     'faq_subtitle'  => "Frequently asked questions regarding our alternative asset terminal."
 ];
-
 // =========================================================================
-// 🗂️ 🌟 ชุดข้อมูลคำถาม-คำตอบ (FAQ Items) สำหรับหน้า faq.php
-// เพื่อนสามารถเพิ่ม [คำถาม/คำตอบ] ชุดที่ 4, 5, 6 ต่อท้ายลงมาในนี้ได้เลยออโต้
+// 🗂️ 🌟 ชุดข้อมูลคำถาม-คำตอบ (FAQ Items) เวอร์ชันหรูหราดึงเข้าลูปอัตโนมัติ
 // =========================================================================
 $web['faq_items'] = [
     [
-        'question' => "What is the minimum holding period for a whisky cask?",
-        'answer'   => "While there is no legal minimum holding period, premium single malt Scotch whisky casks typically achieve optimal chemical maturation and market value appreciation between 5 to 15 years."
-    ],
-    [
-        'question' => "How is the ownership of the cask legally formalized?",
+        'question' => "HOW DO I LEGALLY OWN A WHISKY CASK IN SCOTLAND?",
         'answer'   => "Ownership is legally transferred and formalized via a Delivery Order (DO) issued directly by the HMRC-regulated bonded warehouse in Scotland, ensuring an unbroken chain of custody."
     ],
     [
-        'question' => "What insurance coverage is provided for the physical asset?",
-        'answer'   => "All casks stored in our partner bonded facilities are fully insured at market replacement value against fire, theft, and accidental damage, managed under specialized institutional underwriters."
+        'question' => "WHAT ARE THE ONGOING MAINTENANCE FEES OR STORAGE COSTS?",
+        'answer'   => "All premium Scotch whisky casks reside in strictly climate-controlled facilities. Maintenance fees typically cover professional warehousing, cask management, and full market-value asset insurance."
+    ],
+    [
+        'question' => "WHAT IS THE \"ANGEL'S SHARE\" AND HOW DOES IT IMPACT MY ASSET?",
+        'answer'   => "As the distillate breathes through the wood, a small portion evaporates annually. While overall liquid volume decreases slightly over time, the concentration of rare flavor compounds increases dramatically, driving up the institutional value of the remaining vintage asset."
     ]
 ];
 ?>
