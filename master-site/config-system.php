@@ -30,7 +30,7 @@ $web = [
 // =========================================================================
 $web['guide_body_content'] = <<<HTML
 <article class="article-body-content">
-    <h2>ลอเทสดูหน่อย</h2>
+    <h2>TEST</h2>
     
     <p class="has-drop-cap">
         Whisky cask investment is fundamentally different from traditional equities or bottled spirits. Unlike bottled whisky, which ceases to mature once sealed in glass, whisky remaining inside the original oak cask actively interacts with its environment, developing complexity, color, and depth over decades. This natural chemical evolution forms the baseline of its financial appreciation.
