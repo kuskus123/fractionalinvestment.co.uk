@@ -4,9 +4,21 @@
  * เพื่อนเข้ามาแก้คำศัพท์ เลือกประเภทเว็บ และสลับธีมสีของโดเมนนี้ที่ไฟล์นี้ได้เลย
  */
 
+     /**ธีมทองพรีเมียม: 'theme-luxury-gold'
+
+    ธีมเขียวมรกต: 'theme-irish-emerald'
+
+    ธีมชมพูโรสควอตซ์: 'theme-luxury-rose'
+
+    ธีมฟ้าหน้าปัดหรู: 'theme-royal-sky'
+
+    ธีมน้ำเงินแซฟไฟร์: 'theme-sapphire-obsidian'
+
+    ธีมแดงทับทิมไวน์: 'theme-ruby-crimson'
+*/
 $web = [
     'site_type'     => 'news',              // 📰 เลือกประเภทหน้าจอ: 'news' (ดึงข่าวนอกออโต้) หรือ 'blog' (เขียนบทความเอง)
-    'theme_class'   => 'LUXURY ROSE PINK', // 🎨 เลือกธีมสี: 'theme-luxury-gold' หรือ 'theme-irish-emerald'
+    'theme_class'   => 'theme-luxury-rose', // 🎨 เลือกธีมสี: 'theme-luxury-gold' หรือ 'theme-irish-emerald'
     'font_link'     => 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap',
     'font_family'   => "'Cinzel', serif",
     'brand_name'    => "FAHMAI Hoding",
