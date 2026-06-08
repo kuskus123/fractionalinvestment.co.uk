@@ -8,7 +8,7 @@ $final_news = [];
 $is_fallback_active = false;
 
 // =========================================================================
-// 🚀 ENGINE: cURL NEWS AGGREGATOR + CACHE WITH FAIL-SAFE FALLBACK
+// 🚀 ENGINE: cURL MULTI-SOURCE NEWS & IMAGE EXTRACTOR
 // =========================================================================
 if ($site_type === 'news') {
     $cache_suffix = md5(json_encode($web['news_sources']));
@@ -34,8 +34,8 @@ if ($site_type === 'news') {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 8); 
-            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AssetParser/1.2');
+            curl_setopt($ch, CURLOPT_TIMEOUT, 10); 
+            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AssetParser/1.3');
             $raw_xml = curl_exec($ch);
             curl_close($ch);
             
@@ -51,6 +51,29 @@ if ($site_type === 'news') {
                         }
                         
                         $description_raw = (string)$news_item->description;
+                        
+                        // 🌟 ลอจิกควานหาไฟล์รูปภาพจากทุกมิติของ RSS Feed ค่ายนอก
+                        $extracted_img = '';
+                        if (isset($news_item->enclosure) && isset($news_item->enclosure['url'])) {
+                            $extracted_img = (string)$news_item->enclosure['url'];
+                        }
+                        if (empty($extracted_img)) {
+                            $ns = $news_item->getNameSpaces(true);
+                            if (isset($ns['media'])) {
+                                $media_children = $news_item->children($ns['media']);
+                                if (isset($media_children->content) && isset($media_children->content->attributes()->url)) {
+                                    $extracted_img = (string)$media_children->content->attributes()->url;
+                                }
+                            }
+                        }
+                        if (empty($extracted_img)) {
+                            preg_match('/<img[^>]+src="([^">]+)"/', $description_raw, $matches);
+                            if (!empty($matches[1])) $extracted_img = $matches[1];
+                        }
+                        if (empty($extracted_img)) {
+                            $extracted_img = 'assets/images/Bghome.webp'; // ภาพสำรองถ้าค่ายข่าวไม่มีรูปส่งมา
+                        }
+
                         $clean_text = strip_tags($description_raw);
                         $clean_text = trim(preg_replace('/\s+/', ' ', $clean_text));
                         $card_excerpt = (mb_strlen($clean_text) > 130) ? mb_substr($clean_text, 0, 130) . '...' : $clean_text;
@@ -61,6 +84,7 @@ if ($site_type === 'news') {
                             'card_excerpt' => $card_excerpt,
                             'full_content' => !empty($clean_text) ? $clean_text : "Live alternative asset data verified by node.",
                             'source'       => $publisher,
+                            'image'        => $extracted_img, // ส่งพาธรูปภาพเข้าพูลข้อมูลข่าวสาร
                             'date_text'    => date('M d, Y', strtotime((string)$news_item->pubDate)),
                             'timestamp'    => strtotime((string)$news_item->pubDate)
                         ];
@@ -123,7 +147,6 @@ if ($site_type === 'news') {
         <?php 
         if (!empty($display_collection)):
             foreach ($display_collection as $index => $item): 
-                $num_padded = str_pad($index + 1, 2, '0', STR_PAD_LEFT);
                 
                 $item_title   = isset($item['title']) ? $item['title'] : '';
                 $item_excerpt = isset($item['card_excerpt']) ? $item['card_excerpt'] : (isset($item['excerpt']) ? $item['excerpt'] : '');
@@ -131,22 +154,26 @@ if ($site_type === 'news') {
                 $item_source  = isset($item['source']) ? $item['source'] : (isset($item['tag']) ? $item['tag'] : 'INTEL SOURCE');
                 $item_date    = isset($item['date_text']) ? $item['date_text'] : (isset($item['date']) ? $item['date'] : date('M d, Y'));
                 $item_link    = isset($item['link']) ? $item['link'] : 'guide.php';
+                
+                // สอยตัวแปรที่อยู่ไฟล์ภาพของแต่ละโหมดมาแรนเดอร์หน้าจอ
+                $item_image   = isset($item['image']) ? $item['image'] : 'assets/images/Bghome.webp';
         ?>
                 <div class="test-card" style="background: linear-gradient(135deg, rgba(25, 25, 30, 0.4) 0%, rgba(10, 10, 12, 0.7) 100%); border: 1px solid rgba(191, 160, 48, 0.12); border-radius: 4px; padding: 35px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.4s ease;">
                     <div>
-                        <div class="insight-visual-placeholder" style="width: 100%; height: 160px; border: 1px dashed rgba(234, 231, 223, 0.05); display: flex; align-items: center; justify-content: center; margin-bottom: 25px; background: rgba(5, 5, 7, 0.2); border-radius: 2px;">
-                            <span style="font-family: var(--site-font); font-size: 0.65rem; color: rgba(234, 231, 223, 0.25); letter-spacing: 2px;">[ - INSIGHT VISUAL <?php echo $num_padded; ?> - ]</span>
+                        <div class="insight-visual-container" style="width: 100%; height: 170px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; background: #050507; border-radius: 3px; overflow: hidden; border: 1px solid rgba(234, 231, 223, 0.04); position: relative;">
+                            <img src="<?php echo htmlspecialchars($item_image); ?>" alt="Market Intel" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%) brightness(75%); transition: transform 0.5s ease;">
+                            <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40%; background: linear-gradient(to top, rgba(10,10,12,0.8) 0%, rgba(10,10,12,0) 100%);"></div>
                         </div>
 
                         <span class="card-tag" style="font-family: var(--site-font); font-size: 0.65rem; color: #bfa030; letter-spacing: 2px; margin-bottom: 12px; display: block; text-transform: uppercase;">
                             <?php echo htmlspecialchars($item_date); ?> &nbsp;&nbsp;—&nbsp;&nbsp; <?php echo htmlspecialchars($item_source); ?>
                         </span>
                         
-                        <h3 class="card-title" style="font-family: var(--site-font); font-size: 1.15rem; line-height: 1.4; color: #eae7df; margin: 0 0 15px 0; font-weight: 400; letter-spacing: 0.5px;">
+                        <h3 class="card-title" style="font-family: var(--site-font); font-size: 1.15rem; line-height: 1.4; color: #eae7df; margin: 0 0 15px 0; font-weight: 400; letter-spacing: 0.5px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 3.2em;">
                             <?php echo htmlspecialchars($item_title); ?>
                         </h3>
                         
-                        <p class="card-excerpt" style="font-family: 'Georgia', serif; font-size: 0.9rem; line-height: 1.6; color: rgba(234, 231, 223, 0.5); margin: 0 0 25px 0; text-align: justify;">
+                        <p class="card-excerpt" style="font-family: 'Georgia', serif; font-size: 0.9rem; line-height: 1.6; color: rgba(234, 231, 223, 0.5); margin: 0 0 25px 0; text-align: justify; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; height: 4.8em;">
                             <?php echo htmlspecialchars($item_excerpt); ?>
                         </p>
                     </div>
@@ -158,6 +185,7 @@ if ($site_type === 'news') {
                                 data-excerpt="<?php echo htmlspecialchars($item_excerpt); ?>"
                                 data-full="<?php echo htmlspecialchars($item_full); ?>"
                                 data-date="<?php echo htmlspecialchars($item_date); ?> — <?php echo htmlspecialchars($item_source); ?>"
+                                data-image="<?php echo htmlspecialchars($item_image); ?>"
                                 data-link="<?php echo htmlspecialchars($item_link); ?>"
                                 style="color: #bfa030; background: none; border: none; font-family: var(--site-font); font-size: 0.7rem; letter-spacing: 1px; cursor: pointer; padding: 0; font-weight: 600; transition: color 0.3s;">
                             READ INTEL —
@@ -176,16 +204,21 @@ if ($site_type === 'news') {
     </div>
 </div>
 
-<div class="luxury-modal-overlay" id="intelModalOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(6, 6, 8, 0.88); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; z-index: 9999;">
-    <div class="luxury-modal-wrapper" style="background: #0d0c0e; border: 1px solid #bfa030; padding: 50px; max-width: 750px; width: 90%; max-height: 88vh; overflow-y: auto; border-radius: 4px; position: relative; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95); transform: scale(0.9); transition: transform 0.4s ease;">
+<div class="luxury-modal-overlay" id="intelModalOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(6, 6, 8, 0.9); backdrop-filter: blur(15px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; z-index: 9999;">
+    <div class="luxury-modal-wrapper" style="background: #0d0c0e; border: 1px solid #bfa030; padding: 50px; max-width: 750px; width: 90%; max-height: 88vh; overflow-y: auto; border-radius: 4px; position: relative; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95); transform: scale(0.9); transition: transform 0.4s ease;">
         
-        <button class="modal-close-trigger" id="closeModalBtn" style="position: absolute; top: 25px; right: 25px; background: none; border: none; color: rgba(234, 231, 223, 0.4); font-size: 1.6rem; cursor: pointer; transition: color 0.3s;">&times;</button>
+        <button class="modal-close-trigger" id="closeModalBtn" style="position: absolute; top: 25px; right: 25px; background: none; border: none; color: rgba(234, 231, 223, 0.4); font-size: 1.6rem; cursor: pointer; transition: color 0.3s; z-index: 10;">&times;</button>
         
         <main class="luxury-article-wrapper" style="padding: 0; background: none;">
             <header class="article-hero" style="text-align: left; margin-bottom: 30px;">
                 <div class="article-meta" id="modalDate" style="font-family: var(--site-font); font-size: 0.75rem; color: #bfa030; letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase;">DATE — TAG</div>
-                <h1 class="article-main-title" id="modalTitle" style="font-family: var(--site-font); font-size: 2rem; line-height: 1.35; color: #eae7df; margin: 0 0 20px 0; font-weight: 400; letter-spacing: 0.5px;">TITLE</h1>
-                <p class="article-lead-in" id="modalExcerpt" style="font-family: 'Georgia', serif; font-style: italic; font-size: 1.05rem; line-height: 1.7; color: rgba(234, 231, 223, 0.65); margin-bottom: 25px;">LEAD EXCERPT</p>
+                <h1 class="article-main-title" id="modalTitle" style="font-family: var(--site-font); font-size: 2rem; line-height: 1.35; color: #eae7df; margin: 0 0 25px 0; font-weight: 400; letter-spacing: 0.5px;">TITLE</h1>
+                
+                <div class="modal-hero-image-frame" style="width: 100%; height: 280px; border-radius: 2px; overflow: hidden; margin-bottom: 30px; border: 1px solid rgba(191, 160, 48, 0.15); background: #050507;">
+                    <img id="modalHeroImage" src="assets/images/Bghome.webp" alt="Article Visual" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(75%);">
+                </div>
+
+                <p class="article-lead-in" id="modalExcerpt" style="font-family: 'Georgia', serif; font-style: italic; font-size: 1.05rem; line-height: 1.7; color: rgba(234, 231, 223, 0.65); margin-bottom: 25px; text-align: justify;">LEAD EXCERPT</p>
                 <div class="article-divider" style="width: 100%; height: 1px; background: rgba(191,160,48,0.15); margin-top: 25px;"></div>
             </header>
 
@@ -196,7 +229,7 @@ if ($site_type === 'news') {
 
         <div class="modal-footer-area" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(234,231,223,0.06); padding-top: 25px; margin-top: 40px;">
             <span id="modalFooterDate" style="font-family: var(--site-font); font-size: 0.65rem; color: rgba(234, 231, 223, 0.35); text-transform: uppercase; letter-spacing: 1px;">DATE INTEL</span>
-            <a href="#" target="_blank" class="btn-visit-origin" id="modalOriginLink" style="font-family: var(--site-font); font-size: 0.75rem; color: #060608; background-color: #bfa030; text-decoration: none; padding: 12px 28px; border-radius: 2px; letter-spacing: 2px; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(191, 160, 48, 0.25);">
+            <a href="#" target="_blank" class="btn-visit-origin" id="modalOriginLink" style="font-family: var(--site-font) !important; font-size: 0.75rem !important; color: #bfa030 !important; background: rgba(191, 160, 48, 0.08) !important; border: 1px solid #bfa030 !important; text-decoration: none !important; padding: 12px 28px !important; border-radius: 2px !important; letter-spacing: 2px !important; font-weight: 600 !important; display: inline-block !important; transition: all 0.3s ease !important; box-shadow: 0 0 15px rgba(191, 160, 48, 0.15) !important;">
                 VISIT SOURCE —
             </a>
         </div>
@@ -211,6 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mDate = document.getElementById('modalDate');
     const mFooterDate = document.getElementById('modalFooterDate');
     const mTitle = document.getElementById('modalTitle');
+    const mHeroImage = document.getElementById('modalHeroImage');
     const mExcerpt = document.getElementById('modalExcerpt');
     const mBody = document.getElementById('modalBody');
     const mLink = document.getElementById('modalOriginLink');
@@ -224,6 +258,9 @@ document.addEventListener('DOMContentLoaded', () => {
             mExcerpt.textContent = button.getAttribute('data-excerpt');
             mBody.innerHTML = button.getAttribute('data-full');
             mLink.setAttribute('href', button.getAttribute('data-link'));
+            
+            // 🎯 ฉีดที่อยู่รูปภาพประกอบสลับเปลี่ยนเข้าสู่แผงป๊อปอัพตามจริง
+            mHeroImage.setAttribute('src', button.getAttribute('data-image'));
 
             const firstP = mBody.querySelector('p');
             if (firstP) firstP.classList.add('has-drop-cap');
