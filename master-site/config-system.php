@@ -26,7 +26,7 @@ $web = [
     'guide_title'   => "CASK MATURATION INFRASTRUCTURE",
     'guide_subtitle'=> "Understanding the core phases of alternative whiskey asset distribution.",
     'faq_title'     => "PRIVATE SUPPORT FAQ",
-    'faq_subtitle'  => "Frequently asked questions regarding our alternative asset terminal."
+    'faq_subtitle'  => "Frequently asked questions regarding our alternative asset terminal.", // 🎯 เติมเครื่องหมายจุลภาค (,) ตรงนี้เรียบร้อยครับ!
 
     // 🎫 สล็อตควบคุมเนื้อหาการ์ด 2 ใบหน้าแรก (Below Fold)
     'card1_tag'     => "ASSET MANAGEMENT",
@@ -57,7 +57,7 @@ $web['guide_body_content'] = <<<HTML
     </p>
 
     <blockquote class="luxury-pull-quote">
-        "Unlike bottled spirits, a cask is a living, breathing asset that actively appreciates in flavor complexity and financial rarity every single year."
+        "Unlike bottled spirits, a cask is a living, breathing asset that appreciates in flavor complexity and financial rarity every single year."
         <span>— Institutional Maturation Insights</span>
     </blockquote>
 
@@ -125,6 +125,5 @@ $web['articles'] = [
         'excerpt'     => "Decoding the chemical interactions inside a first-fill Bourbon barrel and how it eliminates harsh distillate elements.",
         'full_content'=> "<h3>The Purification Phase</h3><p>During the initial three years of cask confinement, the charred oak interior acts as a natural carbon filter. This process, scientifically termed Subtraction, actively bonds with and neutralizes volatile compounds.</p>"
     ]
-
 ];
 ?>
