@@ -371,11 +371,11 @@ body.homepage-unlocked .concept-container::before {
         from 150deg at top center, 
         var(--dark-bg) 0deg,   
         var(--dark-bg) 12deg,  
-        rgba(191, 160, 48, 0.12) 21deg,   
-        rgba(191, 160, 48, 0.24) 35deg,   
-        rgba(191, 160, 48, 0.12) 46deg,   
-        var(--dark-bg) 58deg,  
-        var(--dark-bg) 360deg 
+        rgba(191, 160, 48, 0.12) 18deg,
+        rgba(191, 160, 48, 0.24) 30deg, 
+        rgba(191, 160, 48, 0.12) 42deg,
+        var(--dark-bg) 54deg,
+        var(--dark-bg) 360deg
     ) !important;
     filter: blur(55px) !important; 
     position: fixed !important; 
