@@ -21,7 +21,45 @@ body.theme-irish-emerald {
     --card-bg: rgba(15, 23, 21, 0.5);  /* พื้นหลังกล่องข้อความ */
     --border-color: rgba(26, 67, 62, 0.15); /* สีขอบกล่อง */
 }
+/* 🌸 ธีมที่ 3: LUXURY ROSE PINK (ชมพูโรสควอตซ์หรูหราแบบแบรนด์แฟชั่นระดับสูง) */
+body.theme-luxury-rose {
+    --primary-color: #f3a7bb;         /* สีหลัก: ชมพูโรสควอตซ์ลักชูรี */
+    --primary-hover: #eae7df;         
+    --bg-gradient-top: #1f1418;       /* ฉากหลัง: ดำอมชมพูหม่นลึก */
+    --bg-gradient-bottom: #060405;    /* ฉากหลัง: ดำมืดสนิท */
+    --card-bg: rgba(31, 20, 24, 0.45);  
+    --border-color: rgba(243, 167, 187, 0.12); 
+}
 
+/* 💎 ธีมที่ 4: ROYAL SKY BLUE (ฟ้าออกน้ำเงินสว่างพรีเมียม สไตล์นาฬิกาหรูตระกูลลึก) */
+body.theme-royal-sky {
+    --primary-color: #4ea8de;         /* สีหลัก: ฟ้าอิเล็กทริกสกายทอประกาย */
+    --primary-hover: #eae7df;         
+    --bg-gradient-top: #051622;       /* ฉากหลัง: ดำอมฟ้าอัสซูรี */
+    --bg-gradient-bottom: #01070b;    /* ฉากหลัง: ดำมืดสนิท */
+    --card-bg: rgba(5, 22, 34, 0.45);  
+    --border-color: rgba(78, 168, 222, 0.12); 
+}
+
+/* 🌌 ธีมที่ 5: SAPPHIRE OBSIDIAN (น้ำเงินแซฟไฟร์เข้มลึกอมดำ ลึกลับดุดันกระเป๋าหนัก) */
+body.theme-sapphire-obsidian {
+    --primary-color: #0f52ba;         /* สีหลัก: น้ำเงินแซฟไฟร์สกัดเข้ม */
+    --primary-hover: #eae7df;         
+    --bg-gradient-top: #0a1128;       /* ฉากหลัง: มิดไนท์บลูเข้มลึก */
+    --bg-gradient-bottom: #010409;    /* ฉากหลัง: ดำมืดสนิท */
+    --card-bg: rgba(10, 17, 40, 0.45);  
+    --border-color: rgba(15, 82, 186, 0.15); 
+}
+
+/* 🩸 ธีมที่ 6: RUBY CRIMSON (แดงทับทิมเข้มกำมะหยี่ หรูหราทรงอำนาจสไตล์ไวน์วินเทจ) */
+body.theme-ruby-crimson {
+    --primary-color: #bd1f36;         /* สีหลัก: แดงทับทิมเลอค่า */
+    --primary-hover: #eae7df;         
+    --bg-gradient-top: #1c000d;       /* ฉากหลัง: ดำอมแดงเบอร์กันดีเข้ม */
+    --bg-gradient-bottom: #050001;    /* ฉากหลัง: ดำมืดสนิท */
+    --card-bg: rgba(28, 0, 13, 0.45);  
+    --border-color: rgba(189, 31, 54, 0.15); 
+}
 
 /* ==========================================================================
    🧱 ZONE 2: CORE LAYOUT (โครงสร้างหลักของเว็บ - ห้ามแก้บ่อย ผูกค่าตามตัวแปรด้านบน)
