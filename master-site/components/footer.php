@@ -1,8 +1,6 @@
-<footer class="py-3 text-center" style="position: fixed; bottom: 0; width: 100%; z-index: 10; background: transparent;">
-        <small style="color: rgba(234, 231, 223, 0.2); font-family: 'Cinzel', serif; letter-spacing: 2px;">
-            &copy; <?php echo date('Y'); ?> FAHMAI. All rights reserved.
-        </small>
-    </footer>
+<!-- master-site/components/footer.php -->
+    
+    <!-- ❌ ลบแถบ <footer> ดั้งเดิมออกเกลี้ยงเรียบร้อยตามสั่ง เพื่อความ Minimal ลักชูรีเต็มพิกัด -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -29,7 +27,7 @@
                         const conceptContainer = document.getElementById("conceptSection");
                         if (conceptContainer) {
                             conceptContainer.classList.add("show-concept");
-                            initGoldenDust(); // ละอองฝุ่นทองเริ่มรันยาวๆ
+                            initGoldenDust(); // ละอองฝุ่นเริ่มรันยาวๆ
                             
                             gsap.to("#darkRoomGateContent .concept-reveal", {
                                 opacity: 1,
@@ -109,11 +107,10 @@
                     if (this.y < 0) this.reset();
                 }
                 draw() {
-                    // 🎯 นวัตกรรมดักจับสีกระแสตรง: สแกนดึงรหัสสีประจำธีมในสเปซปัจจุบันมาวาดฝุ่น
                     const currentThemeColor = getComputedStyle(document.body).getPropertyValue('--primary-color').trim() || '#bfa030';
                     ctx.save();
                     ctx.fillStyle = currentThemeColor; 
-                    ctx.globalAlpha = this.opacity; // ควบคุมความสลัวบางเบาอย่างนุ่มนวล
+                    ctx.globalAlpha = this.opacity; 
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); 
                     ctx.fill();
