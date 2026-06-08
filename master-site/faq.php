@@ -1,12 +1,13 @@
+<?php include 'config-system.php'; ?>
 <?php 
-// 🌟 ดึงระบบตั้งค่าสัญญากลางและหัวเว็บเข้ามาเตรียมพร้อม
-require_once __DIR__ . '/config-system.php';
-require_once __DIR__ . '/components/header.php';
+  $page_title = "Frequently Asked Questions | FAHMAI";
+  require_once __DIR__ . '/components/header.php';
 ?>
+
 <script>document.body.className = "normal-page";</script>
 
 <nav class="luxury-nav nav-visible" id="globalNavbar">
-    <a href="index.php" class="nav-brand"><?php echo htmlspecialchars($web['brand_name']); ?></a>
+    <a href="index.php" class="nav-brand">FAHMAI</a>
     <ul class="nav-links">
         <li><a href="index.php">HOME</a></li>
         <li><a href="guide.php">GUIDE</a></li>
@@ -16,51 +17,95 @@ require_once __DIR__ . '/components/header.php';
     </ul>
 </nav>
 
-<div class="faq-hero-section" style="margin-top: 150px; text-align: center; padding: 0 20px;">
-    <span class="faq-meta" style="letter-spacing: 3px; font-size: 0.8rem; color: var(--primary-color);">SUPPORT CENTER</span>
-    
-    <h1 class="faq-main-title" style="font-family: var(--site-font); font-size: 3rem; margin-top: 15px; margin-bottom: 15px;">
-        <?php echo htmlspecialchars($web['faq_title']); ?>
-    </h1>
-    
-    <p class="faq-lead-in" style="font-family: 'Georgia', serif; font-style: italic; color: rgba(234, 231, 223, 0.7); max-width: 650px; margin: 0 auto 60px auto;">
-        <?php echo htmlspecialchars($web['faq_subtitle']); ?>
-    </p>
-</div>
+<main class="luxury-faq-wrapper">
+    <header class="faq-hero">
+        <div class="faq-meta">INVESTOR CONCIERGE — FAQ</div>
+        <h1 class="faq-main-title">Frequently Asked Questions</h1>
+        <p class="faq-lead-in">
+            Clear, institutional insights regarding legal ownership, storage protocols, and financial mechanics of rare whisky casks.
+        </p>
+        <div class="faq-divider"></div>
+    </header>
 
-<div class="luxury-faq-container" style="max-width: 800px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; margin-bottom: 100px;">
-    <div class="faq-accordion-group">
+    <section class="faq-accordion-container">
         
-        <?php 
-        // 🚀 AUTOMATION LOOP: สั่งลูปดึงคู่คำถาม-คำตอบออกมาจัดหน้าให้ออโต้
-        if (isset($web['faq_items']) && is_array($web['faq_items'])) {
-            foreach ($web['faq_items'] as $index => $item) { 
-        ?>
-            <div class="faq-card-item" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 3px; padding: 25px; margin-bottom: 20px; transition: all 0.3s ease;">
-                
-                <div class="faq-question-bar">
-                    <h3 style="font-family: var(--site-font); font-size: 1.1rem; color: #eae7df; margin: 0; letter-spacing: 1px; line-height: 1.4;">
-                        <span style="color: var(--primary-color); margin-right: 10px;">Q<?php echo $index + 1; ?>.</span> 
-                        <?php echo htmlspecialchars($item['question']); ?>
-                    </h3>
-                </div>
-                
-                <div class="faq-answer-panel" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(234, 231, 223, 0.05);">
-                    <p style="font-family: 'Georgia', serif; font-style: italic; font-size: 0.95rem; color: rgba(234, 231, 223, 0.8); line-height: 1.8; margin: 0;">
-                        <?php echo htmlspecialchars($item['answer']); ?>
+        <div class="luxury-accordion-item">
+            <button class="luxury-accordion-trigger" type="button">
+                <span>01 / How do I legally own a whisky cask in Scotland?</span>
+                <span class="accordion-icon"></span>
+            </button>
+            <div class="luxury-accordion-content">
+                <div class="inner-content">
+                    <p>
+                        Legal ownership of a Scotch whisky cask requires registration within an HMRC-regulated bonded warehouse system. When you acquire a cask through our structures, ownership is secured via a formalized Delivery Order (DO) issued directly by the warehouse manager, ensuring your asset is held securely under your unique title.
                     </p>
                 </div>
-
             </div>
-        <?php 
-            } // สิ้นสุด Foreach Loop
-        } 
-        ?>
+        </div>
 
-    </div>
-</div>
+        <div class="luxury-accordion-item">
+            <button class="luxury-accordion-trigger" type="button">
+                <span>02 / What are the ongoing maintenance fees or storage costs?</span>
+                <span class="accordion-icon"></span>
+            </button>
+            <div class="luxury-accordion-content">
+                <div class="inner-content">
+                    <p>
+                        Every premium cask resides within government-bonded warehouses which charge an annual "rent and insurance" fee (typically covering climate control, periodic checks, and basic cask protection). These upkeep logistics are handled seamlessly through <em>Platinum Cask</em> or <em>Fah Mai Holdings</em>.
+                    </p>
+                </div>
+            </div>
+        </div>
 
-<?php 
-// 🌟 ปิดท้ายด้วยการดึงฟุตเตอร์ท้ายเว็บเข้ามาประกอบร่าง
-require_once __DIR__ . '/components/footer.php'; 
-?>
+        <div class="luxury-accordion-item">
+            <button class="luxury-accordion-trigger" type="button">
+                <span>03 / What is the "Angel's Share" and how does it impact my asset?</span>
+                <span class="accordion-icon"></span>
+            </button>
+            <div class="luxury-accordion-content">
+                <div class="inner-content">
+                    <p>
+                        The "Angel's Share" refers to the natural annual evaporation of roughly 1.5% to 2% of the liquid spirit through the pores of the oak wood. While the total volume decreases slightly over long maturation timelines, the absolute flavor concentration and maturity index rise exponentially, creating a rarer and more valuable liquid asset.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const triggers = document.querySelectorAll(".luxury-accordion-trigger");
+    
+    triggers.forEach(trigger => {
+        trigger.addEventListener("click", function() {
+            const item = this.parentElement;
+            const content = item.querySelector(".luxury-accordion-content");
+            const isOpen = item.classList.contains("active");
+            
+            // ลูปสั่งปิดตัวอื่นก่อนหน้าเพื่อให้เปิดกางออกทีละตัวอย่างมีระดับ ไม่รบกวนเลย์เอาต์หลัก
+            document.querySelectorAll(".luxury-accordion-item").forEach(el => {
+                el.classList.remove("active");
+                const c = el.querySelector(".luxury-accordion-content");
+                gsap.to(c, { height: 0, duration: 0.4, ease: "power2.out" });
+            });
+            
+            // จังหวะสั่งเปิดตัวที่ถูกคลิก
+            if (!isOpen) {
+                item.classList.add("active");
+                gsap.set(content, { height: "auto" }); // เช็กค่าความสูงที่แท้จริงตามคอนเทนต์ด้านใน
+                const targetHeight = content.offsetHeight;
+                
+                // สั่งขยายความสูงจาก 0 ไปพิกัดจริงพร้อมความนุ่มนวล
+                gsap.fromTo(content, 
+                    { height: 0 }, 
+                    { height: targetHeight, duration: 0.45, ease: "power3.out" }
+                );
+            }
+        });
+    });
+});
+</script>
+
+<?php require_once __DIR__ . '/components/footer.php'; ?>
