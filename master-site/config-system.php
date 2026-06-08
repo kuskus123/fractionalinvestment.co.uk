@@ -32,7 +32,7 @@ $web = [
 // =========================================================================
 $web['faq_items'] = [
     [
-        'question' => "HOW DO I LEGALLY OWN A WHISKY CASK IN SCOTLAND?",
+        'question' => "test",
         'answer'   => "Ownership is legally transferred and formalized via a Delivery Order (DO) issued directly by the HMRC-regulated bonded warehouse in Scotland, ensuring an unbroken chain of custody."
     ],
     [
