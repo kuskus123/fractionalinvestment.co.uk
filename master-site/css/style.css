@@ -1,5 +1,5 @@
 /* ==========================================================================
-   📌 ZONE 1: THEME REGISTER (โซนลงทะเบียนสีและฟอนต์ - มาแก้หรือเพิ่มธีมตรงนี้ได้ตลอด)
+   📌 ZONE 1: THEME REGISTER (โซนลงทะเบียนสีและฟอนต์ - รองรับครบทั้ง 6 โดเมน)
    ========================================================================== */
 
 /* 👑 ธีมที่ 1: LUXURY GOLD (ทอง-ดำ) -> สำหรับโดเมนสายข่าวการเงิน */
@@ -21,6 +21,7 @@ body.theme-irish-emerald {
     --card-bg: rgba(15, 23, 21, 0.5);  /* พื้นหลังกล่องข้อความ */
     --border-color: rgba(26, 67, 62, 0.15); /* สีขอบกล่อง */
 }
+
 /* 🌸 ธีมที่ 3: LUXURY ROSE PINK (ชมพูโรสควอตซ์หรูหราแบบแบรนด์แฟชั่นระดับสูง) */
 body.theme-luxury-rose {
     --primary-color: #f3a7bb;         /* สีหลัก: ชมพูโรสควอตซ์ลักชูรี */
@@ -51,7 +52,7 @@ body.theme-sapphire-obsidian {
     --border-color: rgba(15, 82, 186, 0.15); 
 }
 
-/* 🩸 ธีมที่ 6: RUBY CRIMSON (แดงทับทิมเข้มกำมะหยี่ หรูหราทรงอำนาจสไตล์ไวน์วินเทจ) */
+/* 👑 ธีมที่ 6: RUBY CRIMSON (แดงทับทิมเข้มกำมะหยี่ หรูหราทรงอำนาจสไตล์ไวน์วินเทจ) */
 body.theme-ruby-crimson {
     --primary-color: #bd1f36;         /* สีหลัก: แดงทับทิมเลอค่า */
     --primary-hover: #eae7df;         
@@ -61,12 +62,12 @@ body.theme-ruby-crimson {
     --border-color: rgba(189, 31, 54, 0.15); 
 }
 
+
 /* ==========================================================================
-   🧱 ZONE 2: CORE LAYOUT (โครงสร้างหลักของเว็บ - ห้ามแก้บ่อย ผูกค่าตามตัวแปรด้านบน)
+   🧱 ZONE 2: CORE LAYOUT (โครงสร้างหลักของเว็บ - ผูกค่าตามตัวแปรด้านบน)
    ========================================================================== */
 
 body {
-    /* 🌟 ดึงค่าฉากหลังและฟอนต์แปรสภาพตามธีมของโดเมนออโต้ */
     background: radial-gradient(circle at top center, var(--bg-gradient-top) 0%, var(--bg-gradient-bottom) 75%) no-repeat fixed;
     font-family: var(--site-font) !important;
     color: #eae7df;
@@ -92,7 +93,7 @@ body {
 }
 
 .blog-intel-card:hover { 
-    border-color: var(--primary-color) !important; /* ขอบการ์ดเรืองแสงตามสีธีม */
+    border-color: var(--primary-color) !important; 
     transform: translateY(-4px); 
     box-shadow: 0 15px 35px rgba(0,0,0,0.6); 
 }
@@ -100,7 +101,7 @@ body {
 .card-tag { 
     font-family: 'Cinzel', serif; 
     font-size: 0.65rem; 
-    color: var(--primary-color) !important; /* สีแท็กค่ายข่าวเปลี่ยนตามธีม */
+    color: var(--primary-color) !important; 
     letter-spacing: 2px; 
     margin-bottom: 15px; 
     display: block; 
@@ -130,7 +131,7 @@ body {
 
 .luxury-modal-wrapper {
     background: #09090b;
-    border: 1px solid var(--primary-color) !important; /* ขอบป๊อปอัพเปลี่ยนตามสีธีม */
+    border: 1px solid var(--primary-color) !important; 
     padding: 45px; max-width: 680px; width: 90%; border-radius: 2px; position: relative;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9); transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -138,7 +139,7 @@ body {
 
 .btn-visit-origin { 
     font-family: 'Cinzel', serif; font-size: 0.7rem; color: #050507; 
-    background-color: var(--primary-color) !important; /* สีปุ่มเปลี่ยนตามธีม */
+    background-color: var(--primary-color) !important; 
     text-decoration: none; padding: 12px 24px; border-radius: 1px; letter-spacing: 2px; font-weight: 600; transition: all 0.3s;
 }
 .btn-visit-origin:hover { 
@@ -150,12 +151,10 @@ body {
    🔗 ZONE 3: VARIABLE BRIDGE (เชื่อมระบบเก่าเข้ากับธีมแปรผันอัจฉริยะออโต้)
    ========================================================================== */
 :root {
-    /* 🌟 ไม้ตายเชื่อมท่อ: สั่งให้โค้ดเก่าดั้งเดิมทังแผง วิ่งมาผูกสีตามระบบสลับโดเมนออโต้ */
     --primary-gold: var(--primary-color);
     --dark-bg: var(--bg-gradient-bottom, #060608);
 }
 
-/* ── โครงสร้างพื้นฐาน ── */
 html, body {
     margin: 0;
     padding: 0;
@@ -163,7 +162,6 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* เฉพาะหน้าแรกตอนเปิดตัว: สั่งล็อกหน้าจอไว้ทำอนิเมชั่น */
 body.is-intro-page {
     height: 100vh;
     overflow: hidden; 
@@ -175,25 +173,23 @@ body.homepage-unlocked {
     overflow-y: auto !important;
 }
 
+/* 🎯 ระบบโคมเพดานกระจายแสงวงใหญ่สากลสำหรับหน้าย่อย (เหลืออันเดียวเหน่งๆ ใน Zone 3 ทฤษฎีที่กัสคิดไว้ถูกต้องแล้ว) */
 body.normal-page {
     overflow-y: auto;
     position: relative;
-    /* 🚀 นวัตกรรมแผ่รัศมีวงกว้าง 100% สกัดเฉดแสงนุ่มละมุนจากตัวแปรสีธีมโดยตรง ไม่เป็นลำกลวย */
     background: radial-gradient(
         ellipse 100% 70% at top center, 
-        color-mix(in srgb, var(--primary-color) 20%, transparent) 0%,    /* 🎯 สกัดแสงสว่างด้านบนสุด 20% */
-        color-mix(in srgb, var(--primary-color) 4%, transparent) 45%,     /* 🎯 เฟดลำแสงให้โอบล้อมข้อความนุ่มๆ */
-        var(--dark-bg) 90%                                                /* เฟดจมเข้าสู่ความมืดท้ายหน้าเว็บ */
+        color-mix(in srgb, var(--primary-color) 20%, transparent) 0%,    
+        color-mix(in srgb, var(--primary-color) 4%, transparent) 45%,     
+        var(--dark-bg) 90%                                                
     ) no-repeat fixed !important;
     background-color: var(--dark-bg) !important;
 }
 
-/* สั่งปิดแผ่นเลเยอร์โมบายล์บนจอเดสก์ท็อป เพื่อป้องกันบั๊กชั้นโค้ดซ้อนทับ */
 body.normal-page::before {
     display: none !important;
 }
 
-/* ── ซ่อน NAVBAR เริ่มต้น ── */
 body.is-intro-page .navbar {
     opacity: 0;
     transform: translateY(-20px);
@@ -213,7 +209,6 @@ body.normal-page .navbar {
     pointer-events: auto !important;
 }
 
-/* ── แถบเมนูนำทางหรูหราประจำโฮมเพจ (Luxury Minimalist Navbar) ── */
 .luxury-nav {
     position: fixed;
     top: 0;
@@ -270,7 +265,6 @@ body.normal-page .navbar {
     color: var(--primary-gold);
 }
 
-/* ── คลาสจัดตัวอักษรแยกชิ้นสำหรับทำอนิเมชั่นผุดทีละตัว ── */
 .lumen-title {
     font-family: 'Cinzel', serif;
     font-size: 5.5rem;
@@ -302,11 +296,11 @@ body.normal-page .navbar {
     opacity: 0; 
 }
 
-/* ── เส้นแสงระดับพรีเมียมคุมแยกชิ้น ── */
+/* 🎯 อัปเกรด: เส้นแสง Intro เปลี่ยนสีตามธีม */
 .lumen-line {
     width: 450px;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(191, 160, 48, 0.45), transparent);
+    background: linear-gradient(to right, transparent, color-mix(in srgb, var(--primary-color) 45%, transparent), transparent);
     margin: 0 auto;
     transform: scaleX(0); 
 }
@@ -318,7 +312,6 @@ body.normal-page .navbar {
     cursor: pointer; 
 }
 
-/* ── ซ่อนคอนเทนต์ส่วนอื่นชั่วคราว ── */
 .horizontal-wrapper {
     opacity: 0;
     pointer-events: none;
@@ -328,13 +321,13 @@ body.normal-page .navbar {
     pointer-events: auto;
 }
 
-/* ── 🎯 อัปเกรด: ระบบสาดรัศมีแสงออร่าวงใหญ่ตอนอินโทร สกัดเฉดสีตามธีมโดเมนอัตโนมัติ ── */
+/* 🎯 อัปเกรด: แผ่ออร่าวงใหญ่ตอนหน้าจอดึงเข้าศูนย์กลางสลับเฉดสีระบบธีมออโต้ */
 #introOverlay {
     background: radial-gradient(
         circle at center, 
-        color-mix(in srgb, var(--primary-color) 16%, transparent) 0%,    /* 🚀 สกัดแกนกลางแสงให้สว่างนุ่มนวล 16% */
-        color-mix(in srgb, var(--primary-color) 3%, transparent) 40%,     /* 🚀 แผ่ออร่าวงใหญ่โอบล้อมอักษรแบรนด์ */
-        var(--dark-bg) 75%                                               /* ค่อยๆ เฟดจมหายเข้าฉากหลังมืดของโดเมน */
+        color-mix(in srgb, var(--primary-color) 14%, transparent) 0%,    
+        color-mix(in srgb, var(--primary-color) 3%, transparent) 40%,     
+        var(--dark-bg) 75%                                               
     ) !important;
     transition: opacity 1s ease-in-out;
     cursor: pointer; 
@@ -392,18 +385,19 @@ body.homepage-unlocked .concept-container {
     transition: background 1.8s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
+/* 🎯 อัปเกรด: กรวยไฟสปอตไลท์หน้าแรก ปรับสมดุล 30 องศายิงตรงดิ่ง พร้อมสไลด์สีตามธีมระบบ */
 body.homepage-unlocked .concept-container::before {
     content: '' !important;
     display: block !important;
     background: conic-gradient(
         from 150deg at top center, 
         var(--dark-bg) 0deg,   
-        var(--dark-bg) 12deg,  
-        rgba(191, 160, 48, 0.12) 18deg,
-        rgba(191, 160, 48, 0.24) 30deg, 
-        rgba(191, 160, 48, 0.12) 42deg,
-        var(--dark-bg) 54deg,
-        var(--dark-bg) 360deg
+        var(--dark-bg) 6deg,  
+        color-mix(in srgb, var(--primary-color) 12%, transparent) 18deg,   
+        color-mix(in srgb, var(--primary-color) 24%, transparent) 30deg,   
+        color-mix(in srgb, var(--primary-color) 12%, transparent) 42deg,   
+        var(--dark-bg) 54deg,  
+        var(--dark-bg) 360deg 
     ) !important;
     filter: blur(55px) !important; 
     position: fixed !important; 
@@ -465,11 +459,12 @@ body.homepage-unlocked #particleCanvas {
     margin: 0 auto;         
 }
 
+/* 🎯 อัปเกรดแก้ไขจุดบอดวิกฤต: ปลดล็อกข้อความ — A SPOTLIGHT — ให้สลับเฉดสีตามสัญญากลางทันที ไม่ล็อกสีทองดิบแล้วครับกัส */
 .concept-tag {
     font-family: 'Cinzel', serif;
     font-size: 0.8rem;
     letter-spacing: 7px;
-    color: rgba(191, 160, 48, 0.55);
+    color: color-mix(in srgb, var(--primary-color) 65%, transparent) !important;
     margin-bottom: 30px;
     text-transform: uppercase;
 }
@@ -532,7 +527,7 @@ body.homepage-unlocked #particleCanvas {
 
 .btn-concept-enter:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 0 20px rgba(191, 160, 48, 0.15);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--primary-color) 20%, transparent);
     letter-spacing: 6px;
     text-indent: 6px;
 }
@@ -624,7 +619,7 @@ body.homepage-unlocked .homepage-real-content {
 
 .luxury-gate-card {
     background: linear-gradient(135deg, rgba(20, 20, 25, 0.65) 0%, rgba(10, 10, 12, 0.85) 100%);
-    border: 1px solid rgba(191, 160, 48, 0.15);
+    border: 1px solid var(--border-color);
     padding: 60px 45px;
     border-radius: 4px;
     text-align: left;
@@ -636,9 +631,9 @@ body.homepage-unlocked .homepage-real-content {
 }
 
 .luxury-gate-card:hover {
-    border-color: rgba(191, 160, 48, 0.4);
+    border-color: color-mix(in srgb, var(--primary-color) 45%, transparent);
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(191, 160, 48, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px color-mix(in srgb, var(--primary-color) 8%, transparent);
 }
 
 .card-gate-tag {
@@ -673,7 +668,7 @@ body.homepage-unlocked .homepage-real-content {
     text-decoration: none;
     letter-spacing: 2px;
     padding: 12px 30px;
-    border: 1px solid rgba(191, 160, 48, 0.3);
+    border: 1px solid color-mix(in srgb, var(--primary-color) 30%, transparent);
     transition: all 0.3s ease;
 }
 
@@ -683,7 +678,8 @@ body.homepage-unlocked .homepage-real-content {
     border-color: var(--primary-gold);
 }
 
-/* ── 🌟 ดีไซน์ระเบียบหน้าอ่านบทความ Guide ── */
+
+/* ── 📰 STYLE: GUIDE ARTICLE ── */
 .luxury-article-wrapper {
     max-width: 800px;
     margin: 160px auto 100px auto; 
@@ -799,8 +795,8 @@ body.homepage-unlocked .homepage-real-content {
     max-width: 650px;
     margin: 45px auto;
     padding: 25px 0;
-    border-top: 1px solid rgba(191, 160, 48, 0.25);
-    border-bottom: 1px solid rgba(191, 160, 48, 0.25);
+    border-top: 1px solid color-mix(in srgb, var(--primary-color) 25%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--primary-color) 25%, transparent);
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 .luxury-pull-quote span {
@@ -815,7 +811,7 @@ body.homepage-unlocked .homepage-real-content {
 }
 
 
-/* ── 🌟 ดีไซน์ระบบกล่องข้อความคำถามยืดหดหน้า FAQ ── */
+/* ── 🌟 STYLE: FAQ ACCORDION ── */
 .luxury-faq-wrapper {
     max-width: 850px;
     margin: 160px auto 100px auto;
@@ -874,15 +870,15 @@ body.homepage-unlocked .homepage-real-content {
 
 .luxury-accordion-item {
     background: linear-gradient(135deg, rgba(20, 20, 25, 0.35) 0%, rgba(10, 10, 12, 0.55) 100%);
-    border: 1px solid rgba(191, 160, 48, 0.08);
+    border: 1px solid color-mix(in srgb, var(--primary-color) 8%, transparent);
     border-radius: 4px;
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
     overflow: hidden;
 }
 
 .luxury-accordion-item:hover, .luxury-accordion-item.active {
-    border-color: rgba(191, 160, 48, 0.3);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(191, 160, 48, 0.03);
+    border-color: color-mix(in srgb, var(--primary-color) 30%, transparent);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 20px color-mix(in srgb, var(--primary-color) 3%, transparent);
 }
 
 .luxury-accordion-trigger {
@@ -978,7 +974,7 @@ body.homepage-unlocked .homepage-real-content {
 }
 
 
-/* ── 🌟 ดีไซน์หน้ากระดานข่าว Grid บทความวงใน ── */
+/* ── 📰 STYLE: BLOG GRID ── */
 .luxury-blog-wrapper {
     max-width: 1200px; 
     margin: 160px auto 100px auto;
@@ -1038,7 +1034,7 @@ body.homepage-unlocked .homepage-real-content {
 
 .blog-intel-card {
     background: linear-gradient(135deg, rgba(20, 20, 25, 0.35) 0%, rgba(10, 10, 12, 0.55) 100%);
-    border: 1px solid rgba(191, 160, 48, 0.08); 
+    border: 1px solid color-mix(in srgb, var(--primary-color) 8%, transparent); 
     border-radius: 4px;
     overflow: hidden;
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease, box-shadow 0.5s ease;
@@ -1048,14 +1044,14 @@ body.homepage-unlocked .homepage-real-content {
 
 .blog-intel-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(191, 160, 48, 0.35);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(191, 160, 48, 0.04);
+    border-color: color-mix(in srgb, var(--primary-color) 35%, transparent);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 25px color-mix(in srgb, var(--primary-color) 4%, transparent);
 }
 
 .card-image-area {
     width: 100%;
     position: relative;
-    border-bottom: 1px solid rgba(191, 160, 48, 0.08);
+    border-bottom: 1px solid color-mix(in srgb, var(--primary-color) 8%, transparent);
 }
 
 .blog-image-placeholder {
@@ -1137,7 +1133,7 @@ body.homepage-unlocked .homepage-real-content {
 }
 
 
-/* ── 🌟 ดีไซน์ระบบฟอร์มติดต่อดัก Lead ลูกค้ากระเป๋าหนัก ── */
+/* ── 🌟 STYLE: CONTACT FORM ── */
 .luxury-about-wrapper {
     max-width: 850px;
     margin: 160px auto 100px auto;
@@ -1189,7 +1185,7 @@ body.homepage-unlocked .homepage-real-content {
 
 .luxury-contact-container {
     background: linear-gradient(135deg, rgba(20, 20, 25, 0.25) 0%, rgba(10, 10, 12, 0.45) 100%);
-    border: 1px solid rgba(191, 160, 48, 0.06);
+    border: 1px solid color-mix(in srgb, var(--primary-color) 6%, transparent);
     padding: 55px 50px;
     border-radius: 4px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.7);
@@ -1298,7 +1294,7 @@ body.homepage-unlocked .homepage-real-content {
 
 .btn-submit-contact {
     background: transparent;
-    border: 1px solid rgba(191, 160, 48, 0.3);
+    border: 1px solid color-mix(in srgb, var(--primary-color) 30%, transparent);
     color: var(--primary-gold);
     font-family: 'Cinzel', serif;
     font-size: 0.8rem;
@@ -1315,14 +1311,14 @@ body.homepage-unlocked .homepage-real-content {
     background: var(--primary-gold);
     color: #060608;
     border-color: var(--primary-gold);
-    box-shadow: 0 10px 25px rgba(191, 160, 48, 0.15);
+    box-shadow: 0 10px 25px color-mix(in srgb, var(--primary-color) 15%, transparent);
     letter-spacing: 4px;
     text-indent: 4px;
 }
 
 
 /* ==========================================================================
-   🌟 4. MASTER UNIFIED MOBILE RESPONSIVE SYSTEM (ยุบรวมโค้ดมือถือไม่ให้ตีกันซ้ำซ้อน)
+   🌟 ZONE 4: MASTER UNIFIED MOBILE RESPONSIVE SYSTEM
    ========================================================================== */
 @media (max-width: 768px) {
     
@@ -1354,7 +1350,7 @@ body.homepage-unlocked .homepage-real-content {
         padding: 15px 10px !important;
         background: rgba(6, 6, 8, 0.98) !important; 
         backdrop-filter: blur(20px) !important;
-        border-bottom: 1px solid rgba(191, 160, 48, 0.05) !important;
+        border-bottom: 1px solid color-mix(in srgb, var(--primary-color) 5%, transparent) !important;
     }
 
     .nav-brand {
