@@ -53,7 +53,7 @@ $web = [
 // =========================================================================
 // 📖 🌟 ยัดเนื้อหาบทความแบบยาวของหน้า Guide เข้าสล็อตแปรผันตรงนี้เลยใส่เป็นHTML
 // =========================================================================
-$web['guide_body_content'] = h2>1. THE ARCHITECTURE OF LIQUID WEALTH</h2>
+$web['guide_body_content'] = <h2>1. THE ARCHITECTURE OF LIQUID WEALTH</h2>
         <p class='theme-drop-cap'>Whisky cask investment represents a distinct frontier in alternative asset management, fundamentally separated from traditional equities or commercial bottled spirits. While a standard bottle ceases its chemical transformation the moment the cork is sealed, a rare single malt remaining within its original oak cask behaves as a living, breathing ecosystem, interacting with the atmosphere to forge depth, color, and irreplaceable character over vertical decades.</p>
         
         <p>This natural molecular evolution forms the absolute baseline of its financial appreciation. As the pristine distillate respires through the porous wood, a highly calculated percentage evaporates into the heavens annually—a mystical yet scientifically rigorous phenomenon documented globally as the <span class='theme-text'>\"Angel's Share.\"</span></p>
