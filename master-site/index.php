@@ -72,7 +72,7 @@
             </p>
         </section>
 
-       section class="cta-twin-grid">
+       <section class="cta-twin-grid">
             
             <!-- 💳 การ์ดใบที่ 1 (Dynamic Mapping) -->
             <div class="luxury-gate-card">
