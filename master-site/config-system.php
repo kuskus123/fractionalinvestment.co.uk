@@ -53,37 +53,36 @@ $web = [
 // =========================================================================
 // 📖 🌟 ยัดเนื้อหาบทความแบบยาวของหน้า Guide เข้าสล็อตแปรผันตรงนี้เลยครับกัส
 // =========================================================================
-$web['guide_body_content'] = <<<HTML
-<article class="article-body-content">
-    <h2>TEST</h2>
-    
-    <p class="has-drop-cap">
-        Whisky cask investment is fundamentally different from traditional equities or bottled spirits. Unlike bottled whisky, which ceases to mature once sealed in glass, whisky remaining inside the original oak cask actively interacts with its environment, developing complexity, color, and depth over decades. This natural chemical evolution forms the baseline of its financial appreciation.
-    </p>
-    <p>
-        As the distillate breathes through the wood, a portion evaporates annually—a phenomenon known as the "Angel's Share." While volume decreases slightly, the concentration of rare flavors increases, driving up the market value of the remaining liquid asset.
-    </p>
+$web['guide_body_content'] = h2>1. THE ARCHITECTURE OF LIQUID WEALTH</h2>
+        <p class='theme-drop-cap'>Whisky cask investment represents a distinct frontier in alternative asset management, fundamentally separated from traditional equities or commercial bottled spirits. While a standard bottle ceases its chemical transformation the moment the cork is sealed, a rare single malt remaining within its original oak cask behaves as a living, breathing ecosystem, interacting with the atmosphere to forge depth, color, and irreplaceable character over vertical decades.</p>
+        
+        <p>This natural molecular evolution forms the absolute baseline of its financial appreciation. As the pristine distillate respires through the porous wood, a highly calculated percentage evaporates into the heavens annually—a mystical yet scientifically rigorous phenomenon documented globally as the <span class='theme-text'>\"Angel's Share.\"</span></p>
 
-    <blockquote class="luxury-pull-quote">
-        "Unlike bottled spirits, a cask is a living, breathing asset that appreciates in flavor complexity and financial rarity every single year."
-        <span>— Institutional Maturation Insights</span>
-    </blockquote>
+        <blockquote class='theme-quote'>
+            \"Unlike traditional markets tethered to digital algorithms, a cask matures in physical isolation, compounding its flavor complexity and institutional rarity every single winter.\"
+            <span>— Institutional Maturation Insights</span>
+        </blockquote>
 
-    <h2>2. Understanding Risk Factors and Provenance</h2>
-    <p>
-        In the alternative asset ecosystem, authenticity is the absolute bedrock of value. When acquiring a single malt cask, an investor must secure a definitive chain of custody, formalized through a delivery order at a government-bonded warehouse in Scotland. Without verified provenance, a cask holds zero institutional value.
-    </p>
-    
-    <h3>2.1 The Role of Bonded Warehouses</h3>
-    <p>
-        All premium Scotch whisky casks must legally reside in HMRC-regulated bonded facilities. These environments are strictly climate-controlled to ensure an optimal balance between subtraction (the removal of harsh sulfur compounds) and oxidation (the development of rich ester profiles).
-    </p>
+        <h2>2. THE CHEMISTRY OF OAK: SUBTRACTION & OXIDATION</h2>
+        <p>In our elite sourcing ecosystem, understanding the chemical parameters of maturation is paramount to securing high-conviction portfolios. The interaction between the spirit and the wood occurs in two structural phases that define the historical provenance of the asset.</p>
+        
+        <h3>2.1 The Purification Threshold</h3>
+        <p>During the critical first phase of confinement, the heavy char on the interior of a first-fill Bourbon barrel or European Sherry butt acts as an organic carbon filter. This process, known as <strong>Subtraction</strong>, actively bonds with and neutralizes volatile sulfur compounds, stripping away the harshness of the raw spirit.</p>
+        
+        <h3>2.2 The Oxidative Enrichment</h3>
+        <p>Once purification is complete, the secondary phase of <em>Oxidation</em> takes over. Ambient oxygen entering through the staves triggers a complex esterification process, synthesizing deep notes of rich vanilla, dark stone fruits, and structural tannins that cannot be replicated through artificial acceleration.</p>
 
-    <h2>3. Exit Strategies for Private Portfolios</h2>
-    <p>
-        A sophisticated investor never enters a position without a clear exit architecture. Whisky casks offer multiple high-liquidity channels for realization: direct auction to luxury collectors, private sales to independent bottlers seeking rare components, or corporate buy-backs by major holding structures like <em>Fah Mai Holdings</em> or <em>Platinum Cask</em>.
-    </p>
-</article>
+        <h2>3. RISK MITIGATION & THE BEDROCK OF PROVENANCE</h2>
+        <p>In the alternative asset class, physical security and unassailable title deeds are the ultimate guardians of value. Every rare cask secured through our private registry must legally reside within an HMRC-regulated bonded facility in Scotland, backed by an unbroken chain of delivery orders.</p>
+
+        <blockquote class='theme-quote'>
+            \"True luxury is not merely owned; it is mathematically verified and historically documented beyond dispute.\"
+            <span>— Secure Ledger Verification Protocols</span>
+        </blockquote>
+
+        <h2>4. STRATEGIC EXIT ARCHITECTURE</h2>
+        <p>A sophisticated asset management strategy never initiates a position without a clearly defined liquidity gateway. Premium single malt casks offer three distinct and highly lucrative exit channels for private collectors: direct acquisition by luxury independent bottlers, physical sales at international elite auctions, or structured buy-backs directly into major corporate holding portfolios.</p>
+    ",
 HTML;
 
 // =========================================================================
