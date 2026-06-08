@@ -1,12 +1,12 @@
 <?php 
-// 🌟 บรรทัดที่ 1: ดึงระบบตั้งค่าสัญญากลางและหัวเว็บเข้ามาเตรียมพร้อม (เรียกแค่อย่างละรอบพอครับ)
+// 🌟 บรรทัดที่ 1: ดึงระบบตั้งค่าสัญญากลางและหัวเว็บเข้ามาเตรียมพร้อม
 require_once __DIR__ . '/config-system.php';
 require_once __DIR__ . '/components/header.php';
 ?>
 <script>document.body.classList.add("normal-page");</script>
 
 <nav class="luxury-nav nav-visible" id="globalNavbar">
-    <a href="index.php" class="nav-brand"><?php echo htmlspecialchars($web['header_logo']); ?></a>
+    <a href="index.php?bypass=true" class="nav-brand"><?php echo htmlspecialchars($web['brand_name']); ?></a>
     <ul class="nav-links">
         <li><a href="index.php?bypass=true">HOME</a></li>
         <li><a href="guide.php" class="active">GUIDE</a></li>

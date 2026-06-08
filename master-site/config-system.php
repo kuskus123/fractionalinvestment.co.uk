@@ -29,7 +29,7 @@ $web = [
     'news_sources'  => ['THE SPIRITS BUSINESS'],
    
     // 🏠 ข้อความหน้าย่อยอื่นๆ 
-    'home_title'    => "WHISKY LIVE NEWS",
+    'home_title'    => "FahmaiHoldings",
     'home_subtitle' => "Real-time global updates gathered from elite spirits journals.",
     'guide_title'   => "CASK MATURATION INFRASTRUCTURE",
     'guide_subtitle'=> "Understanding the core phases of alternative whiskey asset distribution.",
