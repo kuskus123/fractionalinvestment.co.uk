@@ -72,28 +72,30 @@
             </p>
         </section>
 
-        <section class="cta-twin-grid">
+       section class="cta-twin-grid">
             
+            <!-- 💳 การ์ดใบที่ 1 (Dynamic Mapping) -->
             <div class="luxury-gate-card">
                 <div>
-                    <div class="card-gate-tag">ASSET MANAGEMENT</div>
-                    <h3 class="card-gate-title">Platinum Cask</h3>
+                    <div class="card-gate-tag"><?php echo htmlspecialchars($web['card1_tag']); ?></div>
+                    <h3 class="card-gate-title"><?php echo htmlspecialchars($web['card1_title']); ?></h3>
                     <p class="card-gate-desc">
-                        Access ownership of premium single malt whisky casks still aging in Scotland's finest bonded warehouses. Secure your private liquid portfolio with complete provenance tracking.
+                        <?php echo htmlspecialchars($web['card1_desc']); ?>
                     </p>
                 </div>
-                <a href="https://platinumcask.com" target="_blank" class="btn-gate-link">ACQUIRE CASK —</a>
+                <a href="<?php echo htmlspecialchars($web['card1_url']); ?>" target="_blank" class="btn-gate-link"><?php echo htmlspecialchars($web['card1_btn']); ?></a>
             </div>
 
+            <!-- 💳 การ์ดใบที่ 2 (Dynamic Mapping) -->
             <div class="luxury-gate-card">
                 <div>
-                    <div class="card-gate-tag">CORPORATE HOLDINGS</div>
-                    <h3 class="card-gate-title">Fah Mai Holdings</h3>
+                    <div class="card-gate-tag"><?php echo htmlspecialchars($web['card2_tag']); ?></div>
+                    <h3 class="card-gate-title"><?php echo htmlspecialchars($web['card2_title']); ?></h3>
                     <p class="card-gate-desc">
-                        Engage with high-conviction alternative investments in the global spirits industry. Partner with our macro-scale maturation facilities and global distribution channels.
+                        <?php echo htmlspecialchars($web['card2_desc']); ?>
                     </p>
                 </div>
-                <a href="https://fahmaiholdings.com" target="_blank" class="btn-gate-link">VIEW HOLDINGS —</a>
+                <a href="<?php echo htmlspecialchars($web['card2_url']); ?>" target="_blank" class="btn-gate-link"><?php echo htmlspecialchars($web['card2_btn']); ?></a>
             </div>
 
         </section>

@@ -370,14 +370,14 @@ body.homepage-unlocked .concept-container::before {
     background: conic-gradient(
         from 150deg at top center, 
         var(--dark-bg) 0deg,   
-        var(--dark-bg) 27deg,  
-        rgba(191, 160, 48, 0.12) 31deg,   
+        var(--dark-bg) 12deg,  
+        rgba(191, 160, 48, 0.12) 21deg,   
         rgba(191, 160, 48, 0.24) 35deg,   
-        rgba(191, 160, 48, 0.12) 39deg,   
-        var(--dark-bg) 43deg,  
+        rgba(191, 160, 48, 0.12) 46deg,   
+        var(--dark-bg) 58deg,  
         var(--dark-bg) 360deg 
     ) !important;
-    filter: blur(45px) !important; 
+    filter: blur(55px) !important; 
     position: fixed !important; 
     z-index: 1 !important;
     transform: scale(1.1) !important; 

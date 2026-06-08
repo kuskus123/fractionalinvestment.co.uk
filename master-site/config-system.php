@@ -27,6 +27,19 @@ $web = [
     'guide_subtitle'=> "Understanding the core phases of alternative whiskey asset distribution.",
     'faq_title'     => "PRIVATE SUPPORT FAQ",
     'faq_subtitle'  => "Frequently asked questions regarding our alternative asset terminal."
+
+    // 🎫 สล็อตควบคุมเนื้อหาการ์ด 2 ใบหน้าแรก (Below Fold)
+    'card1_tag'     => "ASSET MANAGEMENT",
+    'card1_title'   => "Platinum Cask",
+    'card1_desc'    => "Access ownership of premium single malt whisky casks still aging in Scotland's finest bonded warehouses. Secure your private liquid portfolio with complete provenance tracking.",
+    'card1_btn'     => "ACQUIRE CASK —",
+    'card1_url'     => "https://platinumcask.com",
+
+    'card2_tag'     => "CORPORATE HOLDINGS",
+    'card2_title'   => "Fah Mai Holdings",
+    'card2_desc'    => "Engage with high-conviction alternative investments in the global spirits industry. Partner with our macro-scale maturation facilities and global distribution channels.",
+    'card2_btn'     => "VIEW HOLDINGS —",
+    'card2_url'     => "https://fahmaiholdings.com",
 ];
 
 // =========================================================================
@@ -112,5 +125,6 @@ $web['articles'] = [
         'excerpt'     => "Decoding the chemical interactions inside a first-fill Bourbon barrel and how it eliminates harsh distillate elements.",
         'full_content'=> "<h3>The Purification Phase</h3><p>During the initial three years of cask confinement, the charred oak interior acts as a natural carbon filter. This process, scientifically termed Subtraction, actively bonds with and neutralizes volatile compounds.</p>"
     ]
+
 ];
 ?>
