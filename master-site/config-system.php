@@ -82,7 +82,7 @@ $web['guide_body_content'] = "<h2>1. THE ARCHITECTURE OF LIQUID WEALTH</h2>
 
         <h2>4. STRATEGIC EXIT ARCHITECTURE</h2>
         <p>A sophisticated asset management strategy never initiates a position without a clearly defined liquidity gateway. Premium single malt casks offer three distinct and highly lucrative exit channels for private collectors: direct acquisition by luxury independent bottlers, physical sales at international elite auctions, or structured buy-backs directly into major corporate holding portfolios.</p>
-    ",
+    "
 // =========================================================================
 // 🗂️ 🌟 ชุดข้อมูลคำถาม-คำตอบ (FAQ Items) เวอร์ชันหรูหราดึงเข้าลูปอัตโนมัติ
 // =========================================================================
