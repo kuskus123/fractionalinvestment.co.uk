@@ -328,20 +328,16 @@ body.normal-page .navbar {
     pointer-events: auto;
 }
 
-/* ── 🎯 [จุดแก้ไขวิกฤต]: ย้ายระบบสาดรัศมีแสงออร่าวงใหญ่ (Glow Halo) จาก inline ย้ายมาผูกตามระบบคลาสธีมของโดเมนออโต้ ── */
+/* ── 🎯 อัปเกรด: ระบบสาดรัศมีแสงออร่าวงใหญ่ตอนอินโทร สกัดเฉดสีตามธีมโดเมนอัตโนมัติ ── */
 #introOverlay {
+    background: radial-gradient(
+        circle at center, 
+        color-mix(in srgb, var(--primary-color) 16%, transparent) 0%,    /* 🚀 สกัดแกนกลางแสงให้สว่างนุ่มนวล 16% */
+        color-mix(in srgb, var(--primary-color) 3%, transparent) 40%,     /* 🚀 แผ่ออร่าวงใหญ่โอบล้อมอักษรแบรนด์ */
+        var(--dark-bg) 75%                                               /* ค่อยๆ เฟดจมหายเข้าฉากหลังมืดของโดเมน */
+    ) !important;
     transition: opacity 1s ease-in-out;
     cursor: pointer; 
-}
-
-/* 👑 รัศมีแสงทองเปิดตัวหน้าแรก (โหมดธีมทองพรีเมียม) -> ดึงมิติแสงเงาเว้นช่องไฟตามภาพ image_03c50a.jpg */
-body.theme-luxury-gold #introOverlay {
-    background: radial-gradient(circle at center, rgba(191, 160, 48, 0.12) 0%, rgba(15, 14, 18, 0.85) 45%, #050507 75%) !important;
-}
-
-/* 👑 รัศมีแสงมรกตเปิดตัวหน้าแรก (โหมดธีมเขียวป่าลึก) -> รองรับระบบสลับร่างสำหรับอีกโดเมน */
-body.theme-irish-emerald #introOverlay {
-    background: radial-gradient(circle at center, rgba(26, 67, 62, 0.10) 0%, rgba(10, 15, 12, 0.85) 45%, #020706 75%) !important;
 }
 
 
