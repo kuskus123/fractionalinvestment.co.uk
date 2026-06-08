@@ -5,7 +5,7 @@
   require_once __DIR__ . '/components/header.php';
 ?>
 
-<script>document.body.className = "normal-page";</script>
+<script>document.body.classList.add("normal-page");</script>
 
 <!-- แถบเมนูนำทาง (ปรับลิงก์ปลายทางเป็น contact.php และใส่คลาส active) -->
 <nav class="luxury-nav nav-visible" id="globalNavbar">

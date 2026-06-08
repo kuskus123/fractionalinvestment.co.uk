@@ -110,8 +110,7 @@ if ($site_type === 'news') {
     $display_collection = isset($web['articles']) ? $web['articles'] : [];
 }
 ?>
-<script>document.body.className = "normal-page";</script>
-
+<script>document.body.classList.add("normal-page");</script>
 <nav class="luxury-nav nav-visible" id="globalNavbar">
     <a href="index.php" class="nav-brand"><?php echo htmlspecialchars($web['brand_name']); ?></a>
     <ul class="nav-links">
