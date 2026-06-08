@@ -34,7 +34,7 @@ $web = [
     'guide_title'   => "CASK MATURATION INFRASTRUCTURE",
     'guide_subtitle'=> "Understanding the core phases of alternative whiskey asset distribution.",
     'faq_title'     => "PRIVATE SUPPORT FAQ",
-    'faq_subtitle'  => "Frequently asked questions regarding our alternative asset terminal.", // 🎯 เติมเครื่องหมายจุลภาค (,) ตรงนี้เรียบร้อยครับ!
+    'faq_subtitle'  => "Frequently asked questions regarding our alternative asset terminal.", 
 
     // 🎫 สล็อตควบคุมเนื้อหาการ์ด 2 ใบหน้าแรก (Below Fold)
     'card1_tag'     => "ASSET MANAGEMENT",
@@ -59,7 +59,7 @@ $web['guide_body_content'] = "<h2>1. THE ARCHITECTURE OF LIQUID WEALTH</h2>
         <p>This natural molecular evolution forms the absolute baseline of its financial appreciation. As the pristine distillate respires through the porous wood, a highly calculated percentage evaporates into the heavens annually—a mystical yet scientifically rigorous phenomenon documented globally as the <span class='theme-text'>\"Angel's Share.\"</span></p>
 
         <blockquote class='theme-quote'>
-            \"Unlike traditional markets tethered to digital algorithms, a cask matures in physical isolation, compounding its flavor complexity and institutional rarity every single winter.\"
+            \"Unlike traditional markets tethered to digital algorithms, a cask matures in physical isolation, compounding its flavor complexity and financial rarity every single winter.\"
             <span>— Institutional Maturation Insights</span>
         </blockquote>
 
@@ -81,8 +81,8 @@ $web['guide_body_content'] = "<h2>1. THE ARCHITECTURE OF LIQUID WEALTH</h2>
         </blockquote>
 
         <h2>4. STRATEGIC EXIT ARCHITECTURE</h2>
-        <p>A sophisticated asset management strategy never initiates a position without a clearly defined liquidity gateway. Premium single malt casks offer three distinct and highly lucrative exit channels for private collectors: direct acquisition by luxury independent bottlers, physical sales at international elite auctions, or structured buy-backs directly into major corporate holding portfolios.</p>
-    "
+        <p>A sophisticated asset management strategy never initiates a position without a clearly defined liquidity gateway. Premium single malt casks offer three distinct and highly lucrative exit channels for private collectors: direct acquisition by luxury independent bottlers, physical sales at international elite auctions, or structured buy-backs directly into major corporate holding portfolios.</p>"; 
+
 // =========================================================================
 // 🗂️ 🌟 ชุดข้อมูลคำถาม-คำตอบ (FAQ Items) เวอร์ชันหรูหราดึงเข้าลูปอัตโนมัติ
 // =========================================================================
