@@ -1,15 +1,14 @@
 <?php include 'config-system.php'; ?>
-<!-- master-site/contact.php -->
 <?php 
-  $page_title = "Bespoke Private Registry & Contact | FAHMAI";
+  // 🎯 ดึงชื่อแบรนด์จากคอนฟิกมาสับเปลี่ยนชื่อแท็บเบราว์เซอร์อัตโนมัติ
+  $page_title = "Bespoke Private Registry & Contact | " . htmlspecialchars($web['brand_name']);
   require_once __DIR__ . '/components/header.php';
 ?>
 
 <script>document.body.classList.add("normal-page");</script>
 
-<!-- แถบเมนูนำทาง (ปรับลิงก์ปลายทางเป็น contact.php และใส่คลาส active) -->
 <nav class="luxury-nav nav-visible" id="globalNavbar">
-    <a href="index.php" class="nav-brand">FAHMAI</a>
+    <a href="index.php" class="nav-brand"><?php echo htmlspecialchars($web['brand_name']); ?></a>
     <ul class="nav-links">
         <li><a href="index.php">HOME</a></li>
         <li><a href="guide.php">GUIDE</a></li>
@@ -30,30 +29,23 @@
     </header>
 
     <section class="luxury-contact-container">
-        <!-- ฟอร์มส่งข้อมูล (แสตนด์บายให้เพื่อนกัสมาเขียน Logic PHP รับค่า $_POST ไปใช้งานต่อ) -->
         <form action="#" method="POST" class="private-office-form">
             <div class="form-row-twin">
                 <div class="luxury-form-group">
                     <input type="text" id="investor_name" name="investor_name" required placeholder=" ">
-                    <label for="investor_name">FULL NAME</label>
+                    <label for="investor_name" style="color: #eae7df !important; opacity: 0.95;">FULL NAME</label>
                     <div class="input-bar"></div>
                 </div>
                 <div class="luxury-form-group">
                     <input type="email" id="investor_email" name="investor_email" required placeholder=" ">
-                    <label for="investor_email">EMAIL ADDRESS</label>
+                    <label for="investor_email" style="color: #eae7df !important; opacity: 0.95;">EMAIL ADDRESS</label>
                     <div class="input-bar"></div>
                 </div>
             </div>
 
             <div class="luxury-form-group">
-                <input type="text" id="investment_tier" name="investment_tier" placeholder=" ">
-                <label for="investment_tier">INTENDED ALLOCATION TIER (e.g., £10,000+, £50,000+)</label>
-                <div class="input-bar"></div>
-            </div>
-
-            <div class="luxury-form-group">
                 <textarea id="secure_message" name="secure_message" rows="4" required placeholder=" "></textarea>
-                <label for="secure_message">SECURE MESSAGE / CASKS OF INTEREST</label>
+                <label for="secure_message" style="color: #eae7df !important; opacity: 0.95;">SECURE MESSAGE / CASKS OF INTEREST</label>
                 <div class="input-bar"></div>
             </div>
 
