@@ -8,7 +8,7 @@ $final_news = [];
 $is_fallback_active = false;
 
 // =========================================================================
-// 🚀 ENGINE: cURL NEWS AGGREGATOR + CACHE WITH FALLBACK CONTROL
+// 🚀 ENGINE: cURL NEWS AGGREGATOR + CACHE WITH FAIL-SAFE FALLBACK
 // =========================================================================
 if ($site_type === 'news') {
     $cache_suffix = md5(json_encode($web['news_sources']));
@@ -34,7 +34,7 @@ if ($site_type === 'news') {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 8); // จำกัดเวลาสแกนไม่ให้เว็บหมุนค้าง
+            curl_setopt($ch, CURLOPT_TIMEOUT, 8); 
             curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AssetParser/1.2');
             $raw_xml = curl_exec($ch);
             curl_close($ch);
@@ -76,12 +76,11 @@ if ($site_type === 'news') {
         }
     }
 
-    // 🎯 ลอจิกไม้ตาย: ถ้าดึงข่าวสดไม่ได้ ให้สลับไปดึงข้อมูลบล็อกใน config ทันที เว็บจะไม่มีวันล่ม
     if (!empty($final_news)) {
         $display_collection = $final_news;
     } else {
         $display_collection = isset($web['articles']) ? $web['articles'] : [];
-        $is_fallback_active = true; // เปิดสวิตช์บอกระบบให้รู้ว่ากำลังใช้ระบบสำรอง
+        $is_fallback_active = true; 
     }
 } else {
     $display_collection = isset($web['articles']) ? $web['articles'] : [];
@@ -101,7 +100,7 @@ if ($site_type === 'news') {
 </nav>
 
 <div class="blog-hero-section" style="margin-top: 150px; text-align: center; padding: 0 20px;">
-    <span class="blog-meta" style="letter-spacing: 3px; font-size: 0.7rem; color: var(--primary-color); font-family: var(--site-font); text-transform: uppercase;">
+    <span class="blog-meta" style="letter-spacing: 3px; font-size: 0.7rem; color: #bfa030; font-family: var(--site-font); text-transform: uppercase;">
         <?php 
             if ($site_type === 'news') {
                 echo $is_fallback_active ? 'MARKET INSIGHT ARCHIVE' : htmlspecialchars($web['brand_name']) . ' CAPITAL — LIVE FEED';
@@ -139,7 +138,7 @@ if ($site_type === 'news') {
                             <span style="font-family: var(--site-font); font-size: 0.65rem; color: rgba(234, 231, 223, 0.25); letter-spacing: 2px;">[ - INSIGHT VISUAL <?php echo $num_padded; ?> - ]</span>
                         </div>
 
-                        <span class="card-tag" style="font-family: var(--site-font); font-size: 0.65rem; color: var(--primary-color); letter-spacing: 2px; margin-bottom: 12px; display: block; text-transform: uppercase;">
+                        <span class="card-tag" style="font-family: var(--site-font); font-size: 0.65rem; color: #bfa030; letter-spacing: 2px; margin-bottom: 12px; display: block; text-transform: uppercase;">
                             <?php echo htmlspecialchars($item_date); ?> &nbsp;&nbsp;—&nbsp;&nbsp; <?php echo htmlspecialchars($item_source); ?>
                         </span>
                         
@@ -158,9 +157,9 @@ if ($site_type === 'news') {
                                 data-title="<?php echo htmlspecialchars($item_title); ?>"
                                 data-excerpt="<?php echo htmlspecialchars($item_excerpt); ?>"
                                 data-full="<?php echo htmlspecialchars($item_full); ?>"
-                                data-date="<?php echo htmlspecialchars($item_date); ?>"
+                                data-date="<?php echo htmlspecialchars($item_date); ?> — <?php echo htmlspecialchars($item_source); ?>"
                                 data-link="<?php echo htmlspecialchars($item_link); ?>"
-                                style="color: var(--primary-color); background: none; border: none; font-family: var(--site-font); font-size: 0.7rem; letter-spacing: 1px; cursor: pointer; padding: 0; font-weight: 600; transition: color 0.3s;">
+                                style="color: #bfa030; background: none; border: none; font-family: var(--site-font); font-size: 0.7rem; letter-spacing: 1px; cursor: pointer; padding: 0; font-weight: 600; transition: color 0.3s;">
                             READ INTEL —
                         </button>
                     </div>
@@ -178,24 +177,26 @@ if ($site_type === 'news') {
 </div>
 
 <div class="luxury-modal-overlay" id="intelModalOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(6, 6, 8, 0.88); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; z-index: 9999;">
-    <div class="luxury-modal-wrapper" style="background: #0d0c0e; border: 1px solid var(--primary-color); padding: 50px; max-width: 750px; width: 90%; max-height: 88vh; overflow-y: auto; border-radius: 4px; position: relative; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95); transform: scale(0.9); transition: transform 0.4s ease;">
-        <button class="modal-close-trigger" id="closeModalBtn" style="position: absolute; top: 25px; right: 25px; background: none; border: none; color: rgba(234, 231, 223, 0.4); font-size: 1.6rem; cursor: pointer;">&times;</button>
+    <div class="luxury-modal-wrapper" style="background: #0d0c0e; border: 1px solid #bfa030; padding: 50px; max-width: 750px; width: 90%; max-height: 88vh; overflow-y: auto; border-radius: 4px; position: relative; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95); transform: scale(0.9); transition: transform 0.4s ease;">
+        
+        <button class="modal-close-trigger" id="closeModalBtn" style="position: absolute; top: 25px; right: 25px; background: none; border: none; color: rgba(234, 231, 223, 0.4); font-size: 1.6rem; cursor: pointer; transition: color 0.3s;">&times;</button>
         
         <main class="luxury-article-wrapper" style="padding: 0; background: none;">
             <header class="article-hero" style="text-align: left; margin-bottom: 30px;">
-                <div class="article-meta" id="modalDate" style="font-family: var(--site-font); font-size: 0.75rem; color: var(--primary-color); letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase;">DATE</div>
+                <div class="article-meta" id="modalDate" style="font-family: var(--site-font); font-size: 0.75rem; color: #bfa030; letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase;">DATE — TAG</div>
                 <h1 class="article-main-title" id="modalTitle" style="font-family: var(--site-font); font-size: 2rem; line-height: 1.35; color: #eae7df; margin: 0 0 20px 0; font-weight: 400; letter-spacing: 0.5px;">TITLE</h1>
-                <p class="article-lead-in" id="modalExcerpt" style="font-family: 'Georgia', serif; font-style: italic; font-size: 1.05rem; line-height: 1.7; color: rgba(234, 231, 223, 0.65); margin-bottom: 25px;">EXCERPT</p>
+                <p class="article-lead-in" id="modalExcerpt" style="font-family: 'Georgia', serif; font-style: italic; font-size: 1.05rem; line-height: 1.7; color: rgba(234, 231, 223, 0.65); margin-bottom: 25px;">LEAD EXCERPT</p>
                 <div class="article-divider" style="width: 100%; height: 1px; background: rgba(191,160,48,0.15); margin-top: 25px;"></div>
             </header>
 
             <article class="article-body-content" id="modalBody" style="font-family: 'Georgia', serif; font-size: 1.05rem; line-height: 1.8; color: rgba(234, 231, 223, 0.75); text-align: justify;">
-                BODY
+                BODY CONTENT
             </article>
         </main>
 
-        <div class="modal-footer-area" style="display: flex; justify-content: flex-end; align-items: center; border-top: 1px solid rgba(234,231,223,0.05); padding-top: 25px; margin-top: 40px;">
-            <a href="#" target="_blank" class="btn-visit-origin" id="modalOriginLink" style="font-family: var(--site-font); font-size: 0.7rem; color: #060608; background-color: var(--primary-color); text-decoration: none; padding: 12px 25px; border-radius: 2px; letter-spacing: 1px; font-weight: 600; transition: all 0.3s;">
+        <div class="modal-footer-area" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(234,231,223,0.06); padding-top: 25px; margin-top: 40px;">
+            <span id="modalFooterDate" style="font-family: var(--site-font); font-size: 0.65rem; color: rgba(234, 231, 223, 0.35); text-transform: uppercase; letter-spacing: 1px;">DATE INTEL</span>
+            <a href="#" target="_blank" class="btn-visit-origin" id="modalOriginLink" style="font-family: var(--site-font); font-size: 0.75rem; color: #060608; background-color: #bfa030; text-decoration: none; padding: 12px 28px; border-radius: 2px; letter-spacing: 2px; font-weight: 600; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(191, 160, 48, 0.25);">
                 VISIT SOURCE —
             </a>
         </div>
@@ -208,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalBtn = document.getElementById('closeModalBtn');
     
     const mDate = document.getElementById('modalDate');
+    const mFooterDate = document.getElementById('modalFooterDate');
     const mTitle = document.getElementById('modalTitle');
     const mExcerpt = document.getElementById('modalExcerpt');
     const mBody = document.getElementById('modalBody');
@@ -215,7 +217,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.btn-open-modal').forEach(button => {
         button.addEventListener('click', () => {
-            mDate.textContent = button.getAttribute('data-date');
+            const dateAndSource = button.getAttribute('data-date');
+            mDate.textContent = dateAndSource;
+            mFooterDate.textContent = dateAndSource;
             mTitle.textContent = button.getAttribute('data-title');
             mExcerpt.textContent = button.getAttribute('data-excerpt');
             mBody.innerHTML = button.getAttribute('data-full');
